@@ -1,0 +1,68 @@
+{
+    "bit.envs/compilers/flow@1": {
+        "files": [
+            {
+                "relativePath": "src/compilers/flow.js",
+                "test": false,
+                "name": "flow.js"
+            }
+        ],
+        "origin": "AUTHORED",
+        "mainFile": "src/compilers/flow.js"
+    },
+    "bit.envs/compilers/react@1": {
+        "files": [
+            {
+                "relativePath": "src/compilers/react.js",
+                "test": false,
+                "name": "react.js"
+            }
+        ],
+        "origin": "AUTHORED",
+        "mainFile": "src/compilers/react.js"
+    },
+    "bit.envs/testers/mocha@1": {
+        "files": [
+            {
+                "relativePath": "src/testers/mocha.js",
+                "test": false,
+                "name": "mocha.js"
+            }
+        ],
+        "origin": "AUTHORED",
+        "mainFile": "src/testers/mocha.js"
+    },
+    "bit.envs/compilers/babel@1": {
+        "files": [
+            {
+                "relativePath": "src/compilers/babel.js",
+                "test": false,
+                "name": "babel.js"
+            }
+        ],
+        "origin": "AUTHORED",
+        "mainFile": "src/compilers/babel.js"
+    },
+    "bit.envs/testers/mocha-react@1": {
+        "files": [
+            {
+                "relativePath": "src/testers/mocha-react.js",
+                "test": false,
+                "name": "mocha-react.js"
+            }
+        ],
+        "origin": "AUTHORED",
+        "mainFile": "src/testers/mocha-react.js"
+    },
+    "bit.envs/testers/jest@3": {
+        "files": [
+            {
+                "relativePath": "src/testers/jest.js",
+                "test": false,
+                "name": "jest.js"
+            }
+        ],
+        "origin": "AUTHORED",
+        "mainFile": "src/testers/jest.js"
+    }
+}
