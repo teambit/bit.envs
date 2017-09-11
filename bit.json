@@ -1,8 +1,4 @@
 {
-    "sources": {
-        "impl": "impl.js",
-        "spec": "spec.js"
-    },
     "env": {
         "compiler": "none",
         "tester": "none"
