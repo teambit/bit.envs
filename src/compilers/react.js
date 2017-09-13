@@ -23,12 +23,16 @@ require('babel-plugin-transform-react-jsx');
 require('babel-plugin-transform-regenerator');
 require('babel-preset-latest');
 require('babel-preset-react');
+require('babel-plugin-transform-decorators-legacy');
+require('babel-plugin-transform-es2017-object-entries');
 
 const compiledFileTypes = ['js', 'jsx', 'ts'];
 
 const plugins = [
   // enable import syntax
   require.resolve('babel-plugin-transform-class-properties'),
+  require.resolve('babel-plugin-transform-decorators-legacy'),
+  require.resolve('babel-plugin-transform-es2017-object-entries'),
   [
     require.resolve('babel-plugin-transform-object-rest-spread'),
     {

@@ -17,6 +17,8 @@ require('babel-preset-latest');
 require('babel-plugin-transform-flow-strip-types');
 require('babel-plugin-transform-object-rest-spread');
 require('babel-plugin-add-module-exports');
+require('babel-plugin-transform-decorators-legacy');
+require('babel-plugin-transform-es2017-object-entries');
 const babel = require('babel-core');
 const Vinyl = require('vinyl');
 const path = require('path');
@@ -47,7 +49,9 @@ function compile(files, distPath) {
     minified: false,
     plugins: [require.resolve('babel-plugin-transform-flow-strip-types'),
     require.resolve('babel-plugin-transform-object-rest-spread'),
-    require.resolve('babel-plugin-add-module-exports')]
+    require.resolve('babel-plugin-add-module-exports'),
+    require.resolve('babel-plugin-transform-decorators-legacy'),
+    require.resolve('babel-plugin-transform-es2017-object-entries')]
   };
 
   // Divide files by whether we should compile them, according to file type.
