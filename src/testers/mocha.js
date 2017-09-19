@@ -49,9 +49,19 @@ function normalizeResults(mochaJsonResults) {
     });
   }
 
+  function normalizeFailure(failure) {
+    const isError = !isEmptyObject(failure.err);
+    return ({
+      title: failure.fullTitle,
+      err: isError ? normalizeError(failure.err) : null,
+      duration: failure.duration
+    });
+  }
+
   return {
     tests: mochaJsonResults.tests.map(normalizeTest),
-    stats: normalizeStats(mochaJsonResults.stats)
+    stats: normalizeStats(mochaJsonResults.stats),
+    failures: mochaJsonResults.failures.map(normalizeFailure)
   };
 }
 
