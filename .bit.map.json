@@ -9,8 +9,8 @@
                 "name": "mocha.js"
             }
         ],
-        "origin": "AUTHORED",
-        "mainFile": "src/testers/mocha.js"
+        "mainFile": "src/testers/mocha.js",
+        "origin": "AUTHORED"
     },
     "bit.envs/testers/mocha-react@3": {
         "files": [
@@ -20,10 +20,43 @@
                 "name": "mocha-react.js"
             }
         ],
-        "origin": "AUTHORED",
-        "mainFile": "src/testers/mocha-react.js"
+        "mainFile": "src/testers/mocha-react.js",
+        "origin": "AUTHORED"
     },
-    "bit.envs/testers/jest@6": {
+    "bit.envs/compilers/babel@3": {
+        "files": [
+            {
+                "relativePath": "src/compilers/babel.js",
+                "test": false,
+                "name": "babel.js"
+            }
+        ],
+        "mainFile": "src/compilers/babel.js",
+        "origin": "AUTHORED"
+    },
+    "bit.envs/compilers/react@3": {
+        "files": [
+            {
+                "relativePath": "src/compilers/react.js",
+                "test": false,
+                "name": "react.js"
+            }
+        ],
+        "mainFile": "src/compilers/react.js",
+        "origin": "AUTHORED"
+    },
+    "bit.envs/compilers/flow@3": {
+        "files": [
+            {
+                "relativePath": "src/compilers/flow.js",
+                "test": false,
+                "name": "flow.js"
+            }
+        ],
+        "mainFile": "src/compilers/flow.js",
+        "origin": "AUTHORED"
+    },
+    "bit.envs/testers/jest@8": {
         "files": [
             {
                 "relativePath": "src/testers/jest.js",
@@ -31,11 +64,16 @@
                 "name": "jest.js"
             }
         ],
-        "origin": "AUTHORED",
-        "mainFile": "src/testers/jest.js"
+        "mainFile": "src/testers/jest.js",
+        "origin": "AUTHORED"
     },
-    "bit.envs/testers/karma-mocha-react@2": {
+    "bit.envs/testers/karma-mocha-react@5": {
         "files": [
+            {
+                "relativePath": "src/testers/karma-mocha-react/jsonReporter.js",
+                "test": false,
+                "name": "jsonReporter.js"
+            },
             {
                 "relativePath": "src/testers/karma-mocha-react/extractFileNameFromPath.js",
                 "test": false,
@@ -52,40 +90,7 @@
                 "name": "karma.conf.js"
             }
         ],
-        "origin": "AUTHORED",
-        "mainFile": "src/testers/karma-mocha-react/index.js"
-    },
-    "bit.envs/compilers/babel@3": {
-        "files": [
-            {
-                "relativePath": "src/compilers/babel.js",
-                "test": false,
-                "name": "babel.js"
-            }
-        ],
-        "origin": "AUTHORED",
-        "mainFile": "src/compilers/babel.js"
-    },
-    "bit.envs/compilers/react@3": {
-        "files": [
-            {
-                "relativePath": "src/compilers/react.js",
-                "test": false,
-                "name": "react.js"
-            }
-        ],
-        "origin": "AUTHORED",
-        "mainFile": "src/compilers/react.js"
-    },
-    "bit.envs/compilers/flow@3": {
-        "files": [
-            {
-                "relativePath": "src/compilers/flow.js",
-                "test": false,
-                "name": "flow.js"
-            }
-        ],
-        "origin": "AUTHORED",
-        "mainFile": "src/compilers/flow.js"
+        "mainFile": "src/testers/karma-mocha-react/index.js",
+        "origin": "AUTHORED"
     }
 }
