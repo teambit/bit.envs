@@ -1,5 +1,4 @@
 require('babel-register');
-require('karma-json-reporter');
 require('karma-mocha');
 require('karma-sinon-chai');
 require('karma-chrome-launcher');
@@ -20,11 +19,11 @@ module.exports = (config) => {
   config.set({
     frameworks: ['mocha', 'sinon-chai'],
     plugins: [
-      'karma-json-reporter', 
       'karma-mocha', 
       'karma-sinon-chai', 
       'karma-chrome-launcher',
-      'karma-webpack'
+      'karma-webpack',
+      require('./jsonReporter')
     ],
     reporters: ['json'],
   

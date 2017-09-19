@@ -34,14 +34,8 @@ const exec = require('child-process-promise').exec;
 
 const readResults = (filePath) => {
   const resultsFilePath = path.resolve(`${__dirname}/${filePath}-results.json`);
-  
-  if (!fse.ensureFileSync(resultsFilePath)) {
-    console.error(`Cannot find test results file: ${resultsFilePath}`);
-    return {};
-  }
 
   const parsedResults = fse.readJsonSync(resultsFilePath);
-  //const parsedResults = JSON.parse(results);
   fse.removeSync(resultsFilePath);
   return parsedResults;
 }
@@ -98,7 +92,8 @@ const run = (specFile) => {
 
   return new Promise((resolve) => {
     server.start();
-    server.on('run_complete', (browsers, resultsSummary) => {
+    
+    server.on('exit', (browsers, resultsSummary) => {
 
       const runEnd = new Date();
       const parsedResults = readResults(getFileName(specFile));
