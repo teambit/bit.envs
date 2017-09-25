@@ -30,6 +30,7 @@ const compiledFileTypes = ['js', 'jsx', 'ts'];
 
 const plugins = [
   // enable import syntax
+  require.resolve('babel-plugin-transform-export-extensions'),
   require.resolve('babel-plugin-transform-class-properties'),
   require.resolve('babel-plugin-transform-decorators-legacy'),
   require.resolve('babel-plugin-transform-es2017-object-entries'),
