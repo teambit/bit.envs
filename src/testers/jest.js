@@ -40,17 +40,20 @@ function mockDom(markup) {
 const normalizeResults = (results) => {
   const testResults = results.testResults;
   let failures = [];
+  let testProps = [];
   const res = testResults.map(test=> {
     const duration = test.endTime - test.startTime
-
+    
     if (isEmptyObject(test.assertionResults)) {
       failures.push({
         title: 'Test suite failed to run',
-        err: test.message,
+        err: {
+          message: test.message
+        },
         duration: duration
       });
     } else {
-      const testProps = test.assertionResults.map(assertionRes => {
+      testProps = test.assertionResults.map(assertionRes => {
         const title = assertionRes.title;
         const pass = (assertionRes.status === 'passed') ? true : false;
         const err = (!pass) ? {  message: assertionRes.failureMessages[0] , stack: assertionRes.failureMessages[0] } : undefined;
@@ -67,7 +70,7 @@ const normalizeResults = (results) => {
 
     const pass = (test.status === 'passed') ? true : false;
     
-    return {tests: testProps, stats: StatsProps, pass};
+    return {tests: testProps, stats: StatsProps, pass, failures};
   });
 
   return res[0];
