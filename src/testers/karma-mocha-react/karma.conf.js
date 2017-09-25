@@ -3,6 +3,7 @@ require('karma-mocha');
 require('karma-sinon-chai');
 require('karma-chrome-launcher');
 require('karma-webpack');
+require('babel-loader');
 
 const webpack = require('webpack');
 const getFileName = require('./extractFileNameFromPath');
