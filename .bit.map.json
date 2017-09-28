@@ -56,17 +56,6 @@
         "mainFile": "src/testers/jest.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/compilers/react-typescript@2": {
-        "files": [
-            {
-                "relativePath": "src/compilers/react-typescript.js",
-                "test": false,
-                "name": "react-typescript.js"
-            }
-        ],
-        "mainFile": "src/compilers/react-typescript.js",
-        "origin": "AUTHORED"
-    },
     "bit.envs/testers/karma-mocha-react@7": {
         "files": [
             {
@@ -93,7 +82,18 @@
         "mainFile": "src/testers/karma-mocha-react/index.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/compilers/react@4": {
+    "bit.envs/compilers/react-typescript@3": {
+        "files": [
+            {
+                "relativePath": "src/compilers/react-typescript.js",
+                "test": false,
+                "name": "react-typescript.js"
+            }
+        ],
+        "mainFile": "src/compilers/react-typescript.js",
+        "origin": "AUTHORED"
+    },
+    "bit.envs/compilers/react@5": {
         "files": [
             {
                 "relativePath": "src/compilers/react.js",
