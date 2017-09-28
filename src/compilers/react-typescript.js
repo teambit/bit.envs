@@ -14,6 +14,9 @@
 const ts = require('typescript');
 const Vinyl = require('vinyl');
 const path = require('path');
+const groupBy = require('lodash.groupby');
+
+const compiledFileTypes = ['tsx', 'ts'];
 
 const compileSingleFile = (file, compilerOptions, distPath) => {
   const result = ts.transpileModule(file.contents.toString(), { compilerOptions });
@@ -37,8 +40,18 @@ function compile(files, distPath) {
     sourceMap: true,
     jsx: 'react'
   };
+
+  // Divide files by whether we should compile them, according to file type.
+  const filesByToCompile = groupBy(files, _toCompile);
   
-  return files.map(file => compileSingleFile(file, compilerOptions, distPath)).reduce((a, b) => a.concat(b));
+  const compiled = (!filesByToCompile.true || filesByToCompile.true.length === 0) ? [] : filesByToCompile.true.map(file => compileSingleFile(file, compilerOptions, distPath)).reduce((a, b) => a.concat(b));
+  const nonCompiled = !filesByToCompile.false ? [] : filesByToCompile.false.map(file => _getDistFile(file, distPath));
+
+  return compiled.concat(nonCompiled);;
+}
+
+const _toCompile = (file) => {
+  return compiledFileTypes.indexOf(file.extname.replace('.','')) > -1;
 }
 
 const _getDistFile = (file, distPath, content) => {
