@@ -25,6 +25,7 @@ require('babel-preset-latest');
 require('babel-preset-react');
 require('babel-plugin-transform-decorators-legacy');
 require('babel-plugin-transform-es2017-object-entries');
+require('babel-plugin-transform-export-extensions');
 
 const compiledFileTypes = ['js', 'jsx', 'ts'];
 
