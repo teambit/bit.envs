@@ -12,17 +12,6 @@
         "mainFile": "src/testers/mocha.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/testers/mocha-react@3": {
-        "files": [
-            {
-                "relativePath": "src/testers/mocha-react.js",
-                "test": false,
-                "name": "mocha-react.js"
-            }
-        ],
-        "mainFile": "src/testers/mocha-react.js",
-        "origin": "AUTHORED"
-    },
     "bit.envs/compilers/babel@3": {
         "files": [
             {
@@ -45,7 +34,29 @@
         "mainFile": "src/compilers/flow.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/testers/jest@9": {
+    "bit.envs/compilers/react-typescript@3": {
+        "files": [
+            {
+                "relativePath": "src/compilers/react-typescript.js",
+                "test": false,
+                "name": "react-typescript.js"
+            }
+        ],
+        "mainFile": "src/compilers/react-typescript.js",
+        "origin": "AUTHORED"
+    },
+    "bit.envs/compilers/react@5": {
+        "files": [
+            {
+                "relativePath": "src/compilers/react.js",
+                "test": false,
+                "name": "react.js"
+            }
+        ],
+        "mainFile": "src/compilers/react.js",
+        "origin": "AUTHORED"
+    },
+    "bit.envs/testers/jest@17": {
         "files": [
             {
                 "relativePath": "src/testers/jest.js",
@@ -56,7 +67,7 @@
         "mainFile": "src/testers/jest.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/testers/karma-mocha-react@7": {
+    "bit.envs/testers/karma-mocha-react@18": {
         "files": [
             {
                 "relativePath": "src/testers/karma-mocha-react/jsonReporter.js",
@@ -82,26 +93,26 @@
         "mainFile": "src/testers/karma-mocha-react/index.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/compilers/react-typescript@3": {
+    "bit.envs/testers/mocha-react@5": {
         "files": [
             {
-                "relativePath": "src/compilers/react-typescript.js",
+                "relativePath": "src/testers/mocha-react.js",
                 "test": false,
-                "name": "react-typescript.js"
+                "name": "mocha-react.js"
             }
         ],
-        "mainFile": "src/compilers/react-typescript.js",
+        "mainFile": "src/testers/mocha-react.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/compilers/react@5": {
+    "bit.envs/testers/jest-15@2": {
         "files": [
             {
-                "relativePath": "src/compilers/react.js",
+                "relativePath": "src/testers/jest-15/index.js",
                 "test": false,
-                "name": "react.js"
+                "name": "index.js"
             }
         ],
-        "mainFile": "src/compilers/react.js",
+        "mainFile": "src/testers/jest-15/index.js",
         "origin": "AUTHORED"
     }
 }
