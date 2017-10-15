@@ -1,14 +1,11 @@
-require('babel-register');
 require('karma-mocha');
 require('karma-sinon-chai');
 require('karma-chrome-launcher');
 require('karma-webpack');
-require('babel-loader');
 
+const path = require('path');
 const webpack = require('webpack');
 const getFileName = require('./extractFileNameFromPath');
-
-//const webpackConfigBase = require('./webpack.config');
 
 module.exports = (config) => {
   const { env } = process;
@@ -32,12 +29,6 @@ module.exports = (config) => {
       stdout: false,
       outputFile: getFileName(filePath) + '-results.json'      
     },
-    customLaunchers: {
-      ChromeCi: {
-        base: 'Chrome',
-        flags: ['--no-sandbox'],
-      },
-    },
     client: {
       chai: {
         includeStack: true
@@ -45,18 +36,17 @@ module.exports = (config) => {
     },
     singleRun: true,
     captureConsole: false,
-    browsers: env.BROWSER ? env.BROWSER.split(',') : ['Chrome'],
+    browsers: ['ChromeHeadless'],
 
     // This explicitly doesn't use webpack-merge because we want to override
     // the DefinePlugin in the base config.
     webpack: {
       entry: config.files,
-      module: {
-        loaders: [
-        { test: /\.js/, loader: 'babel-loader?cacheDirectory', exclude: /node_modules/ }
-        ]
-    },
-      
+      // Bit testing environment injects the 'modules' using mockery, but that doesn't work when using karma with webpack.
+      // Therefore, we instruct webpack to resolve modules from the tester's node_modules directory first, and then search for modules as usual. 
+      resolve: {
+        modules: [path.resolve(__dirname, "../../../node_modules/"), "node_modules"]
+      },
       devtool: 'cheap-module-inline-source-map'
     },
     webpackMiddleware: {
