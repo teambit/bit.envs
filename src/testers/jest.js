@@ -14,15 +14,19 @@
  * - [React test utils](https://facebook.github.io/react/docs/test-utils.html)
  * - [React Dom](https://facebook.github.io/react/docs/react-dom.html)
  * - [mocha-jsdom](https://github.com/rstacruz/mocha-jsdom)
+ * - [enzyme](https://github.com/airbnb/enzyme) for general purpose React testing utilities.
  */
 const jest = require('jest');
+require('react-test-renderer');
 const sinon = require('sinon');
 const TestUtils = require('react-dom/test-utils');
 const React = require('react');
 const ReactDom = require('react-dom');
+const enzyme = require('enzyme');
 const path = require('path');
 const fs = require('fs');
 const isEmptyObject = obj => Object.keys(obj).length === 0;
+const { shallow } = enzyme;
 const exec = require('child-process-promise').exec;
 
 function mockDom(markup) {
@@ -66,7 +70,7 @@ const normalizeResults = (results) => {
       start: test.startTime,
       end: test.endTime,
       duration: duration
-    }
+    } 
 
     const pass = (test.status === 'passed') ? true : false;
     
@@ -89,15 +93,30 @@ const run = (specFile) => {
     // We are using outputFile flag because in some cases when using --json only
     // There is not valid json return, see details here:
     // https://github.com/facebook/jest/issues/4399
-    const cmd = `node ${jestPath} ${specFile} --json --outputFile="${resultsFilePath}"`;
+    const cmd = `${process.execPath} ${jestPath} ${specFile} --json --outputFile="${resultsFilePath}"`;
   return exec(cmd).then(({err, stdout, stderr}) => {
     const parsedResults = readResults(resultsFilePath);
     return normalizeResults(parsedResults);
   }).catch(({message, stdout, stderr}) =>{
-    const parsedResults = readResults(resultsFilePath);
-    return normalizeResults(parsedResults);
+    return normalizeJestFailure(message);
   });
 }
+
+const normalizeJestFailure = (message) => {
+  return {
+    tests: [],
+    pass: false,
+    stats: {
+      start: null,
+      end: null
+    },
+    failures: [{title: 'Jest failure',
+      err: {
+        message: message
+      }
+    }]
+  }
+};
 
 const extractFileNameFromPath = (filePath) => {
   let fileName = filePath.split('/').pop();
@@ -110,11 +129,13 @@ module.exports = {
     jest,
     sinon,
     mockDom,
-    ReactDom
+    ReactDom,
+    shallow
   },
   modules: {
     jest,
     sinon,
+    enzyme,
     'react-dom/test-utils': TestUtils,
     'react-addons-test-utils': TestUtils,
     'react-dom': ReactDom
