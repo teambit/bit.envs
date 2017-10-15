@@ -24,6 +24,7 @@ const chai = require('chai');
 const sinon = require('sinon');
 const mockery = require('mockery');
 const sinonChai = require('sinon-chai');
+const chaiEnzyme = require('chai-enzyme');
 //const jsdom = require('mocha-jsdom');
 const teaspoon = require('teaspoon');
 const enzyme = require('enzyme');
@@ -33,9 +34,9 @@ const ReactDom = require('react-dom');
 chai.use(sinonChai);
 const isEmptyObject = obj => Object.keys(obj).length === 0;
 const { shallow } =require('enzyme');
+chai.use(chaiEnzyme())
 function mockDom(markup) {
  // if (typeof document !== 'undefined') return;
-
   var jsdom = require('jsdom');
   const { JSDOM } = jsdom;
   const { document } = (new JSDOM(markup || '')).window;
