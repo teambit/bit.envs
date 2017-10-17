@@ -141,8 +141,6 @@ const run = (specFile) => {
     server.on('run_complete', (browsers, resultsSummary) => {
       const runEnd = new Date();
       const parsedResults = readResults(getFileName(specFile));
-      //console.log(parsedResults);
-      browsers.forEach(a => console.log(a));
 
       if (!isBrowserValid) {
         return resolve(normalizeBrowserFailure());
