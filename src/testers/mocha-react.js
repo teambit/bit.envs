@@ -25,28 +25,19 @@ const sinon = require('sinon');
 const mockery = require('mockery');
 const sinonChai = require('sinon-chai');
 const chaiEnzyme = require('chai-enzyme');
-//const jsdom = require('mocha-jsdom');
+const chaiJsx = require('chai-jsx');
 const teaspoon = require('teaspoon');
 const enzyme = require('enzyme');
 const TestUtils = require('react-dom/test-utils');
 const React = require('react');
 const ReactDom = require('react-dom');
 chai.use(sinonChai);
+chai.use(chaiJsx);
 const isEmptyObject = obj => Object.keys(obj).length === 0;
 const { shallow } =require('enzyme');
 chai.use(chaiEnzyme())
-function mockDom(markup) {
- // if (typeof document !== 'undefined') return;
-  var jsdom = require('jsdom');
-  const { JSDOM } = jsdom;
-  const { document } = (new JSDOM(markup || '')).window;
-  global.document = document;
-  global.window = document.defaultView;
-  global.shallow = shallow;
-  global.navigator = {
-    userAgent: 'node.js'
-  };
-}
+var JSDOM = require('jsdom').JSDOM;
+const { document } = new JSDOM('<!doctype html><html><body></body></html>').window;
 
 function normalizeResults(mochaJsonResults) {
   function normalizeError(err) {
@@ -100,42 +91,17 @@ const run = (specFile) => {
   });
 };
 
-const getTemplate = (name) => {
-  return `import { expect } from 'chai';
-import TestUtils from 'react-dom/test-utils';
-import jsdom from 'mocha-jsdom';
-import React from 'react';
-
-const MyComponent = require(__impl__);
-mockDom('<html><body></body></html>');
-
-describe('#MyComponent', () => {
-  jsdom({ skipWindowCheck: true });
-  let renderedComponent;
-
-  beforeEach(() => {
-    renderedComponent = TestUtils.renderIntoDocument(
-      <MyComponent />
-    );
-  });
-
-  it('should do something cool...', () => {
-    expect(true).to.equal(true);
-  });
-});
-
-`;
-};
-
 module.exports = {
   run,
   globals: {
     chai,
     sinon,
     mockery,
-    mockDom,
     ReactDom,
-    shallow
+    shallow,
+    document,
+    window: document.defaultView,
+    navigator: {userAgent: 'node.js'}
   },
   modules: {
     chai,
@@ -148,7 +114,6 @@ module.exports = {
    // 'mocha-jsdom': jsdom,
     'react-dom': ReactDom
   },
-  getTemplate,
 };
 
 function Base (runner) {
