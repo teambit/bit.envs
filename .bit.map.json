@@ -56,7 +56,7 @@
         "mainFile": "src/compilers/react.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/testers/jest@17": {
+    "bit.envs/testers/jest@18": {
         "files": [
             {
                 "relativePath": "src/testers/jest.js",
@@ -67,7 +67,18 @@
         "mainFile": "src/testers/jest.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/testers/karma-mocha-react@18": {
+    "bit.envs/testers/mocha-react@6": {
+        "files": [
+            {
+                "relativePath": "src/testers/mocha-react.js",
+                "test": false,
+                "name": "mocha-react.js"
+            }
+        ],
+        "mainFile": "src/testers/mocha-react.js",
+        "origin": "AUTHORED"
+    },
+    "bit.envs/testers/karma-mocha-react@19": {
         "files": [
             {
                 "relativePath": "src/testers/karma-mocha-react/jsonReporter.js",
@@ -91,28 +102,6 @@
             }
         ],
         "mainFile": "src/testers/karma-mocha-react/index.js",
-        "origin": "AUTHORED"
-    },
-    "bit.envs/testers/mocha-react@5": {
-        "files": [
-            {
-                "relativePath": "src/testers/mocha-react.js",
-                "test": false,
-                "name": "mocha-react.js"
-            }
-        ],
-        "mainFile": "src/testers/mocha-react.js",
-        "origin": "AUTHORED"
-    },
-    "bit.envs/testers/jest-15@2": {
-        "files": [
-            {
-                "relativePath": "src/testers/jest-15/index.js",
-                "test": false,
-                "name": "index.js"
-            }
-        ],
-        "mainFile": "src/testers/jest-15/index.js",
         "origin": "AUTHORED"
     }
 }
