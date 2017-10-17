@@ -98,7 +98,16 @@ const run = (specFile) => {
     const parsedResults = readResults(resultsFilePath);
     return normalizeResults(parsedResults);
   }).catch(({message, stdout, stderr}) =>{
-    return normalizeJestFailure(message);
+    // We can arrive here for two reasons:
+    // 1. Testing is finished with errors, and then we want to parse the error from the results
+    // 2. Error in testing process, and then we parse the catch error.
+    try {
+      const parsedResults = readResults(resultsFilePath);
+      return normalizeResults(parsedResults);
+    }
+    catch(err) {
+      return normalizeJestFailure(message);
+    }
   });
 }
 
