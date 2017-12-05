@@ -21,6 +21,7 @@ require('babel-plugin-transform-class-properties');
 require('babel-plugin-transform-object-rest-spread');
 require('babel-plugin-transform-react-jsx');
 require('babel-plugin-transform-regenerator');
+require('babel-plugin-transform-async-to-generator');
 require('babel-preset-latest');
 require('babel-preset-react');
 require('babel-plugin-transform-decorators-legacy');
@@ -35,6 +36,7 @@ const plugins = [
   require.resolve('babel-plugin-transform-class-properties'),
   require.resolve('babel-plugin-transform-decorators-legacy'),
   require.resolve('babel-plugin-transform-es2017-object-entries'),
+  require.resolve('babel-plugin-transform-async-to-generator'),
   [
     require.resolve('babel-plugin-transform-object-rest-spread'),
     {
