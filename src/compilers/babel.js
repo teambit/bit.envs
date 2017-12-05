@@ -17,6 +17,7 @@ require('babel-preset-latest')
 require("babel-plugin-transform-object-rest-spread");
 require('babel-plugin-transform-decorators-legacy');
 require('babel-plugin-transform-es2017-object-entries');
+require('babel-plugin-add-module-exports');
 require('babel-plugin-transform-async-to-generator');
 
 const babel = require('babel-core');
@@ -50,7 +51,8 @@ function compile(files, distPath) {
     minified: false,
     plugins: [require.resolve("babel-plugin-transform-object-rest-spread"),
     require.resolve('babel-plugin-transform-decorators-legacy'),
-    require.resolve('babel-plugin-transform-es2017-object-entries')]
+    require.resolve('babel-plugin-transform-es2017-object-entries'),
+    require.resolve('babel-plugin-add-module-exports'),
     require.resolve('babel-plugin-transform-async-to-generator')]        
   };
 
