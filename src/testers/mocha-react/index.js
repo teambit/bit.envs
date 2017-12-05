@@ -1,28 +1,22 @@
-/**
- * # A bit testing environment for mocha and chai.
- * Bit testing environment for testing of bit components using Mocha and ChaiJS.
- * 
- * ## How to use?
- * import the environment
- * ```bash
- * bit import bit.envs/testers/mocha -t
- * ```
- * 
- * ## What's inside?
- * - [Mocha](https://mochajs.org)
- * - [Sinon](http://sinonjs.org)
- * - [Chai](http://chaijs.com) integrated with Sinon to ease mock assersions using [sinon-chai](https://github.com/domenic/sinon-chai)
- * - [mockery](https://github.com/mfncooper/mockery) for mocking of package dependencies.
- * @bit
- */
 const Mocha = require('mocha');
 const chai = require('chai');
 const sinon = require('sinon');
 const mockery = require('mockery');
 const sinonChai = require('sinon-chai');
+const chaiEnzyme = require('chai-enzyme');
+const chaiJsx = require('chai-jsx');
+const teaspoon = require('teaspoon');
+const enzyme = require('enzyme');
+const TestUtils = require('react-dom/test-utils');
+const React = require('react');
+const ReactDom = require('react-dom');
 chai.use(sinonChai);
-
+chai.use(chaiJsx);
 const isEmptyObject = obj => Object.keys(obj).length === 0;
+const { shallow } =require('enzyme');
+chai.use(chaiEnzyme())
+var JSDOM = require('jsdom').JSDOM;
+const { document } = new JSDOM('<!doctype html><html><body></body></html>').window;
 
 function normalizeResults(mochaJsonResults) {
   function normalizeError(err) {
@@ -70,24 +64,10 @@ const run = (specFile) => {
     const mocha = new Mocha({ reporter: JSONReporter });
     mocha.addFile(specFile);
     mocha.run()
-    .on('end', function() { // eslint-disable-line
-      return resolve(normalizeResults(this.testResults));
-    });
+      .on('end', function() { // eslint-disable-line
+        return resolve(normalizeResults(this.testResults));
+      });
   });
-};
-
-const getTemplate = (name) => {
-  return `const chai = require('chai');
-const should = chai.should();
-const component = require(__impl__);
-
-describe('${name}', () => {
-  it('the component should exist', () => {
-    return should.exist(component);
-  });
-});
-
-`;
 };
 
 module.exports = {
@@ -95,27 +75,25 @@ module.exports = {
   globals: {
     chai,
     sinon,
-    mockery
+    mockery,
+    ReactDom,
+    shallow,
+    document,
+    window: document.defaultView,
+    navigator: {userAgent: 'node.js'}
   },
   modules: {
     chai,
+    enzyme,
+    teaspoon,
     sinon,
-    mockery
+    mockery,
+    'react-dom/test-utils': TestUtils,
+    'react-addons-test-utils': TestUtils,
+   // 'mocha-jsdom': jsdom,
+    'react-dom': ReactDom
   },
-  getTemplate,
 };
-
-/***
- * Initialize a new `Base` reporter.
- *
- * All other reporters generally
- * inherit from this reporter, providing
- * stats such as test duration, number
- * of tests passed / failed etc.
- *
- * @param {Runner} runner
- * @api public
- */
 
 function Base (runner) {
   var stats = this.stats = { suites: 0, tests: 0, passes: 0, pending: 0, failures: 0 };
@@ -173,12 +151,6 @@ function Base (runner) {
   });
 }
 
-/***
- * Initialize a new `JSON` reporter.
- *
- * @api public
- * @param {Runner} runner
- */
 function JSONReporter (runner) {
   Base.call(this, runner);
 
@@ -217,14 +189,6 @@ function JSONReporter (runner) {
   });
 }
 
-/**
- * Return a plain-object representation of `test`
- * free of cyclic properties etc.
- *
- * @api private
- * @param {Object} test
- * @return {Object}
- */
 function clean (test) {
   return {
     title: test.title,
@@ -235,13 +199,6 @@ function clean (test) {
   };
 }
 
-/**
- * Transform `error` into a JSON object.
- *
- * @api private
- * @param {Error} err
- * @return {Object}
- */
 function errorJSON (err) {
   var res = {};
   Object.getOwnPropertyNames(err).forEach(function (key) {
