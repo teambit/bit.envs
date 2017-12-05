@@ -25,7 +25,8 @@ require('babel-plugin-transform-async-to-generator');
 require('babel-preset-latest');
 require('babel-preset-react');
 require('babel-plugin-transform-decorators-legacy');
-require('babel-plugin-transform-es2017-object-entries');
+require('babel-plugin-transform-object-entries');
+require('babel-plugin-object-values-to-object-keys');
 require('babel-plugin-transform-export-extensions');
 
 const compiledFileTypes = ['js', 'jsx', 'ts'];
@@ -35,7 +36,8 @@ const plugins = [
   require.resolve('babel-plugin-transform-export-extensions'),
   require.resolve('babel-plugin-transform-class-properties'),
   require.resolve('babel-plugin-transform-decorators-legacy'),
-  require.resolve('babel-plugin-transform-es2017-object-entries'),
+  require.resolve('babel-plugin-transform-object-entries'),
+  require.resolve('babel-plugin-object-values-to-object-keys'),
   require.resolve('babel-plugin-transform-async-to-generator'),
   [
     require.resolve('babel-plugin-transform-object-rest-spread'),
