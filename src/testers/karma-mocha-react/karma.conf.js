@@ -38,8 +38,6 @@ module.exports = (config) => {
     captureConsole: false,
     browsers: ['ChromeHeadless'],
 
-    // This explicitly doesn't use webpack-merge because we want to override
-    // the DefinePlugin in the base config.
     webpack: {
       entry: config.files,
       // Bit testing environment injects the 'modules' using mockery, but that doesn't work when using karma with webpack.
