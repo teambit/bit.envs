@@ -6,7 +6,7 @@
  *
  * Import the environment
  * ```bash
- *  bit import bit.envs/compilers/babel -c
+ *  bit import bit.envs/compilers/flow -c
  * ```
  *
  * ## What's inside
@@ -18,7 +18,8 @@ require('babel-plugin-transform-flow-strip-types');
 require('babel-plugin-transform-object-rest-spread');
 require('babel-plugin-add-module-exports');
 require('babel-plugin-transform-decorators-legacy');
-require('babel-plugin-transform-es2017-object-entries');
+require('babel-plugin-transform-object-entries');
+require('babel-plugin-object-values-to-object-keys');
 const babel = require('babel-core');
 const Vinyl = require('vinyl');
 const path = require('path');
@@ -51,7 +52,8 @@ function compile(files, distPath) {
     require.resolve('babel-plugin-transform-object-rest-spread'),
     require.resolve('babel-plugin-add-module-exports'),
     require.resolve('babel-plugin-transform-decorators-legacy'),
-    require.resolve('babel-plugin-transform-es2017-object-entries')]
+    require.resolve('babel-plugin-transform-object-entries'),
+    require.resolve('babel-plugin-object-values-to-object-keys')]
   };
 
   // Divide files by whether we should compile them, according to file type.

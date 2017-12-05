@@ -12,17 +12,6 @@
         "mainFile": "src/testers/mocha.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/compilers/flow@0.0.3": {
-        "files": [
-            {
-                "relativePath": "src/compilers/flow.js",
-                "test": false,
-                "name": "flow.js"
-            }
-        ],
-        "mainFile": "src/compilers/flow.js",
-        "origin": "AUTHORED"
-    },
     "bit.envs/compilers/react-typescript@0.0.3": {
         "files": [
             {
@@ -82,18 +71,18 @@
         "mainFile": "src/testers/karma-mocha-react/index.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/compilers/babel@0.0.5": {
+    "bit.envs/compilers/react@0.0.7": {
         "files": [
             {
-                "name": "babel.js",
-                "relativePath": "src/compilers/babel.js",
-                "test": false
+                "relativePath": "src/compilers/react.js",
+                "test": false,
+                "name": "react.js"
             }
         ],
-        "mainFile": "src/compilers/babel.js",
+        "mainFile": "src/compilers/react.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/compilers/preact@0.0.4": {
+    "bit.envs/compilers/preact@0.0.5": {
         "files": [
             {
                 "relativePath": "src/compilers/preact/readme.md",
@@ -109,15 +98,26 @@
         "mainFile": "src/compilers/preact/index.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/compilers/react@0.0.7": {
+    "bit.envs/compilers/babel@0.0.6": {
         "files": [
             {
-                "relativePath": "src/compilers/react.js",
-                "test": false,
-                "name": "react.js"
+                "name": "babel.js",
+                "relativePath": "src/compilers/babel.js",
+                "test": false
             }
         ],
-        "mainFile": "src/compilers/react.js",
+        "mainFile": "src/compilers/babel.js",
+        "origin": "AUTHORED"
+    },
+    "bit.envs/compilers/flow@0.0.5": {
+        "files": [
+            {
+                "relativePath": "src/compilers/flow.js",
+                "test": false,
+                "name": "flow.js"
+            }
+        ],
+        "mainFile": "src/compilers/flow.js",
         "origin": "AUTHORED"
     },
     "version": "0.11.1"
