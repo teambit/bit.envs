@@ -4,7 +4,9 @@
         "tester": "none"
     },
     "dependencies": {},
-    "structure": "components/{namespace}/{name}",
+    "componentsDefaultDirectory": "components/{namespace}/{name}",
+    "packageManager": "yarn",
+    "useWorkspaces": true,
     "dist": {
         "target": "dist"
     }
