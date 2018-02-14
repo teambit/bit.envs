@@ -160,5 +160,21 @@
         "mainFile": "src/testers/karma-mocha-react/index.js",
         "origin": "AUTHORED"
     },
-    "version": "0.11.2-dev.4"
+    "bit.envs/compilers/typescript@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/compilers/typescript/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/compilers/typescript/readme.md",
+                "test": false,
+                "name": "readme.md"
+            }
+        ],
+        "mainFile": "src/compilers/typescript/index.js",
+        "origin": "AUTHORED"
+    },
+    "version": "0.12.5"
 }
