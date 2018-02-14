@@ -5,7 +5,7 @@ require('karma-webpack');
 
 const path = require('path');
 const webpack = require('webpack');
-const getFileName = require('./extractFileNameFromPath');
+const getFileName = require('@bit/bit.utils.file.extract-file-name-from-path');
 
 module.exports = (config) => {
   const { env } = process;

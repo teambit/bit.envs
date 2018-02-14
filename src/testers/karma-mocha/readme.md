@@ -1,10 +1,10 @@
-# A testing environment for React components using karma.
-Bit testing environment for testing of React components using Karma, with Mocha and ChaiJS.
+# A testing environment for components using karma.
+Bit testing environment for testing of components using Karma, with Mocha and ChaiJS.
 
 ## How to use?
 import the environment
 ```bash
-bit import bit.envs/testers/karma-mocha-react -t
+bit import bit.envs/testers/karma-mocha -t
 ```
 
 ## What's inside?

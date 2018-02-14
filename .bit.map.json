@@ -176,5 +176,31 @@
         "mainFile": "src/testers/mocha/index.js",
         "origin": "AUTHORED"
     },
+    "bit.envs/testers/karma-mocha@0.0.2": {
+        "files": [
+            {
+                "relativePath": "src/testers/karma-mocha/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/testers/karma-mocha/jsonReporter.js",
+                "test": false,
+                "name": "jsonReporter.js"
+            },
+            {
+                "relativePath": "src/testers/karma-mocha/karma.conf.js",
+                "test": false,
+                "name": "karma.conf.js"
+            },
+            {
+                "relativePath": "src/testers/karma-mocha/readme.md",
+                "test": false,
+                "name": "readme.md"
+            }
+        ],
+        "mainFile": "src/testers/karma-mocha/index.js",
+        "origin": "AUTHORED"
+    },
     "version": "0.12.5"
 }

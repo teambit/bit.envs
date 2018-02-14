@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@bit/bit.utils.file.extract-file-name-from-path@^0.0.2":
+  version "0.0.2"
+  resolved "https://node.bitsrc.io/bit.utils.file.extract-file-name-from-path/-/bit.utils.file.extract-file-name-from-path-0.0.2.tgz#a55d1c9b6912dc814b01600a5891f1c4dca7429b"
+
 "@types/chai-as-promised@^0.0.31":
   version "0.0.31"
   resolved "https://registry.yarnpkg.com/@types/chai-as-promised/-/chai-as-promised-0.0.31.tgz#e1e905ea6d971dafcad36560c8f1f7a7d690c5e5"
@@ -2349,12 +2353,6 @@ find-up@^2.0.0, find-up@^2.1.0:
   dependencies:
     locate-path "^2.0.0"
 
-first-chunk-stream@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/first-chunk-stream/-/first-chunk-stream-2.0.0.tgz#1bdecdb8e083c0664b91945581577a43a9f31d70"
-  dependencies:
-    readable-stream "^2.0.2"
-
 fn-name@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/fn-name/-/fn-name-2.0.1.tgz#5214d7537a4d06a4a301c0cc262feb84188002e7"
@@ -2954,7 +2952,7 @@ is-typedarray@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/is-typedarray/-/is-typedarray-1.0.0.tgz#e479c80858df0c1b11ddda6940f96011fcda4a9a"
 
-is-utf8@^0.2.0, is-utf8@^0.2.1:
+is-utf8@^0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/is-utf8/-/is-utf8-0.2.1.tgz#4b0da1442104d1b336340e80797e865cf39f7d72"
 
@@ -4636,13 +4634,6 @@ react@^15.6.1:
     object-assign "^4.1.0"
     prop-types "^15.5.10"
 
-read-babelrc-up@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/read-babelrc-up/-/read-babelrc-up-0.3.0.tgz#33134cf4eea6b9fb2c79bb4b530e85bd1c7ba554"
-  dependencies:
-    find-up "^2.1.0"
-    json5 "^0.5.1"
-
 read-pkg-up@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/read-pkg-up/-/read-pkg-up-1.0.1.tgz#9d63c13276c065918d57f002a57f40a1b643fb02"
@@ -5254,19 +5245,6 @@ strip-ansi@^4.0.0:
   dependencies:
     ansi-regex "^3.0.0"
 
-strip-bom-buf@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/strip-bom-buf/-/strip-bom-buf-1.0.0.tgz#1cb45aaf57530f4caf86c7f75179d2c9a51dd572"
-  dependencies:
-    is-utf8 "^0.2.1"
-
-strip-bom-stream@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/strip-bom-stream/-/strip-bom-stream-2.0.0.tgz#f87db5ef2613f6968aa545abfe1ec728b6a829ca"
-  dependencies:
-    first-chunk-stream "^2.0.0"
-    strip-bom "^2.0.0"
-
 strip-bom@3.0.0, strip-bom@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/strip-bom/-/strip-bom-3.0.0.tgz#2334c18e9c759f7bdd56fdef7e9ae3d588e68ed3"
@@ -5638,17 +5616,7 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-vinyl-file@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/vinyl-file/-/vinyl-file-3.0.0.tgz#b104d9e4409ffa325faadd520642d0a3b488b365"
-  dependencies:
-    graceful-fs "^4.1.2"
-    pify "^2.3.0"
-    strip-bom-buf "^1.0.0"
-    strip-bom-stream "^2.0.0"
-    vinyl "^2.0.1"
-
-vinyl@^2.0.1, vinyl@^2.1.0:
+vinyl@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/vinyl/-/vinyl-2.1.0.tgz#021f9c2cf951d6b939943c89eb5ee5add4fd924c"
   dependencies:

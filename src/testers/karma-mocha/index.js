@@ -1,7 +1,7 @@
 const path = require('path');
 const fse = require('fs-extra');
 const karma = require('karma');
-const getFileName = require('./extractFileNameFromPath');
+const getFileName = require('@bit/bit.utils.file.extract-file-name-from-path');
 require('./karma.conf');
 const isEmptyObject = obj => Object.keys(obj).length === 0;
 const exec = require('child-process-promise').exec;
