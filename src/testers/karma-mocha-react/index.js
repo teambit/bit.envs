@@ -1,20 +1,6 @@
-const mockery = require('mockery');
-const chai = require('chai');
-const chaiEnzyme = require('chai-enzyme');
-const sinon = require('sinon');
-const sinonChai = require('sinon-chai');
-chai.use(sinonChai);
-chai.use(chaiEnzyme())
 const path = require('path');
 const fse = require('fs-extra');
-const teaspoon = require('teaspoon');
-const TestUtils = require('react-dom/test-utils');
-const React = require('react');
-const ReactDom = require('react-dom');
 const karma = require('karma');
-const enzyme = require('enzyme');
-require('react-test-renderer');
-const { shallow } = require('enzyme');
 const getFileName = require('./extractFileNameFromPath');
 require('./karma.conf');
 const isEmptyObject = obj => Object.keys(obj).length === 0;
@@ -152,22 +138,5 @@ const normalizeBrowserFailure = () => {
 };
 
 module.exports = {
-  run,
-  globals: {
-    mockery,
-    ReactDom,
-    shallow,
-    chai,
-    sinon
-  },
-  modules: {
-    teaspoon,
-    mockery,
-    enzyme,
-    chai,
-    sinon,
-    'react-dom/test-utils': TestUtils,
-    'react-addons-test-utils': TestUtils,
-    'react-dom': ReactDom
-  }
+  run
 };

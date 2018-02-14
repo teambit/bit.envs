@@ -1,9 +1,6 @@
 const Mocha = require('mocha');
-const chai = require('chai');
-const sinon = require('sinon');
-const mockery = require('mockery');
-const sinonChai = require('sinon-chai');
-chai.use(sinonChai);
+var JSDOM = require('jsdom').JSDOM;
+const { document } = new JSDOM('<!doctype html><html><body></body></html>').window;
 
 const isEmptyObject = obj => Object.keys(obj).length === 0;
 
@@ -62,14 +59,8 @@ const run = (specFile) => {
 module.exports = {
   run,
   globals: {
-    chai,
-    sinon,
-    mockery
-  },
-  modules: {
-    chai,
-    sinon,
-    mockery
+    window: document.defaultView,
+    navigator: {userAgent: 'node.js'}
   }
 };
 

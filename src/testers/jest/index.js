@@ -1,27 +1,8 @@
 const jest = require('jest');
-require('react-test-renderer');
-const sinon = require('sinon');
-const TestUtils = require('react-dom/test-utils');
-const React = require('react');
-const ReactDom = require('react-dom');
-const enzyme = require('enzyme');
 const path = require('path');
 const fs = require('fs');
 const isEmptyObject = obj => Object.keys(obj).length === 0;
-const { shallow } = enzyme;
 const exec = require('child-process-promise').exec;
-
-function mockDom(markup) {
-  var jsdom = require('jsdom');
-  const { JSDOM } = jsdom;
-  const { document } = (new JSDOM(markup || '')).window;
-  global.document = document;
-  global.window = document.defaultView;
-  global.shallow = shallow;
-  global.navigator = {
-    userAgent: 'node.js'
-  };
-}
 
 const normalizeResults = (results) => {
   const testResults = results.testResults;
@@ -117,18 +98,9 @@ const extractFileNameFromPath = (filePath) => {
 module.exports = {
   run,
   globals: {
-    jest,
-    sinon,
-    mockDom,
-    ReactDom,
-    shallow
+    jest
   },
   modules: {
-    jest,
-    sinon,
-    enzyme,
-    'react-dom/test-utils': TestUtils,
-    'react-addons-test-utils': TestUtils,
-    'react-dom': ReactDom
+    jest
   }
 };
