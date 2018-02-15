@@ -1,6 +1,6 @@
 {
     "env": {
-        "compiler": "none",
+        "compiler": "bit.envs/compilers/babel@0.0.7",
         "tester": "none"
     },
     "dependencies": {},

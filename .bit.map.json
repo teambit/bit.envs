@@ -202,5 +202,16 @@
         "mainFile": "src/testers/karma-mocha/index.js",
         "origin": "AUTHORED"
     },
+    "bit.envs/utils/get-babel-rc@0.0.2": {
+        "files": [
+            {
+                "relativePath": "src/utils/getBabelRc/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/utils/getBabelRc/index.js",
+        "origin": "AUTHORED"
+    },
     "version": "0.12.5"
 }
