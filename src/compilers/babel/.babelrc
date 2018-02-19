@@ -1,14 +1,14 @@
 {
-    "presets": ["babel-preset-latest"],
+    "presets": ["latest"],
     "sourceMaps": true,
     "ast": false,
     "minified": false,
     "plugins": [
-      "babel-plugin-transform-object-rest-spread",
-      "babel-plugin-transform-decorators-legacy",
-      "babel-plugin-transform-object-entries",
-      "babel-plugin-object-values-to-object-keys",
-      "babel-plugin-add-module-exports",
-      "babel-plugin-transform-async-to-generator"
+      "transform-object-rest-spread",
+      "transform-decorators-legacy",
+      "transform-object-entries",
+      "object-values-to-object-keys",
+      "add-module-exports",
+      "transform-async-to-generator"
     ]
   }

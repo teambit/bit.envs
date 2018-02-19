@@ -17,22 +17,6 @@
         "mainFile": "src/compilers/preact/index.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/compilers/babel@0.0.7": {
-        "files": [
-            {
-                "relativePath": "src/compilers/babel/readme.md",
-                "test": false,
-                "name": "readme.md"
-            },
-            {
-                "name": "babel.js",
-                "relativePath": "src/compilers/babel/index.js",
-                "test": false
-            }
-        ],
-        "mainFile": "src/compilers/babel/index.js",
-        "origin": "AUTHORED"
-    },
     "bit.envs/compilers/react@0.0.8": {
         "files": [
             {
@@ -211,6 +195,38 @@
             }
         ],
         "mainFile": "src/testers/jest/index.js",
+        "origin": "AUTHORED"
+    },
+    "bit.envs/utils/get-babel-options@0.0.3": {
+        "files": [
+            {
+                "relativePath": "src/utils/getBabelOptions/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/utils/getBabelOptions/index.js",
+        "origin": "AUTHORED"
+    },
+    "bit.envs/compilers/babel@0.0.13": {
+        "files": [
+            {
+                "relativePath": "src/compilers/babel/.babelrc",
+                "test": false,
+                "name": ".babelrc"
+            },
+            {
+                "relativePath": "src/compilers/babel/readme.md",
+                "test": false,
+                "name": "readme.md"
+            },
+            {
+                "name": "babel.js",
+                "relativePath": "src/compilers/babel/index.js",
+                "test": false
+            }
+        ],
+        "mainFile": "src/compilers/babel/index.js",
         "origin": "AUTHORED"
     },
     "version": "0.12.5"

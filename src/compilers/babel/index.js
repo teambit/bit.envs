@@ -11,7 +11,7 @@ const Vinyl = require('vinyl');
 const path = require('path');
 const groupBy = require('lodash.groupby');
 const fs = require('fs-extra');
-const getBabelRc = require('../../utils/getBabelRc');
+const getBabelOptions = require('../../utils/getBabelOptions');
 
 const compiledFileTypes = ['js', 'jsx', 'ts'];
 
@@ -32,7 +32,7 @@ function runBabel(file, options, distPath) {
 }
 
 function compile(files, distPath) {
-  const options = getBabelRc();
+  const options = getBabelOptions(__dirname);
 
   // Divide files by whether we should compile them, according to file type.
   const filesByToCompile = groupBy(files, _toCompile);
