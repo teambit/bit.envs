@@ -1,14 +1,14 @@
-const jest = require('jest');
-const path = require('path');
-const fs = require('fs');
-const isEmptyObject = obj => Object.keys(obj).length === 0;
-const exec = require('child-process-promise').exec;
+import jest from 'jest';
+import path from 'path';
+import fs from 'fs';
+import isEmptyObject from '@bit/bit.utils.validation.empty';
+import {exec} from 'child-process-promise';
 
 const normalizeResults = (results) => {
   const testResults = results.testResults;
   let failures = [];
   let testProps = [];
-  const res = testResults.map(test=> {
+  const res = testResults.map(test => {
     const duration = test.endTime - test.startTime
     
     if (isEmptyObject(test.assertionResults)) {

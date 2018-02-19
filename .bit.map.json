@@ -101,22 +101,6 @@
         "mainFile": "src/utils/getBabelRc/index.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/testers/jest@0.0.21": {
-        "files": [
-            {
-                "relativePath": "src/testers/jest/readme.md",
-                "test": false,
-                "name": "readme.md"
-            },
-            {
-                "relativePath": "src/testers/jest/index.js",
-                "test": false,
-                "name": "jest.js"
-            }
-        ],
-        "mainFile": "src/testers/jest/index.js",
-        "origin": "AUTHORED"
-    },
     "bit.envs/utils/get-babel-options@0.0.3": {
         "files": [
             {
@@ -273,6 +257,22 @@
             }
         ],
         "mainFile": "src/testers/mocha/index.js",
+        "origin": "AUTHORED"
+    },
+    "bit.envs/testers/jest@0.0.22": {
+        "files": [
+            {
+                "relativePath": "src/testers/jest/readme.md",
+                "test": false,
+                "name": "readme.md"
+            },
+            {
+                "relativePath": "src/testers/jest/index.js",
+                "test": false,
+                "name": "jest.js"
+            }
+        ],
+        "mainFile": "src/testers/jest/index.js",
         "origin": "AUTHORED"
     },
     "version": "0.12.5"
