@@ -160,7 +160,23 @@
         "mainFile": "src/utils/getBabelOptions/index.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/compilers/babel@0.0.13": {
+    "bit.envs/utils/babel-base-compiler@0.0.3": {
+        "files": [
+            {
+                "relativePath": "src/utils/babelBaseCompiler/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/utils/babelBaseCompiler/readme.md",
+                "test": false,
+                "name": "readme.md"
+            }
+        ],
+        "mainFile": "src/utils/babelBaseCompiler/index.js",
+        "origin": "AUTHORED"
+    },
+    "bit.envs/compilers/babel@0.0.19": {
         "files": [
             {
                 "relativePath": "src/compilers/babel/.babelrc",
@@ -181,7 +197,7 @@
         "mainFile": "src/compilers/babel/index.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/compilers/flow@0.0.8": {
+    "bit.envs/compilers/flow@0.0.9": {
         "files": [
             {
                 "relativePath": "src/compilers/flow/.babelrc",
@@ -202,28 +218,7 @@
         "mainFile": "src/compilers/flow/index.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/compilers/react@0.0.10": {
-        "files": [
-            {
-                "relativePath": "src/compilers/react/.babelrc",
-                "test": false,
-                "name": ".babelrc"
-            },
-            {
-                "relativePath": "src/compilers/react/readme.md",
-                "test": false,
-                "name": "readme.md"
-            },
-            {
-                "relativePath": "src/compilers/react/index.js",
-                "test": false,
-                "name": "react.js"
-            }
-        ],
-        "mainFile": "src/compilers/react/index.js",
-        "origin": "AUTHORED"
-    },
-    "bit.envs/compilers/preact@0.0.7": {
+    "bit.envs/compilers/preact@0.0.8": {
         "files": [
             {
                 "relativePath": "src/compilers/preact/.babelrc",
@@ -242,6 +237,27 @@
             }
         ],
         "mainFile": "src/compilers/preact/index.js",
+        "origin": "AUTHORED"
+    },
+    "bit.envs/compilers/react@0.0.12": {
+        "files": [
+            {
+                "relativePath": "src/compilers/react/.babelrc",
+                "test": false,
+                "name": ".babelrc"
+            },
+            {
+                "relativePath": "src/compilers/react/readme.md",
+                "test": false,
+                "name": "readme.md"
+            },
+            {
+                "relativePath": "src/compilers/react/index.js",
+                "test": false,
+                "name": "react.js"
+            }
+        ],
+        "mainFile": "src/compilers/react/index.js",
         "origin": "AUTHORED"
     },
     "version": "0.12.5"

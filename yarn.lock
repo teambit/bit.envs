@@ -6,6 +6,22 @@
   version "0.0.2"
   resolved "https://node.bitsrc.io/bit.utils.file.extract-file-name-from-path/-/bit.utils.file.extract-file-name-from-path-0.0.2.tgz#a55d1c9b6912dc814b01600a5891f1c4dca7429b"
 
+"@bit/bit.utils.object.group-by@^0.0.1":
+  version "0.0.1"
+  resolved "https://node.bitsrc.io/bit.utils.object.group-by/-/bit.utils.object.group-by-0.0.1.tgz#f2132a7a9aad31e5d80a211756309fd87d40b27a"
+  dependencies:
+    "@bit/bit.utils.object.has-own-property" "0.0.1"
+
+"@bit/bit.utils.object.has-own-property@0.0.1":
+  version "0.0.1"
+  resolved "https://node.bitsrc.io/bit.utils.object.has-own-property/-/bit.utils.object.has-own-property-0.0.1.tgz#89e79f99f2b52bc151bd87d9559d1552a00dc5fa"
+
+"@bit/bit.utils.validation.empty@^0.0.1":
+  version "0.0.1"
+  resolved "https://node.bitsrc.io/bit.utils.validation.empty/-/bit.utils.validation.empty-0.0.1.tgz#b35272faf0994318d4bda4feda9c294fabcd02bb"
+  dependencies:
+    "@bit/bit.utils.object.has-own-property" "0.0.1"
+
 "@types/chai-as-promised@^0.0.31":
   version "0.0.31"
   resolved "https://registry.yarnpkg.com/@types/chai-as-promised/-/chai-as-promised-0.0.31.tgz#e1e905ea6d971dafcad36560c8f1f7a7d690c5e5"

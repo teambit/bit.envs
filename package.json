@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "@bit/bit.utils.file.extract-file-name-from-path": "^0.0.2",
+    "@bit/bit.utils.object.group-by": "^0.0.1",
+    "@bit/bit.utils.validation.empty": "^0.0.1",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-add-module-exports": "^0.2.1",
