@@ -2,6 +2,7 @@ const babel = require('babel-core');
 const Vinyl = require('vinyl');
 const path = require('path');
 const groupBy = require('lodash.groupby');
+const getBabelOptions = require('../../utils/getBabelOptions');
 
 require('babel-plugin-transform-class-properties');
 require('babel-plugin-transform-object-rest-spread');
@@ -16,41 +17,6 @@ require('babel-plugin-object-values-to-object-keys');
 require('babel-plugin-transform-export-extensions');
 
 const compiledFileTypes = ['js', 'jsx', 'ts'];
-
-const plugins = [
-  // enable import syntax
-  require.resolve('babel-plugin-transform-export-extensions'),
-  require.resolve('babel-plugin-transform-class-properties'),
-  require.resolve('babel-plugin-transform-decorators-legacy'),
-  require.resolve('babel-plugin-transform-object-entries'),
-  require.resolve('babel-plugin-object-values-to-object-keys'),
-  require.resolve('babel-plugin-transform-async-to-generator'),
-  [
-    require.resolve('babel-plugin-transform-object-rest-spread'),
-    {
-      useBuiltIns: true,
-    },
-  ],
-  [
-    require.resolve('babel-plugin-transform-react-jsx'),
-    {
-      useBuiltIns: true,
-    },
-  ],
-  [
-    require.resolve('babel-plugin-transform-regenerator'),
-    {
-      async: false,
-    },
-  ]
-];
-
-const presets = [
-  // Latest stable ECMAScript features
-  require.resolve('babel-preset-latest'),
-  // JSX, Flow
-  require.resolve('babel-preset-react')
-];
 
 function runBabel(file, options, distPath) {
   const { code, map } = babel.transform(file.contents.toString(), options);
@@ -69,13 +35,7 @@ function runBabel(file, options, distPath) {
 }
 
 function compile(files, distPath) {
-  const options = {
-    presets: presets,
-    sourceMaps: true,
-    ast: false,
-    minified: false,
-    plugins: plugins
-  };
+  const options = getBabelOptions(__dirname);
 
   // Divide files by whether we should compile them, according to file type.
   const filesByToCompile = groupBy(files, _toCompile);

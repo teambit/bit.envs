@@ -1,0 +1,14 @@
+{
+    "presets": ["latest"],
+    "sourceMaps": true,
+    "ast": false,
+    "minified": false,
+    "plugins": [
+        "transform-flow-strip-types",
+        "transform-object-rest-spread",
+        "transform-decorators-legacy",
+        "transform-object-entries",
+        "object-values-to-object-keys",
+        "add-module-exports"
+    ]
+  }

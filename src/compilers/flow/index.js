@@ -9,6 +9,7 @@ const babel = require('babel-core');
 const Vinyl = require('vinyl');
 const path = require('path');
 const groupBy = require('lodash.groupby');
+const getBabelOptions = require('../../utils/getBabelOptions');
 
 const compiledFileTypes = ['js', 'jsx', 'ts'];
 
@@ -28,18 +29,7 @@ function runBabel(file, options, distPath) {
   return [mappings,distFile];
 }
 function compile(files, distPath) {
-  const options = {
-    presets: [require.resolve('babel-preset-latest')],
-    sourceMaps: true,
-    ast: false,
-    minified: false,
-    plugins: [require.resolve('babel-plugin-transform-flow-strip-types'),
-    require.resolve('babel-plugin-transform-object-rest-spread'),
-    require.resolve('babel-plugin-add-module-exports'),
-    require.resolve('babel-plugin-transform-decorators-legacy'),
-    require.resolve('babel-plugin-transform-object-entries'),
-    require.resolve('babel-plugin-object-values-to-object-keys')]
-  };
+  const options = getBabelOptions(__dirname);
 
   // Divide files by whether we should compile them, according to file type.
   const filesByToCompile = groupBy(files, _toCompile);
