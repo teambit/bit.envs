@@ -52,11 +52,11 @@ const readResults = (filePath = 'results.json') => {
 
 const run = (specFile) => {
     const resultsFilePath = `${extractFileNameFromPath(specFile)}-results.json`;
-    const jestPath = path.resolve(__dirname, '../../', 'node_modules/.bin/jest');
+    const jestPath = __dirname + `${path.sep}node_modules${path.sep}jest${path.sep}bin${path.sep}jest.js`;
     // We are using outputFile flag because in some cases when using --json only
     // There is not valid json return, see details here:
     // https://github.com/facebook/jest/issues/4399
-    const cmd = `${process.execPath} ${jestPath} ${specFile} --json --outputFile="${resultsFilePath}"`;
+    const cmd = `"${process.execPath}" ${jestPath} ${specFile} --json --outputFile="${resultsFilePath}"`;
   return exec(cmd).then(({err, stdout, stderr}) => {
     const parsedResults = readResults(resultsFilePath);
     return normalizeResults(parsedResults);
