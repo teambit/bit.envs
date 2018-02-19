@@ -228,7 +228,23 @@
         "mainFile": "src/compilers/react/index.js",
         "origin": "AUTHORED"
     },
-    "tomlandau.env-test/testers/mocha@0.0.6": {
+    "bit.envs/compilers/typescript@0.0.3": {
+        "files": [
+            {
+                "relativePath": "src/compilers/typescript/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/compilers/typescript/readme.md",
+                "test": false,
+                "name": "readme.md"
+            }
+        ],
+        "mainFile": "src/compilers/typescript/index.js",
+        "origin": "AUTHORED"
+    },
+    "bit.envs/testers/mocha@0.0.9": {
         "files": [
             {
                 "relativePath": "src/testers/mocha/baseReporter.js",
@@ -257,22 +273,6 @@
             }
         ],
         "mainFile": "src/testers/mocha/index.js",
-        "origin": "AUTHORED"
-    },
-    "bit.envs/compilers/typescript@0.0.3": {
-        "files": [
-            {
-                "relativePath": "src/compilers/typescript/index.js",
-                "test": false,
-                "name": "index.js"
-            },
-            {
-                "relativePath": "src/compilers/typescript/readme.md",
-                "test": false,
-                "name": "readme.md"
-            }
-        ],
-        "mainFile": "src/compilers/typescript/index.js",
         "origin": "AUTHORED"
     },
     "version": "0.12.5"
