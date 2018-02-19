@@ -1,7 +1,7 @@
-const ts = require('typescript');
-const Vinyl = require('vinyl');
-const path = require('path');
-const groupBy = require('lodash.groupby');
+import ts from 'typescript';
+import Vinyl from 'vinyl';
+import path from 'path';
+import groupBy from '@bit/bit.utils.object.group-by';
 
 const compiledFileTypes = ['tsx', 'ts'];
 
@@ -21,7 +21,7 @@ const compileSingleFile = (file, compilerOptions, distPath) => {
   return [mappings,distFile];
 };
 
-function compile(files, distPath) {
+const compile = (files, distPath) => {
   const compilerOptions =  {
     module: ts.ModuleKind.CommonJS,
     sourceMap: true,
@@ -61,6 +61,4 @@ const _getRevisedFileExtension = (fileName) => {
   return fileName.replace('.tsx', '.js').replace('.ts', '.js');
 }
 
-module.exports = {
-  compile
-};
+export default {compile};

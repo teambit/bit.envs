@@ -64,38 +64,6 @@
         "mainFile": "src/testers/karma-mocha-react/index.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/compilers/typescript@0.0.1": {
-        "files": [
-            {
-                "relativePath": "src/compilers/typescript/index.js",
-                "test": false,
-                "name": "index.js"
-            },
-            {
-                "relativePath": "src/compilers/typescript/readme.md",
-                "test": false,
-                "name": "readme.md"
-            }
-        ],
-        "mainFile": "src/compilers/typescript/index.js",
-        "origin": "AUTHORED"
-    },
-    "bit.envs/testers/mocha@0.0.5": {
-        "files": [
-            {
-                "relativePath": "src/testers/mocha/readme.md",
-                "test": false,
-                "name": "readme.md"
-            },
-            {
-                "relativePath": "src/testers/mocha/index.js",
-                "test": false,
-                "name": "mocha.js"
-            }
-        ],
-        "mainFile": "src/testers/mocha/index.js",
-        "origin": "AUTHORED"
-    },
     "bit.envs/testers/karma-mocha@0.0.2": {
         "files": [
             {
@@ -258,6 +226,53 @@
             }
         ],
         "mainFile": "src/compilers/react/index.js",
+        "origin": "AUTHORED"
+    },
+    "tomlandau.env-test/testers/mocha@0.0.6": {
+        "files": [
+            {
+                "relativePath": "src/testers/mocha/baseReporter.js",
+                "test": false,
+                "name": "baseReporter.js"
+            },
+            {
+                "relativePath": "src/testers/mocha/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/testers/mocha/jsonReporter.js",
+                "test": false,
+                "name": "jsonReporter.js"
+            },
+            {
+                "relativePath": "src/testers/mocha/readme.md",
+                "test": false,
+                "name": "readme.md"
+            },
+            {
+                "relativePath": "src/testers/mocha/resultsAdapter.js",
+                "test": false,
+                "name": "resultsAdapter.js"
+            }
+        ],
+        "mainFile": "src/testers/mocha/index.js",
+        "origin": "AUTHORED"
+    },
+    "bit.envs/compilers/typescript@0.0.3": {
+        "files": [
+            {
+                "relativePath": "src/compilers/typescript/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/compilers/typescript/readme.md",
+                "test": false,
+                "name": "readme.md"
+            }
+        ],
+        "mainFile": "src/compilers/typescript/index.js",
         "origin": "AUTHORED"
     },
     "version": "0.12.5"
