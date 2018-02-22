@@ -1,58 +1,13 @@
 import jest from 'jest';
 import path from 'path';
-import fs from 'fs';
-import isEmptyObject from '@bit/bit.utils.validation.empty';
+import extractFileNameFromPath from '@bit/bit.utils.file.extract-file-name-from-path';
 import {exec} from 'child-process-promise';
-
-const normalizeResults = (results) => {
-  const testResults = results.testResults;
-  let failures = [];
-  let testProps = [];
-  const res = testResults.map(test => {
-    const duration = test.endTime - test.startTime
-    
-    if (isEmptyObject(test.assertionResults)) {
-      failures.push({
-        title: 'Test suite failed to run',
-        err: {
-          message: test.message
-        },
-        duration: duration
-      });
-    } else {
-      testProps = test.assertionResults.map(assertionRes => {
-        const title = assertionRes.title;
-        const pass = (assertionRes.status === 'passed') ? true : false;
-        const err = (!pass) ? {  message: assertionRes.failureMessages[0] , stack: assertionRes.failureMessages[0] } : undefined;
-        if (err) return {title, pass, duration, err}
-        return {title, pass, duration}
-      });
-    }
-
-    const StatsProps = {
-      start: test.startTime,
-      end: test.endTime,
-      duration: duration
-    } 
-
-    const pass = (test.status === 'passed') ? true : false;
-    
-    return {tests: testProps, stats: StatsProps, pass, failures};
-  });
-
-  return res[0];
-}
-
-const readResults = (filePath = 'results.json') => {
-  const results = fs.readFileSync(filePath);
-  const parsedResults = JSON.parse(results);
-  fs.unlinkSync(filePath);
-  return parsedResults;
-}
+import convertJestFormatToBitFormat, {getJestFailure} from './resultsAdapter';
+import readResults from './readResults';
 
 const run = (specFile) => {
     const resultsFilePath = `${extractFileNameFromPath(specFile)}-results.json`;
-    const jestPath = __dirname + `${path.sep}node_modules${path.sep}jest${path.sep}bin${path.sep}jest.js`;
+    const jestPath = path.normalize(`${__dirname}${path.sep}..${path.sep}node_modules${path.sep}jest${path.sep}bin${path.sep}jest.js`);
     // We are using outputFile flag because in some cases when using --json only
     // There is not valid json return, see details here:
     // https://github.com/facebook/jest/issues/4399
@@ -66,36 +21,15 @@ const run = (specFile) => {
     // 2. Error in testing process, and then we parse the catch error.
     try {
       const parsedResults = readResults(resultsFilePath);
-      return normalizeResults(parsedResults);
+      return convertJestFormatToBitFormat(parsedResults);
     }
     catch(err) {
-      return normalizeJestFailure(message);
+      return getJestFailure(message);
     }
   });
 }
 
-const normalizeJestFailure = (message) => {
-  return {
-    tests: [],
-    pass: false,
-    stats: {
-      start: null,
-      end: null
-    },
-    failures: [{title: 'Jest failure',
-      err: {
-        message: message
-      }
-    }]
-  }
-};
-
-const extractFileNameFromPath = (filePath) => {
-  let fileName = filePath.split('/').pop();
-  return fileName.split('.')[0];
-};
-
-module.exports = {
+export default {
   run,
   globals: {
     jest

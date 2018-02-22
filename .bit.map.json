@@ -64,32 +64,6 @@
         "mainFile": "src/testers/karma-mocha-react/index.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/testers/karma-mocha@0.0.2": {
-        "files": [
-            {
-                "relativePath": "src/testers/karma-mocha/index.js",
-                "test": false,
-                "name": "index.js"
-            },
-            {
-                "relativePath": "src/testers/karma-mocha/jsonReporter.js",
-                "test": false,
-                "name": "jsonReporter.js"
-            },
-            {
-                "relativePath": "src/testers/karma-mocha/karma.conf.js",
-                "test": false,
-                "name": "karma.conf.js"
-            },
-            {
-                "relativePath": "src/testers/karma-mocha/readme.md",
-                "test": false,
-                "name": "readme.md"
-            }
-        ],
-        "mainFile": "src/testers/karma-mocha/index.js",
-        "origin": "AUTHORED"
-    },
     "bit.envs/utils/get-babel-rc@0.0.2": {
         "files": [
             {
@@ -259,17 +233,63 @@
         "mainFile": "src/testers/mocha/index.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/testers/jest@0.0.22": {
+    "tomlandau.env-test/testers/karma-mocha@0.0.3": {
         "files": [
+            {
+                "relativePath": "src/testers/karma-mocha/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/testers/karma-mocha/jsonReporter.js",
+                "test": false,
+                "name": "jsonReporter.js"
+            },
+            {
+                "relativePath": "src/testers/karma-mocha/karma.conf.js",
+                "test": false,
+                "name": "karma.conf.js"
+            },
+            {
+                "relativePath": "src/testers/karma-mocha/readme.md",
+                "test": false,
+                "name": "readme.md"
+            },
+            {
+                "relativePath": "src/testers/karma-mocha/readResults.js",
+                "test": false,
+                "name": "readResults.js"
+            },
+            {
+                "relativePath": "src/testers/karma-mocha/resultsAdapter.js",
+                "test": false,
+                "name": "resultsAdapter.js"
+            }
+        ],
+        "mainFile": "src/testers/karma-mocha/index.js",
+        "origin": "AUTHORED"
+    },
+    "bit.envs/testers/jest@0.0.25": {
+        "files": [
+            {
+                "relativePath": "src/testers/jest/index.js",
+                "test": false,
+                "name": "index.js"
+            },
             {
                 "relativePath": "src/testers/jest/readme.md",
                 "test": false,
                 "name": "readme.md"
             },
             {
-                "relativePath": "src/testers/jest/index.js",
+                "relativePath": "src/testers/jest/readResults.js",
                 "test": false,
-                "name": "jest.js"
+                "name": "readResults.js"
+            },
+            {
+                "relativePath": "src/testers/jest/resultsAdapter.js",
+                "test": false,
+                "name": "resultsAdapter.js"
             }
         ],
         "mainFile": "src/testers/jest/index.js",

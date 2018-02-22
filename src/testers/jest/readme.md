@@ -1,5 +1,5 @@
 # A testing environment for React components using Jest.
- * Bit testing environment for testing of React components using Jest.
+ * Bit's Jest testing environment for components.
 
 ## How to use?
 import the environment
