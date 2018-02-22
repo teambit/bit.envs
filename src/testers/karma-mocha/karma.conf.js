@@ -2,10 +2,16 @@ require('karma-mocha');
 require('karma-sinon-chai');
 require('karma-chrome-launcher');
 require('karma-webpack');
+require('webpack');
+require('mocha');
+require('chai');
+require('sinon');
+require('sinon-chai');
+process.env.CHROME_BIN = require('puppeteer').executablePath();
 
-const path = require('path');
-const webpack = require('webpack');
-const getFileName = require('@bit/bit.utils.file.extract-file-name-from-path');
+import path from 'path';
+import webpack from 'webpack';
+import getFileName from '@bit/bit.utils.file.extract-file-name-from-path';
 
 module.exports = (config) => {
   const { env } = process;
@@ -36,14 +42,25 @@ module.exports = (config) => {
     },
     singleRun: true,
     captureConsole: false,
-    browsers: ['ChromeHeadless'],
-
+    browsers: ['Chrome_no_sandbox'],
+    customLaunchers: {
+      Chrome_no_sandbox: {
+        base: 'Chrome',
+        flags: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+          '--headless',
+          '--disable-gpu',
+          '--remote-debugging-port=9222',
+        ],
+      },
+    },
     webpack: {
       entry: config.files,
       // Bit testing environment injects the 'modules' using mockery, but that doesn't work when using karma with webpack.
       // Therefore, we instruct webpack to resolve modules from the tester's node_modules directory first, and then search for modules as usual. 
       resolve: {
-        modules: [path.resolve(__dirname, "../../../node_modules/"), "node_modules"]
+        modules: [path.normalize(`${__dirname}${path.sep}..${path.sep}node_modules`), "node_modules"]
       },
       devtool: 'cheap-module-inline-source-map'
     },

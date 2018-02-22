@@ -12,3 +12,4 @@ bit import bit.envs/testers/karma-mocha -t
 - [Mocha](https://mochajs.org)
 - [Sinon](http://sinonjs.org)
 - [Chai](http://chaijs.com) integrated with Sinon to ease mock assertions using [sinon-chai](https://github.com/domenic/sinon-chai)
+- Tests are run on `Chrome Headless` browser using [puppeteer](https://github.com/karma-runner/karma-chrome-launcher#headless-chromium-with-puppeteer).
