@@ -295,5 +295,31 @@
         "mainFile": "src/testers/karma-mocha/index.js",
         "origin": "AUTHORED"
     },
+    "tomlandau.env-test/compilers/vue@0.0.9": {
+        "files": [
+            {
+                "relativePath": "src/compilers/vue/getFilesList.js",
+                "test": false,
+                "name": "getFilesList.js"
+            },
+            {
+                "relativePath": "src/compilers/vue/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/compilers/vue/readme.md",
+                "test": false,
+                "name": "readme.md"
+            },
+            {
+                "relativePath": "src/compilers/vue/webpack-config.js",
+                "test": false,
+                "name": "webpack-config.js"
+            }
+        ],
+        "mainFile": "src/compilers/vue/index.js",
+        "origin": "AUTHORED"
+    },
     "version": "0.12.5"
 }
