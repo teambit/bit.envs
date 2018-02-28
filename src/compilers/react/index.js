@@ -10,7 +10,7 @@ require('babel-plugin-transform-object-entries');
 require('babel-plugin-object-values-to-object-keys');
 require('babel-plugin-transform-export-extensions');
 
-const baseCompile = require('../../utils/babelBaseCompiler');
+const baseCompile = require('../../internal/babelBaseCompiler');
 
 const compiledFileTypes = ['js', 'jsx', 'ts'];
 

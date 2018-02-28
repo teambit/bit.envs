@@ -6,7 +6,7 @@ require('babel-plugin-object-values-to-object-keys');
 require('babel-plugin-add-module-exports');
 require('babel-plugin-transform-async-to-generator');
 
-const baseCompile = require('../../utils/babelBaseCompiler');
+const baseCompile = require('../../internal/babelBaseCompiler');
 
 const compiledFileTypes = ['js', 'jsx', 'ts'];
 

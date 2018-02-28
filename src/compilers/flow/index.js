@@ -6,7 +6,7 @@ require('babel-plugin-transform-decorators-legacy');
 require('babel-plugin-transform-object-entries');
 require('babel-plugin-object-values-to-object-keys');
 
-const baseCompile = require('../../utils/babelBaseCompiler');
+const baseCompile = require('../../internal/babelBaseCompiler');
 
 const compiledFileTypes = ['js', 'jsx', 'ts'];
 
