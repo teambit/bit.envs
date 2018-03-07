@@ -247,5 +247,47 @@
         "mainFile": "src/bundlers/vue/index.js",
         "origin": "AUTHORED"
     },
-    "version": "0.12.6"
+    "bit.envs/bundlers/webpack@0.0.2": {
+        "files": [
+            {
+                "relativePath": "src/bundlers/webpack/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/bundlers/webpack/readme.md",
+                "test": false,
+                "name": "readme.md"
+            },
+            {
+                "relativePath": "src/bundlers/webpack/webpack.config.js",
+                "test": false,
+                "name": "webpack.config.js"
+            }
+        ],
+        "mainFile": "src/bundlers/webpack/index.js",
+        "origin": "AUTHORED"
+    },
+    "bit.envs/bundlers/webpack-css-modules@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/bundlers/webpack-css-modules/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/bundlers/webpack-css-modules/readme.md",
+                "test": false,
+                "name": "readme.md"
+            },
+            {
+                "relativePath": "src/bundlers/webpack-css-modules/webpack.config.js",
+                "test": false,
+                "name": "webpack.config.js"
+            }
+        ],
+        "mainFile": "src/bundlers/webpack-css-modules/index.js",
+        "origin": "AUTHORED"
+    },
+    "version": "0.12.8-dev.1"
 }
