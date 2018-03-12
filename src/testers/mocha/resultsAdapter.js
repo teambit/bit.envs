@@ -39,7 +39,7 @@ const convertMochaFormatToBitFormat = (mochaJsonResults) => {
     return {
       tests: mochaJsonResults.tests.map(normalizeTest),
       stats: normalizeStats(mochaJsonResults.stats),
-      failures: mochaJsonResults.failures.map(normalizeFailure)
+      //failures: mochaJsonResults.failures.map(normalizeFailure)
     };
   }
 

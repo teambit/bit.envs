@@ -17,37 +17,6 @@
         "mainFile": "src/compilers/typescript/index.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/testers/mocha@0.0.9": {
-        "files": [
-            {
-                "relativePath": "src/testers/mocha/baseReporter.js",
-                "test": false,
-                "name": "baseReporter.js"
-            },
-            {
-                "relativePath": "src/testers/mocha/index.js",
-                "test": false,
-                "name": "index.js"
-            },
-            {
-                "relativePath": "src/testers/mocha/jsonReporter.js",
-                "test": false,
-                "name": "jsonReporter.js"
-            },
-            {
-                "relativePath": "src/testers/mocha/readme.md",
-                "test": false,
-                "name": "readme.md"
-            },
-            {
-                "relativePath": "src/testers/mocha/resultsAdapter.js",
-                "test": false,
-                "name": "resultsAdapter.js"
-            }
-        ],
-        "mainFile": "src/testers/mocha/index.js",
-        "origin": "AUTHORED"
-    },
     "bit.envs/testers/jest@0.0.26": {
         "files": [
             {
@@ -287,6 +256,37 @@
             }
         ],
         "mainFile": "src/bundlers/webpack-css-modules/index.js",
+        "origin": "AUTHORED"
+    },
+    "bit.envs/testers/mocha@0.0.10": {
+        "files": [
+            {
+                "relativePath": "src/testers/mocha/baseReporter.js",
+                "test": false,
+                "name": "baseReporter.js"
+            },
+            {
+                "relativePath": "src/testers/mocha/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/testers/mocha/jsonReporter.js",
+                "test": false,
+                "name": "jsonReporter.js"
+            },
+            {
+                "relativePath": "src/testers/mocha/readme.md",
+                "test": false,
+                "name": "readme.md"
+            },
+            {
+                "relativePath": "src/testers/mocha/resultsAdapter.js",
+                "test": false,
+                "name": "resultsAdapter.js"
+            }
+        ],
+        "mainFile": "src/testers/mocha/index.js",
         "origin": "AUTHORED"
     },
     "version": "0.12.8-dev.1"
