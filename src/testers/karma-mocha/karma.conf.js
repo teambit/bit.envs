@@ -1,23 +1,20 @@
-require('karma-mocha');
-require('karma-sinon-chai');
-require('karma-chrome-launcher');
-require('karma-webpack');
-require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 require('mocha');
+require('karma-mocha');
 require('chai');
 require('sinon');
 require('sinon-chai');
-process.env.CHROME_BIN = require('puppeteer').executablePath();
+require('karma-sinon-chai');
+require('karma-chrome-launcher');
+require('karma-webpack');
 
-import path from 'path';
-import webpack from 'webpack';
-import getFileName from '@bit/bit.utils.file.extract-file-name-from-path';
+const getFileName = require('@bit/bit.utils.file.extract-file-name-from-path');
 
 module.exports = (config) => {
   const { env } = process;
-
-  const preprocessors = {};
   const filePath = config.files[0];
+  const preprocessors = {};
   preprocessors[filePath] = ['webpack'];
 
   config.set({
@@ -30,7 +27,7 @@ module.exports = (config) => {
       require('./jsonReporter')
     ],
     reporters: ['json'],
-  
+    browsers: ['ChromeHeadless'],
     jsonReporter: {
       stdout: false,
       outputFile: getFileName(filePath) + '-results.json'      
@@ -42,19 +39,6 @@ module.exports = (config) => {
     },
     singleRun: true,
     captureConsole: false,
-    browsers: ['Chrome_no_sandbox'],
-    customLaunchers: {
-      Chrome_no_sandbox: {
-        base: 'Chrome',
-        flags: [
-          '--no-sandbox',
-          '--disable-setuid-sandbox',
-          '--headless',
-          '--disable-gpu',
-          '--remote-debugging-port=9222',
-        ],
-      },
-    },
     webpack: {
       entry: config.files,
       // Bit testing environment injects the 'modules' using mockery, but that doesn't work when using karma with webpack.
