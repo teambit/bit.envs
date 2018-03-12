@@ -4,7 +4,8 @@ import webpack from 'webpack';
 import MemoryFS from 'memory-fs';
 import configure from './webpack.config';
 
-export const compile = (files, distPath, componentObject) => {
+export const compile = (files, distPath, context) => {
+    const componentObject = context.componentObject;
     const mainFile = files.find(file => file.relative === componentObject.mainFile);
     const testFiles = files.filter(file => file.test);  
 

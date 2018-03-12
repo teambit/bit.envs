@@ -247,43 +247,43 @@
         "mainFile": "src/bundlers/vue/index.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/bundlers/webpack@0.0.2": {
+    "bit.envs/bundlers/webpack@0.0.3": {
         "files": [
             {
+                "name": "index.js",
                 "relativePath": "src/bundlers/webpack/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "readme.md",
                 "relativePath": "src/bundlers/webpack/readme.md",
-                "test": false,
-                "name": "readme.md"
+                "test": false
             },
             {
+                "name": "webpack.config.js",
                 "relativePath": "src/bundlers/webpack/webpack.config.js",
-                "test": false,
-                "name": "webpack.config.js"
+                "test": false
             }
         ],
         "mainFile": "src/bundlers/webpack/index.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/bundlers/webpack-css-modules@0.0.1": {
+    "bit.envs/bundlers/webpack-css-modules@0.0.2": {
         "files": [
             {
+                "name": "index.js",
                 "relativePath": "src/bundlers/webpack-css-modules/index.js",
-                "test": false,
-                "name": "index.js"
+                "test": false
             },
             {
+                "name": "readme.md",
                 "relativePath": "src/bundlers/webpack-css-modules/readme.md",
-                "test": false,
-                "name": "readme.md"
+                "test": false
             },
             {
+                "name": "webpack.config.js",
                 "relativePath": "src/bundlers/webpack-css-modules/webpack.config.js",
-                "test": false,
-                "name": "webpack.config.js"
+                "test": false
             }
         ],
         "mainFile": "src/bundlers/webpack-css-modules/index.js",
