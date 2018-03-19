@@ -16,6 +16,10 @@
   version "0.0.1"
   resolved "https://node.bitsrc.io/bit.utils.object.has-own-property/-/bit.utils.object.has-own-property-0.0.1.tgz#89e79f99f2b52bc151bd87d9559d1552a00dc5fa"
 
+"@bit/bit.utils.string.starts-with-one-of@^1.0.0":
+  version "1.0.0"
+  resolved "https://node.bitsrc.io/bit.utils.string.starts-with-one-of/-/bit.utils.string.starts-with-one-of-1.0.0.tgz#454b3d4022fdc96dc089ad9ac9eeb19888163c56"
+
 "@bit/bit.utils.validation.empty@^0.0.1":
   version "0.0.1"
   resolved "https://node.bitsrc.io/bit.utils.validation.empty/-/bit.utils.validation.empty-0.0.1.tgz#b35272faf0994318d4bda4feda9c294fabcd02bb"

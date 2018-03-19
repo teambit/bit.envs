@@ -1,4 +1,6 @@
 import baseReporter from './baseReporter';
+import startsWithOneOf from '@bit/bit.utils.string.starts-with-one-of';
+import mochaHooksNames from './mochaHooksNames';
 
 // Return a plain-object representation of `test`, free of cyclic properties etc.
 const clean = (test) => {
@@ -23,10 +25,11 @@ const errorJSON = (err) => {
 const JSONReporter = (runner) => {
     const results = baseReporter(runner);
   
-    var tests = [];
-    var pending = [];
-    var failures = [];
-    var passes = [];
+    let tests = [];
+    let pending = [];
+    let failures = [];
+    let passes = [];
+    let generalFailures = [];
   
     runner.on('test end', function (test) {
       tests.push(test);
@@ -37,7 +40,12 @@ const JSONReporter = (runner) => {
     });
   
     runner.on('fail', function (test) {
-      failures.push(test);
+      if (startsWithOneOf(test.title, mochaHooksNames)) {
+        generalFailures.push(test);
+      }
+      else {
+        failures.push(test);
+      }
     });
   
     runner.on('pending', function (test) {
@@ -50,7 +58,8 @@ const JSONReporter = (runner) => {
         tests: tests.map(clean),
         pending: pending.map(clean),
         failures: failures.map(clean),
-        passes: passes.map(clean)
+        passes: passes.map(clean),
+        generalFailures: generalFailures.map(clean)
       };
   
       runner.testResults = obj;

@@ -12,6 +12,7 @@
   "dependencies": {
     "@bit/bit.utils.file.extract-file-name-from-path": "0.0.3",
     "@bit/bit.utils.object.group-by": "^0.0.1",
+    "@bit/bit.utils.string.starts-with-one-of": "^1.0.0",
     "@bit/bit.utils.validation.empty": "^0.0.1",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",

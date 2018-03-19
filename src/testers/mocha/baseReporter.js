@@ -1,7 +1,9 @@
+import startsWithOneOf from '@bit/bit.utils.string.starts-with-one-of';
+import mochaHooksNames from './mochaHooksNames';
+
 const baseReporter = (runner) => {
     const results = {};
-    var stats = results.stats = { suites: 0, tests: 0, passes: 0, pending: 0, failures: 0 };
-    var failures = results.failures = [];
+    var stats = results.stats = { suites: 0, tests: 0, passes: 0, pending: 0, failures: 0, generalFailures: 0 };
   
     if (!runner) {
       return results;
@@ -38,10 +40,15 @@ const baseReporter = (runner) => {
     });
   
     runner.on('fail', function (test, err) {
-      stats.failures = stats.failures || 0;
-      stats.failures++;
+      if (startsWithOneOf(test.title, mochaHooksNames)) {
+        stats.generalFailures = stats.generalFailures || 0;
+        stats.generalFailures++;
+      } else {
+        stats.failures = stats.failures || 0;
+        stats.failures++;
+      }
+
       test.err = err;
-      failures.push(test);
     });
   
     runner.on('end', function () {
