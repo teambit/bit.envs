@@ -14,7 +14,7 @@ const run = (specFile) => {
     const cmd = `"${process.execPath}" ${jestPath} ${specFile} --json --outputFile="${resultsFilePath}"`;
   return exec(cmd).then(({err, stdout, stderr}) => {
     const parsedResults = readResults(resultsFilePath);
-    return normalizeResults(parsedResults);
+    return convertJestFormatToBitFormat(parsedResults);
   }).catch(({message, stdout, stderr}) =>{
     // We can arrive here for two reasons:
     // 1. Testing is finished with errors, and then we want to parse the error from the results

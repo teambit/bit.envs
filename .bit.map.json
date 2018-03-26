@@ -17,32 +17,6 @@
         "mainFile": "src/compilers/typescript/index.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/testers/jest@0.0.26": {
-        "files": [
-            {
-                "relativePath": "src/testers/jest/index.js",
-                "test": false,
-                "name": "index.js"
-            },
-            {
-                "relativePath": "src/testers/jest/readme.md",
-                "test": false,
-                "name": "readme.md"
-            },
-            {
-                "relativePath": "src/testers/jest/readResults.js",
-                "test": false,
-                "name": "readResults.js"
-            },
-            {
-                "relativePath": "src/testers/jest/resultsAdapter.js",
-                "test": false,
-                "name": "resultsAdapter.js"
-            }
-        ],
-        "mainFile": "src/testers/jest/index.js",
-        "origin": "AUTHORED"
-    },
     "bit.envs/internal/get-babel-options@0.0.1": {
         "files": [
             {
@@ -293,6 +267,32 @@
         ],
         "mainFile": "src/testers/mocha/index.js",
         "trackDir": "src/testers/mocha",
+        "origin": "AUTHORED"
+    },
+    "bit.envs/testers/jest@0.0.27": {
+        "files": [
+            {
+                "relativePath": "src/testers/jest/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/testers/jest/readme.md",
+                "test": false,
+                "name": "readme.md"
+            },
+            {
+                "relativePath": "src/testers/jest/readResults.js",
+                "test": false,
+                "name": "readResults.js"
+            },
+            {
+                "relativePath": "src/testers/jest/resultsAdapter.js",
+                "test": false,
+                "name": "resultsAdapter.js"
+            }
+        ],
+        "mainFile": "src/testers/jest/index.js",
         "origin": "AUTHORED"
     },
     "version": "0.12.10-dev.1"
