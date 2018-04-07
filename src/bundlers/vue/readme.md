@@ -5,7 +5,7 @@
  
  Import the environment.
  ```bash
-  bit import bit.envs/compilers/vue -c
+   bit import bit.envs/compilers/vue -c
  ```
 
  Then build using [bit build](https://docs.bitsrc.io/docs/cli-build.html).
