@@ -11,7 +11,9 @@ const run = (specFile) => {
   const configPath = path.resolve(`${__dirname}${path.sep}karma.conf.js`);
   const karmaConfig = karma.config.parseConfig(configPath, { files: [specFile], port: 9876 } );
   
-  var server = new karma.Server(karmaConfig);
+  var server = new karma.Server(karmaConfig, function(exitCode) {
+    console.info('Karma Server has exited with ' + exitCode);
+  });
 
   let runStart;
 
