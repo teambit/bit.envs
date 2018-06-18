@@ -233,32 +233,6 @@
         "trackDir": "src/testers/mocha",
         "origin": "AUTHORED"
     },
-    "bit.envs/testers/jest@0.0.27": {
-        "files": [
-            {
-                "relativePath": "src/testers/jest/index.js",
-                "test": false,
-                "name": "index.js"
-            },
-            {
-                "relativePath": "src/testers/jest/readme.md",
-                "test": false,
-                "name": "readme.md"
-            },
-            {
-                "relativePath": "src/testers/jest/readResults.js",
-                "test": false,
-                "name": "readResults.js"
-            },
-            {
-                "relativePath": "src/testers/jest/resultsAdapter.js",
-                "test": false,
-                "name": "resultsAdapter.js"
-            }
-        ],
-        "mainFile": "src/testers/jest/index.js",
-        "origin": "AUTHORED"
-    },
     "bit.envs/testers/karma-mocha@0.0.9": {
         "files": [
             {
@@ -295,5 +269,36 @@
         "mainFile": "src/testers/karma-mocha/index.js",
         "origin": "AUTHORED"
     },
-    "version": "0.12.10-dev.1"
+    "bit.envs/testers/jest@0.0.32": {
+        "files": [
+            {
+                "name": "index.js",
+                "relativePath": "src/testers/jest/index.js",
+                "test": false
+            },
+            {
+                "name": "jest.config.js",
+                "relativePath": "src/testers/jest/jest.config.js",
+                "test": false
+            },
+            {
+                "name": "readResults.js",
+                "relativePath": "src/testers/jest/readResults.js",
+                "test": false
+            },
+            {
+                "name": "readme.md",
+                "relativePath": "src/testers/jest/readme.md",
+                "test": false
+            },
+            {
+                "name": "resultsAdapter.js",
+                "relativePath": "src/testers/jest/resultsAdapter.js",
+                "test": false
+            }
+        ],
+        "mainFile": "src/testers/jest/index.js",
+        "origin": "AUTHORED"
+    },
+    "version": "13.0.0-dev.11"
 }
