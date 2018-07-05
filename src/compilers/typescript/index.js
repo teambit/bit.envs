@@ -24,6 +24,7 @@ const compileSingleFile = (file, compilerOptions, distPath) => {
 const compile = (files, distPath) => {
   const compilerOptions =  {
     module: ts.ModuleKind.CommonJS,
+    declaration: true,
     sourceMap: true,
     jsx: 'react'
   };
