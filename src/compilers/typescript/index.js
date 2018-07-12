@@ -58,7 +58,7 @@ const _getDistFilePath = (file, distPath, reviseExtension) => {
   
   if (reviseExtension) fileRelative = _getRevisedFileExtension(file.relative);
 
-  return _path2.default.join(distPath, fileRelative);
+  return path.join(distPath, fileRelative);
 }
 
 const _getRevisedFileExtension = (fileName) => {

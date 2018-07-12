@@ -284,7 +284,7 @@
         "mainFile": "src/testers/karma-mocha/index.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/compilers/typescript@0.0.4": {
+    "bit.envs/compilers/typescript@0.0.5": {
         "files": [
             {
                 "relativePath": "src/compilers/typescript/index.js",
