@@ -1,7 +1,6 @@
 {
     "env": {
-        "compiler": "bit.envs/compilers/babel@0.0.7",
-        "tester": "none"
+        "compiler": "bit.envs/compilers/babel@0.0.7"
     },
     "dependencies": {},
     "componentsDefaultDirectory": "components/{namespace}/{name}",
