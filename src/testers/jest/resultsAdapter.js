@@ -1,115 +1,172 @@
-import isEmptyObject from '@bit/bit.utils.validation.empty';
+import isEmptyObject from '@bit/bit.utils.validation.empty';
 
-
 
-const convertJestFormatToBitFormat = (results) => {
 
-    const testResults = results.testResults;
 
-    let failures = [];
 
-    let testProps = [];
+const convertJestFormatToBitFormat = (results) => {
 
-    const res = testResults.map(test => {
 
-      const duration = test.endTime - test.startTime
+    const testResults = results.testResults;
 
-      
 
-      if (isEmptyObject(test.assertionResults)) {
+    let failures = [];
 
-        failures.push({
 
-          title: 'Test suite failed to run',
+    let testProps = [];
 
-          err: {
 
-            message: test.message
+    const res = testResults.map(test => {
 
-          },
 
-          duration: duration
+      const duration = test.endTime - test.startTime
 
-        });
 
-      } else {
+      
 
-        testProps = test.assertionResults.map(assertionRes => {
 
-          const title = assertionRes.title;
+      if (isEmptyObject(test.assertionResults)) {
 
-          const pass = (assertionRes.status === 'passed') ? true : false;
 
-          const err = (!pass) ? {  message: assertionRes.failureMessages[0] , stack: assertionRes.failureMessages[0] } : undefined;
+        failures.push({
 
-          if (err) return {title, pass, duration, err}
 
-          return {title, pass, duration}
+          title: 'Test suite failed to run',
 
-        });
 
-      }
+          err: {
 
-  
 
-      const StatsProps = {
+            message: test.message
 
-        start: test.startTime,
 
-        end: test.endTime,
+          },
 
-        duration: duration
 
-      } 
+          duration: duration
 
-  
 
-      const pass = (test.status === 'passed') ? true : false;
+        });
 
-      
 
-      return {tests: testProps, stats: StatsProps, pass, failures};
+      } else {
 
-    });
 
-  
+        testProps = test.assertionResults.map(assertionRes => {
 
-    return res[0];
 
-  }
+          const title = assertionRes.title;
 
-
 
-  export const getJestFailure = (message) => {
+          const pass = (assertionRes.status === 'passed') ? true : false;
 
-    return {
 
-      tests: [],
+          const err = (!pass) ? {  message: assertionRes.failureMessages[0] , stack: assertionRes.failureMessages[0] } : undefined;
 
-      pass: false,
 
-      stats: {
+          if (err) return {title, pass, duration, err}
 
-        start: null,
 
-        end: null
+          return {title, pass, duration}
 
-      },
 
-      failures: [{title: 'Jest failure',
+        });
 
-        err: {
 
-          message: message
+      }
 
-        }
 
-      }]
+  
 
-    }
 
-  };
+      const StatsProps = {
 
-
+
+        start: test.startTime,
+
+
+        end: test.endTime,
+
+
+        duration: duration
+
+
+      } 
+
+
+  
+
+
+      const pass = (test.status === 'passed') ? true : false;
+
+
+      
+
+
+      return {tests: testProps, stats: StatsProps, pass, failures};
+
+
+    });
+
+
+  
+
+
+    return res[0];
+
+
+  }
+
+
+
+
+
+  export const getJestFailure = (message) => {
+
+
+    return {
+
+
+      tests: [],
+
+
+      pass: false,
+
+
+      stats: {
+
+
+        start: null,
+
+
+        end: null
+
+
+      },
+
+
+      failures: [{title: 'Jest failure',
+
+
+        err: {
+
+
+          message: message
+
+
+        }
+
+
+      }]
+
+
+    }
+
+
+  };
+
+
+
+
 
   export default convertJestFormatToBitFormat;

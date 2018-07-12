@@ -1,19 +1,28 @@
-import fs from 'fs';
+import fs from 'fs';
 
-
 
-const readResults = (filePath = 'results.json') => {
 
-    const results = fs.readFileSync(filePath);
 
-    const parsedResults = JSON.parse(results);
 
-    fs.unlinkSync(filePath);
+const readResults = (filePath = 'results.json') => {
 
-    return parsedResults;
 
-}
+    const results = fs.readFileSync(filePath);
 
-
+
+    const parsedResults = JSON.parse(results);
+
+
+    fs.unlinkSync(filePath);
+
+
+    return parsedResults;
+
+
+}
+
+
+
+
 
 export default readResults;

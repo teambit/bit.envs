@@ -1,81 +1,121 @@
-import jest from 'jest';
+import jest from 'jest';
 
-import path from 'path';
 
-import extractFileNameFromPath from '@bit/bit.utils.file.extract-file-name-from-path';
+import path from 'path';
 
-import {exec} from 'child-process-promise';
 
-import convertJestFormatToBitFormat, {getJestFailure} from './resultsAdapter';
+import extractFileNameFromPath from '@bit/bit.utils.file.extract-file-name-from-path';
 
-import readResults from './readResults';
 
-import upath from 'upath';
+import {exec} from 'child-process-promise';
 
-const run = (specFile) => {
 
-    const convertedSpecFile = upath.normalize(specFile)
+import convertJestFormatToBitFormat, {getJestFailure} from './resultsAdapter';
 
-    const resultsFilePath = `${extractFileNameFromPath(specFile)}-results.json`;
 
-    const jestPath = path.normalize(`${__dirname}${path.sep}..${path.sep}node_modules${path.sep}jest${path.sep}bin${path.sep}jest.js`);
+import readResults from './readResults';
 
-    // We are using outputFile flag because in some cases when using --json only
 
-    // There is not valid json return, see details here:
+import upath from 'upath';
 
-    // https://github.com/facebook/jest/issues/4399
 
-    var cmd = '"' + process.execPath + '" ' + jestPath + ' ' + convertedSpecFile + ` --rootDir=${require('path').dirname(specFile)} --config=${__dirname}/jest.config.js --json --outputFile="` + resultsFilePath + '"';
+const run = (specFile) => {
 
-    return exec(cmd).then(({err, stdout, stderr}) => {
 
-    const parsedResults = readResults(resultsFilePath);
+    const convertedSpecFile = upath.normalize(specFile)
 
-    return convertJestFormatToBitFormat(parsedResults);
 
-  }).catch(({message, stdout, stderr}) =>{
+    const resultsFilePath = `${extractFileNameFromPath(specFile)}-results.json`;
 
-    // We can arrive here for two reasons:
 
-    // 1. Testing is finished with errors, and then we want to parse the error from the results
+    const jestPath = path.normalize(`${__dirname}${path.sep}..${path.sep}node_modules${path.sep}jest${path.sep}bin${path.sep}jest.js`);
 
-    // 2. Error in testing process, and then we parse the catch error.
 
-    try {
+    // We are using outputFile flag because in some cases when using --json only
 
-      const parsedResults = readResults(resultsFilePath);
 
-      return convertJestFormatToBitFormat(parsedResults);
+    // There is not valid json return, see details here:
 
-    }
 
-    catch(err) {
+    // https://github.com/facebook/jest/issues/4399
 
-      return getJestFailure(message);
 
-    }
+    var cmd = '"' + process.execPath + '" ' + jestPath + ' ' + convertedSpecFile + ` --rootDir=${require('path').dirname(specFile)} --config=${__dirname}/jest.config.js --json --outputFile="` + resultsFilePath + '"';
 
-  });
 
-}
+    return exec(cmd).then(({err, stdout, stderr}) => {
 
-
 
-export default {
+    const parsedResults = readResults(resultsFilePath);
 
-  run,
 
-  globals: {
+    return convertJestFormatToBitFormat(parsedResults);
 
-    jest
 
-  },
+  }).catch(({message, stdout, stderr}) =>{
 
-  modules: {
 
-    jest
+    // We can arrive here for two reasons:
 
-  }
+
+    // 1. Testing is finished with errors, and then we want to parse the error from the results
+
+
+    // 2. Error in testing process, and then we parse the catch error.
+
+
+    try {
+
+
+      const parsedResults = readResults(resultsFilePath);
+
+
+      return convertJestFormatToBitFormat(parsedResults);
+
+
+    }
+
+
+    catch(err) {
+
+
+      return getJestFailure(message);
+
+
+    }
+
+
+  });
+
+
+}
+
+
+
+
+
+export default {
+
+
+  run,
+
+
+  globals: {
+
+
+    jest
+
+
+  },
+
+
+  modules: {
+
+
+    jest
+
+
+  }
+
 
 };
