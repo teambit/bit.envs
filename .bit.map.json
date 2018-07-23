@@ -49,27 +49,6 @@
         "mainFile": "src/compilers/babel/index.js",
         "origin": "AUTHORED"
     },
-    "bit.envs/compilers/react@0.0.13": {
-        "files": [
-            {
-                "relativePath": "src/compilers/react/.babelrc",
-                "test": false,
-                "name": ".babelrc"
-            },
-            {
-                "relativePath": "src/compilers/react/readme.md",
-                "test": false,
-                "name": "readme.md"
-            },
-            {
-                "relativePath": "src/compilers/react/index.js",
-                "test": false,
-                "name": "react.js"
-            }
-        ],
-        "mainFile": "src/compilers/react/index.js",
-        "origin": "AUTHORED"
-    },
     "bit.envs/compilers/preact@0.0.9": {
         "files": [
             {
@@ -298,6 +277,27 @@
             }
         ],
         "mainFile": "src/compilers/typescript/index.js",
+        "origin": "AUTHORED"
+    },
+    "bit.envs/compilers/react@0.0.14": {
+        "files": [
+            {
+                "relativePath": "src/compilers/react/.babelrc",
+                "test": false,
+                "name": ".babelrc"
+            },
+            {
+                "relativePath": "src/compilers/react/readme.md",
+                "test": false,
+                "name": "readme.md"
+            },
+            {
+                "relativePath": "src/compilers/react/index.js",
+                "test": false,
+                "name": "react.js"
+            }
+        ],
+        "mainFile": "src/compilers/react/index.js",
         "origin": "AUTHORED"
     },
     "version": "13.0.3"

@@ -12,7 +12,7 @@ require('babel-plugin-transform-export-extensions');
 
 const baseCompile = require('../../internal/babelBaseCompiler');
 
-const compiledFileTypes = ['js', 'jsx', 'ts'];
+const compiledFileTypes = ['js', 'jsx'];
 
 const compile = (files, distPath) => {
   return baseCompile(files, distPath, __dirname, compiledFileTypes);
