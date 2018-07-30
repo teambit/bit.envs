@@ -34,32 +34,12 @@ const run = (specFile) => {
   });
 }
 
-
-
-
-
 export default {
-
-
   run,
-
-
   globals: {
-
-
     jest
-
-
   },
-
-
   modules: {
-
-
     jest
-
-
   }
-
-
 };
