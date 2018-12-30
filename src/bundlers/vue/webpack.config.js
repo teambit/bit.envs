@@ -53,7 +53,7 @@ const getConfig = (files, distPath) => {
           },
           {
             test: /\.s[a|c]ss$/,
-            loader: 'style!css!sass'
+            loader: ["vue-style-loader", "css-loader", "sass-loader"]
           }
         ]
       }
