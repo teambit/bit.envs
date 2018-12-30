@@ -6,6 +6,9 @@ import convertJestFormatToBitFormat, {getJestFailure} from './resultsAdapter';
 import readResults from './readResults';
 import upath from 'upath';
 
+//enforce jsdom dependency, so we'd get ~11.11.0, and avoid the fatal localStorage bug in 11.12.0
+import 'jsdom';
+
 
 const run = (specFile) => {
     const convertedSpecFile = upath.normalize(specFile)
@@ -15,8 +18,8 @@ const run = (specFile) => {
     // We are using outputFile flag because in some cases when using --json only
     // There is not valid json return, see details here:
     // https://github.com/facebook/jest/issues/4399
-    
-    var cmd = '"' + process.execPath + '" ' + jestPath + ' ' + convertedSpecFile + ` --rootDir=${require('path').dirname(specFile)} --config=${__dirname}/jest.config.js --json --outputFile="` + resultsFilePath + '"';
+
+    var cmd = `"${process.execPath}" "${jestPath}" "${convertedSpecFile}" --rootDir="${require('path').dirname(specFile)}" --config="${__dirname}/jest.config.js" --json --outputFile="${resultsFilePath}"`;
     return exec(cmd).then(({err, stdout, stderr}) => {
     const parsedResults = readResults(resultsFilePath);
     return convertJestFormatToBitFormat(parsedResults);
