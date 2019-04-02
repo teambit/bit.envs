@@ -9,11 +9,25 @@ const getBabelRc = (pathToLook) => {
 }
 
 const addBabelPrefixAndResolve = (prefixType, obj) => {
-    if (!obj.startsWith(`babel-${prefixType}`)) {
-        obj = `babel-${prefixType}-${obj}`;
-      }
+    var [scp, pkg] = obj.split('/')
+    
+    if(!pkg) {
+      pkg = scp;
+      scp = '';
+    }
 
-      return require.resolve(obj);
+    if(!scp) {
+      if (!pkg.startsWith(`babel-${prefixType}`)) {
+        obj = `babel-${prefixType}-${pkg}`;
+      }
+    } else {
+      if (scp === '@babel' && !pkg.startsWith(`${prefixType}`)) {
+        pkg = `${prefixType}-${pkg}`;
+      }
+      obj = `${scp}/${pkg}`;
+    }
+    
+    return require.resolve(obj);
 } 
 
 /**
