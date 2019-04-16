@@ -2,9 +2,14 @@
     "env": {
         "compiler": "bit.envs/compilers/babel@0.0.7"
     },
-    "dependencies": {},
+    "dependencies": {
+        "bit.utils/object/group-by": "1.0.0",
+        "bit.utils/validation/empty": "1.0.0",
+        "bit.utils/file/extract-file-name-from-path": "1.0.0",
+        "bit.utils/string/starts-with-one-of": "1.0.0"
+    },
     "componentsDefaultDirectory": "components/{namespace}/{name}",
-    "packageManager": "yarn",
+    "packageManager": "npm",
     "useWorkspaces": true,
     "dist": {
         "target": "dist"

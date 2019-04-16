@@ -5,7 +5,7 @@ import MemoryFS from 'memory-fs';
 import configure from './webpack.config';
 
 const compiledFileTypes = ['js', 'jsx', 'ts', 'tsx'];
-
+ 
 function compile(files, distRootPath, context) {
   let mainFile = files.find(file => file.relative === context.componentObject.mainFile);
   const testFiles = files.filter(x => x.test);

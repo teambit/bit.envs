@@ -1,0 +1,15 @@
+{
+    "name": "@bit/bit.utils.object.group-by",
+    "version": "1.0.0",
+    "homepage": "https://bit.dev/bit/utils/object/group-by",
+    "main": "src/object/groupBy.js",
+    "dependencies": {
+        "@bit/bit.utils.object.has-own-property": "1.0.0"
+    },
+    "devDependencies": {
+        "chai": "^4.1.2"
+    },
+    "peerDependencies": {},
+    "componentRootFolder": "components/object/group-by",
+    "license": "SEE LICENSE IN LICENSE"
+}

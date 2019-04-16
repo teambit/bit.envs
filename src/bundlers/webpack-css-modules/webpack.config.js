@@ -1,11 +1,10 @@
 const path = require('path');
-const babelPresetEs2015 = require('babel-preset-es2015');
-const babelPresetReact = require('babel-preset-react');
-const stage0 = require('babel-preset-stage-0');
+const babelPresetEnv = require('@babel/preset-env');
+const babelPresetReact = require('@babel/preset-react');
 
 //indirect 
 require('babel-loader');
-require('babel-core');
+require('@babel/core');
 require('style-loader');
 require('css-loader');
 require('sass-loader');
@@ -28,7 +27,7 @@ const configure = () => {
                 loader: 'babel-loader',
                 options: {
                     babelrc: false,
-                    presets:[babelPresetReact, babelPresetEs2015, stage0 ]
+                    presets:[babelPresetReact, babelPresetEnv]
                 }
             }, {
                 test: /\.css$/,
@@ -54,12 +53,6 @@ const configure = () => {
                 }, {
                     loader: "sass-loader" // compiles Sass to CSS
                 }]
-            },
-            // JSON is not enabled by default in Webpack but both Node and Browserify
-            // allow it implicitly so we also enable it.
-            {
-                test: /\.json$/,
-                loader: 'json-loader'
             },
     
             // "url" loader works just like "file" loader but it also embeds

@@ -1,6 +1,6 @@
 # Webpack bundler
 
-A component [compiler](https://docs.bitsrc.io/docs/ext-compiling.html) that bundles the component using [webpack](https://webpack.js.org/) v4.0.1.
+A component [compiler](https://docs.bitsrc.io/docs/ext-compiling.html) that bundles the component using [webpack](https://webpack.js.org/) v4.1.1.
 
 ## What is bundled?
 The bundler bundles the component's main file and test files.
@@ -10,7 +10,7 @@ In case there are component files that are not in those files' dependency trees,
  
  Import the environment.
  ```bash
-  bit import bit.envs/bundlers/webpack -c
+  bit import bit.envs/bundlers/webpack-css-modules -c
  ```
 
  Then build using [bit build](https://docs.bitsrc.io/docs/cli-build.html).

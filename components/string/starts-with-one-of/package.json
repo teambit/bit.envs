@@ -1,0 +1,13 @@
+{
+    "name": "@bit/bit.utils.string.starts-with-one-of",
+    "version": "1.0.0",
+    "homepage": "https://bit.dev/bit/utils/string/starts-with-one-of",
+    "main": "src/string/startsWithOneOf/index.js",
+    "dependencies": {},
+    "devDependencies": {
+        "chai": "^4.1.2"
+    },
+    "peerDependencies": {},
+    "componentRootFolder": "components/string/starts-with-one-of",
+    "license": "SEE LICENSE IN LICENSE"
+}
