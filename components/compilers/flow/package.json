@@ -1,0 +1,19 @@
+{
+    "name": "@bit/bit.envs.compilers.flow",
+    "version": "7.0.0",
+    "homepage": "https://bit.dev/bit/envs/compilers/flow",
+    "main": "compilers/flow/index.js",
+    "dependencies": {
+        "@babel/preset-env": "^7.3.4",
+        "@babel/preset-flow": "^7.0.0",
+        "@babel/plugin-proposal-class-properties": "7.3.4",
+        "@babel/plugin-proposal-export-default-from": "^7.2.0",
+        "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+        "babel-plugin-preval": "^3.0.1",
+        "@bit/bit.envs.internal.babel-base-compiler": "1.0.0"
+    },
+    "devDependencies": {},
+    "peerDependencies": {},
+    "componentRootFolder": "components/compilers/flow",
+    "license": "SEE LICENSE IN LICENSE"
+}

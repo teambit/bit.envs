@@ -1,0 +1,13 @@
+{
+    "name": "@bit/bit.envs.internal.bit-external-webpack-plugin",
+    "version": "0.0.1",
+    "homepage": "https://bit.dev/bit/envs/internal/bit-external-webpack-plugin",
+    "main": "index.js",
+    "dependencies": {
+        "webpack": "^4.0.1"
+    },
+    "devDependencies": {},
+    "peerDependencies": {},
+    "componentRootFolder": "components/internal/bit-external-webpack-plugin",
+    "license": "SEE LICENSE IN LICENSE"
+}
