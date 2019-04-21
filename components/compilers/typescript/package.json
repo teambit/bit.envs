@@ -1,0 +1,15 @@
+{
+    "name": "@bit/bit.envs.compilers.typescript",
+    "version": "3.0.0",
+    "homepage": "https://bit.dev/bit/envs/compilers/typescript",
+    "main": "index.js",
+    "dependencies": {
+        "typescript": "^3.4.2",
+        "vinyl": "^2.1.0",
+        "@bit/bit.utils.object.group-by": "0.0.1"
+    },
+    "devDependencies": {},
+    "peerDependencies": {},
+    "componentRootFolder": "components/compilers/typescript",
+    "license": "SEE LICENSE IN LICENSE"
+}

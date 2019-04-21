@@ -1,0 +1,16 @@
+{
+    "name": "@bit/bit.envs.internal.babel-base-compiler",
+    "version": "1.0.1",
+    "homepage": "https://bit.dev/bit/envs/internal/babel-base-compiler",
+    "main": "babelBaseCompiler/index.js",
+    "dependencies": {
+        "@babel/core": "7.3.4",
+        "vinyl": "^2.1.0",
+        "@bit/bit.utils.object.group-by": "1.0.0",
+        "@bit/bit.envs.internal.get-babel-options": "file:../get-babel-options"
+    },
+    "devDependencies": {},
+    "peerDependencies": {},
+    "componentRootFolder": "components/internal/babel-base-compiler",
+    "license": "SEE LICENSE IN LICENSE"
+}

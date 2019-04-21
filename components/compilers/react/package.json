@@ -1,0 +1,18 @@
+{
+    "name": "@bit/bit.envs.compilers.react",
+    "version": "1.0.1",
+    "homepage": "https://bit.dev/bit/envs/compilers/react",
+    "main": "compilers/react/index.js",
+    "dependencies": {
+        "@babel/plugin-proposal-class-properties": "^7.3.4",
+        "@babel/plugin-proposal-export-default-from": "^7.2.0",
+        "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+        "@babel/preset-env": "^7.3.4",
+        "@babel/preset-react": "^7.0.0",
+        "@bit/bit.envs.internal.babel-base-compiler": "file:../../internal/babel-base-compiler"
+    },
+    "devDependencies": {},
+    "peerDependencies": {},
+    "componentRootFolder": "components/compilers/react",
+    "license": "SEE LICENSE IN LICENSE"
+}
