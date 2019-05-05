@@ -1,6 +1,8 @@
 # A component bundler for Vue components.
 Compiles and bundles a [Vue](https://vuejs.org) component.
 
+Please note that while bundling components is possible, it is [recommended to transpiling components](https://docs.bit.dev/docs/best-practices.html#prefer-transpiling-over-bundling)
+
 ## How to use?
 
 Import the environment.
