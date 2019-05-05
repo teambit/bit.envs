@@ -5,17 +5,18 @@ Compiles a React component for [TypeScript](https://www.typescriptlang.org/).
 
 Import the environment
 ```bash
- bit import bit.envs/compilers/react-typescript -c
+bit import bit.envs/compilers/react-typescript -c
 ```
 
 Then build using [bit build](https://docs.bitsrc.io/docs/cli-build.html).
- ```bash
- bit build
- ```
+```bash
+bit build
+```
 
  ## What's inside
- - Compiles `ts` and `tsx` files.
- - In order to see which typescript config are used, take a look at the [`tsconfig.json`](https://bit.dev/bit/envs/compilers/react-typescript/~code#tsconfig.json) file.
+
+- Compiles `ts` and `tsx` files.
+- In order to see which typescript config are used, take a look at the [`tsconfig.json`](https://bit.dev/bit/envs/compilers/react-typescript/~code#tsconfig.json) file.
 
 ## Reconfiguring this environment
 
