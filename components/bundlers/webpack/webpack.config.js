@@ -29,7 +29,7 @@ const configure = () => {
                 loader: 'babel-loader',
                 options: {
                     babelrc: false,
-                    presets:[babelPresetReact, babelPresetEs2015, stage0 ]
+                    presets:[ babelPresetReact, babelPresetEs2015, stage0 ]
                 }
             }, {
                 test: /\.css$/,
