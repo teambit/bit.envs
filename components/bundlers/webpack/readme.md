@@ -1,6 +1,7 @@
 # Webpack bundler
 
 A component [compiler](https://docs.bitsrc.io/docs/ext-compiling.html) that bundles the component using [webpack](https://webpack.js.org/) ^v4.0.1.
+Please note that while bundling components is possible, it is [recommended to transpiling components](https://docs.bit.dev/docs/best-practices.html#prefer-transpiling-over-bundling)
 
 ## What is bundled?
 The bundler bundles the component's main file and test files.
