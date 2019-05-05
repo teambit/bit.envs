@@ -7,6 +7,7 @@
         "@babel/plugin-proposal-class-properties": "^7.3.4",
         "@babel/plugin-proposal-export-default-from": "^7.2.0",
         "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+        "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
         "@babel/preset-env": "^7.3.4",
         "@babel/preset-react": "^7.0.0",
         "@bit/bit.envs.internal.babel-base-compiler": "file:../../internal/babel-base-compiler"
