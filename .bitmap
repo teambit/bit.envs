@@ -472,5 +472,5 @@
         "rootDir": "components/testers/mocha-react-css-modules",
         "origin": "IMPORTED"
     },
-    "version": "14.0.7-dev.1"
+    "version": "14.1.0"
 }
