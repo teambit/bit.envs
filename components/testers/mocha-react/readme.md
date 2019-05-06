@@ -1,3 +1,5 @@
+# Deprecated
+
 # A testing environment for React components.
 Bit testing environment for testing of React components using Mocha and ChaiJS.
 

@@ -1,20 +1,20 @@
 {
-    "name": "@bit/bit.envs.compilers.react-css",
-    "version": "0.0.1",
-    "homepage": "https://bit.dev/bit/envs/compilers/react-css",
-    "main": "react-css.js",
-    "dependencies": {
-        "babel-core": "6.26.0",
-        "babel-plugin-transform-class-properties": "6.24.1",
-        "babel-plugin-transform-object-rest-spread": "6.26.0",
-        "babel-plugin-transform-react-jsx": "6.24.1",
-        "babel-plugin-transform-regenerator": "6.26.0",
-        "babel-preset-latest": "6.24.1",
-        "babel-preset-react": "6.24.1",
-        "vinyl": "2.1.0"
-    },
-    "devDependencies": {},
-    "peerDependencies": {},
-    "componentRootFolder": "components/compilers/react-css",
-    "license": "SEE LICENSE IN LICENSE"
+  "name": "@bit/bit.envs.compilers.react-css",
+  "version": "0.0.2",
+  "homepage": "https://bit.dev/bit/envs/compilers/react-css",
+  "main": "react-css.js",
+  "dependencies": {
+    "babel-core": "6.26.0",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
+    "babel-plugin-transform-react-jsx": "6.24.1",
+    "babel-plugin-transform-regenerator": "6.26.0",
+    "babel-preset-latest": "6.24.1",
+    "babel-preset-react": "6.24.1",
+    "vinyl": "2.1.0"
+  },
+  "devDependencies": {},
+  "peerDependencies": {},
+  "componentRootFolder": "components/compilers/react-css",
+  "license": "SEE LICENSE IN LICENSE"
 }

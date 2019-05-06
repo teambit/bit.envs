@@ -1,18 +1,18 @@
 {
-    "name": "@bit/bit.envs.testers.jest",
-    "version": "0.0.35",
-    "homepage": "https://bit.dev/bit/envs/testers/jest",
-    "main": "index.js",
-    "dependencies": {
-        "child-process-promise": "^2.2.1",
-        "jest": "22.4.3",
-        "jsdom": "~11.11.0",
-        "upath": "^1.1.0",
-        "@bit/bit.utils.file.extract-file-name-from-path": "0.0.3",
-        "@bit/bit.utils.validation.empty": "0.0.1"
-    },
-    "devDependencies": {},
-    "peerDependencies": {},
-    "componentRootFolder": "components/testers/jest",
-    "license": "SEE LICENSE IN LICENSE"
+  "name": "@bit/bit.envs.testers.jest",
+  "version": "22.4.3",
+  "homepage": "https://bit.dev/bit/envs/testers/jest",
+  "main": "index.js",
+  "dependencies": {
+    "child-process-promise": "^2.2.1",
+    "jest": "22.4.3",
+    "jsdom": "~11.11.0",
+    "upath": "^1.1.0",
+    "@bit/bit.utils.file.extract-file-name-from-path": "0.0.3",
+    "@bit/bit.utils.validation.empty": "0.0.1"
+  },
+  "devDependencies": {},
+  "peerDependencies": {},
+  "componentRootFolder": "components/testers/jest",
+  "license": "SEE LICENSE IN LICENSE"
 }

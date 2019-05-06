@@ -1,3 +1,5 @@
+# Deprecated
+
 # A testing environment for React components using karma.
 Bit testing environment for testing of React components using Karma, with Mocha and ChaiJS.
 

@@ -1,20 +1,20 @@
 {
-    "name": "@bit/bit.envs.testers.jest-15",
-    "version": "0.0.1",
-    "homepage": "https://bit.dev/bit/envs/testers/jest-15",
-    "main": "index.js",
-    "dependencies": {
-        "child-process-promise": "^2.2.1",
-        "enzyme": "2.9.1",
-        "jest": "15.1.1",
-        "jsdom": "^11.3.0",
-        "react-dom": "15.6.1",
-        "react-test-renderer": "15.6.1",
-        "react": "15.6.1",
-        "sinon": "3.2.1"
-    },
-    "devDependencies": {},
-    "peerDependencies": {},
-    "componentRootFolder": "components/testers/jest-15",
-    "license": "SEE LICENSE IN LICENSE"
+  "name": "@bit/bit.envs.testers.jest-15",
+  "version": "0.0.2",
+  "homepage": "https://bit.dev/bit/envs/testers/jest-15",
+  "main": "index.js",
+  "dependencies": {
+    "child-process-promise": "^2.2.1",
+    "enzyme": "2.9.1",
+    "jest": "15.1.1",
+    "jsdom": "^11.3.0",
+    "react-dom": "15.6.1",
+    "react-test-renderer": "15.6.1",
+    "react": "15.6.1",
+    "sinon": "3.2.1"
+  },
+  "devDependencies": {},
+  "peerDependencies": {},
+  "componentRootFolder": "components/testers/jest-15",
+  "license": "SEE LICENSE IN LICENSE"
 }

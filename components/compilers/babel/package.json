@@ -1,17 +1,17 @@
 {
-    "name": "@bit/bit.envs.compilers.babel",
-    "version": "7.0.0",
-    "homepage": "https://bit.dev/bit/envs/compilers/babel",
-    "main": "compilers/babel/index.js",
-    "dependencies": {
-        "@babel/plugin-proposal-class-properties": "7.3.4",
-        "@babel/plugin-proposal-export-default-from": "^7.2.0",
-        "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
-        "@babel/preset-env": "^7.3.4",
-        "@bit/bit.envs.internal.babel-base-compiler": "1.0.0"
-    },
-    "devDependencies": {},
-    "peerDependencies": {},
-    "componentRootFolder": "components/compilers/babel",
-    "license": "SEE LICENSE IN LICENSE"
+  "name": "@bit/bit.envs.compilers.babel",
+  "version": "7.0.1",
+  "homepage": "https://bit.dev/bit/envs/compilers/babel",
+  "main": "compilers/babel/index.js",
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "7.3.4",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+    "@babel/preset-env": "^7.3.4",
+    "@bit/bit.envs.internal.babel-base-compiler": "1.0.0"
+  },
+  "devDependencies": {},
+  "peerDependencies": {},
+  "componentRootFolder": "components/compilers/babel",
+  "license": "SEE LICENSE IN LICENSE"
 }
