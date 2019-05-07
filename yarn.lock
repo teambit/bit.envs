@@ -261,6 +261,13 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-syntax-object-rest-spread" "^7.2.0"
 
+"@babel/plugin-proposal-object-rest-spread@^7.4.4":
+  version "7.4.4"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-object-rest-spread/-/plugin-proposal-object-rest-spread-7.4.4.tgz#1ef173fcf24b3e2df92a678f027673b55e7e3005"
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.0.0"
+    "@babel/plugin-syntax-object-rest-spread" "^7.2.0"
+
 "@babel/plugin-proposal-optional-catch-binding@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-optional-catch-binding/-/plugin-proposal-optional-catch-binding-7.2.0.tgz#135d81edb68a081e55e56ec48541ece8065c38f5"
@@ -678,7 +685,7 @@
     to-fast-properties "^2.0.0"
 
 "@bit/bit.envs.bundlers.vue@file:./components/bundlers/vue":
-  version "0.0.4"
+  version "2.5.0"
   dependencies:
     css-loader "^0.28.10"
     memory-fs "^0.4.1"
@@ -693,7 +700,7 @@
     webpack-node-externals "^1.6.0"
 
 "@bit/bit.envs.bundlers.webpack-css-modules@file:./components/bundlers/webpack-css-modules":
-  version "0.0.8"
+  version "4.0.1"
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
@@ -712,7 +719,7 @@
     webpack-node-externals "1.7.2"
 
 "@bit/bit.envs.bundlers.webpack@file:./components/bundlers/webpack":
-  version "0.0.13"
+  version "4.0.1"
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
@@ -732,29 +739,29 @@
     webpack-node-externals "1.7.2"
 
 "@bit/bit.envs.compilers.babel@file:./components/compilers/babel":
-  version "7.0.0"
+  version "7.0.1"
   dependencies:
     "@babel/plugin-proposal-class-properties" "7.3.4"
     "@babel/plugin-proposal-export-default-from" "^7.2.0"
     "@babel/plugin-proposal-export-namespace-from" "^7.2.0"
     "@babel/preset-env" "^7.3.4"
-    "@bit/bit.envs.internal.babel-base-compiler" "1.0.0"
+    "@bit/bit.envs.internal.babel-base-compiler" "file:../../../Library/Caches/Yarn/v2/internal/babel-base-compiler"
 
 "@bit/bit.envs.compilers.flow@file:./components/compilers/flow":
-  version "7.0.0"
+  version "7.0.1"
   dependencies:
     "@babel/plugin-proposal-class-properties" "7.3.4"
     "@babel/plugin-proposal-export-default-from" "^7.2.0"
     "@babel/plugin-proposal-export-namespace-from" "^7.2.0"
     "@babel/preset-env" "^7.3.4"
     "@babel/preset-flow" "^7.0.0"
-    "@bit/bit.envs.internal.babel-base-compiler" "1.0.0"
+    "@bit/bit.envs.internal.babel-base-compiler" "file:../../../Library/Caches/Yarn/v2/internal/babel-base-compiler"
     babel-plugin-preval "^3.0.1"
 
 "@bit/bit.envs.compilers.preact@file:./components/compilers/preact":
-  version "0.0.9"
+  version "8.4.2"
   dependencies:
-    "@bit/bit.envs.internal.babel-base-compiler" "0.0.1"
+    "@bit/bit.envs.internal.babel-base-compiler" "file:../../../Library/Caches/Yarn/v2/internal/babel-base-compiler"
     babel-plugin-object-values-to-object-keys "^1.0.2"
     babel-plugin-transform-async-to-generator "^6.24.1"
     babel-plugin-transform-class-properties "^6.24.1"
@@ -768,7 +775,7 @@
     babel-preset-react "^6.24.1"
 
 "@bit/bit.envs.compilers.react-css@file:./components/compilers/react-css":
-  version "0.0.1"
+  version "0.0.2"
   dependencies:
     babel-core "6.26.0"
     babel-plugin-transform-class-properties "6.24.1"
@@ -780,18 +787,19 @@
     vinyl "2.1.0"
 
 "@bit/bit.envs.compilers.react-typescript@file:./components/compilers/react-typescript":
-  version "3.0.0"
+  version "3.0.1"
   dependencies:
     "@bit/bit.utils.object.group-by" "1.0.0"
     typescript "^3.4.2"
     vinyl "^2.1.0"
 
 "@bit/bit.envs.compilers.react@file:./components/compilers/react":
-  version "1.0.1"
+  version "1.0.2"
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.3.4"
     "@babel/plugin-proposal-export-default-from" "^7.2.0"
     "@babel/plugin-proposal-export-namespace-from" "^7.2.0"
+    "@babel/plugin-proposal-object-rest-spread" "^7.4.4"
     "@babel/preset-env" "^7.3.4"
     "@babel/preset-react" "^7.0.0"
     "@bit/bit.envs.internal.babel-base-compiler" "file:../../../Library/Caches/Yarn/v2/internal/babel-base-compiler"
@@ -801,24 +809,6 @@
   dependencies:
     "@bit/bit.utils.object.group-by" "0.0.1"
     typescript "^3.4.2"
-    vinyl "^2.1.0"
-
-"@bit/bit.envs.internal.babel-base-compiler@0.0.1":
-  version "0.0.1"
-  resolved "https://node.bit.dev/bit.envs.internal.babel-base-compiler/-/bit.envs.internal.babel-base-compiler-0.0.1.tgz#17d235025b0c449e11b9c72becbd25d3f4a3890d"
-  dependencies:
-    "@bit/bit.envs.internal.get-babel-options" "0.0.1"
-    "@bit/bit.utils.object.group-by" "0.0.1"
-    babel-core "^6.26.0"
-    vinyl "^2.1.0"
-
-"@bit/bit.envs.internal.babel-base-compiler@1.0.0":
-  version "1.0.0"
-  resolved "https://node.bit.dev/bit.envs.internal.babel-base-compiler/-/bit.envs.internal.babel-base-compiler-1.0.0.tgz#60c229b3f0be6bde383a003d92c6f374b1e673f7"
-  dependencies:
-    "@babel/core" "7.3.4"
-    "@bit/bit.envs.internal.get-babel-options" "1.0.0"
-    "@bit/bit.utils.object.group-by" "1.0.0"
     vinyl "^2.1.0"
 
 "@bit/bit.envs.internal.babel-base-compiler@file:./components/internal/babel-base-compiler", "@bit/bit.envs.internal.babel-base-compiler@file:components/internal/babel-base-compiler":
@@ -834,19 +824,13 @@
   dependencies:
     webpack "^4.0.1"
 
-"@bit/bit.envs.internal.get-babel-options@0.0.1":
-  version "0.0.1"
-  resolved "https://node.bit.dev/bit.envs.internal.get-babel-options/-/bit.envs.internal.get-babel-options-0.0.1.tgz#64a3ac7f572aebddc3ce53b1f5ecffd0ec2431a0"
-  dependencies:
-    fs-extra "^4.0.1"
-
 "@bit/bit.envs.internal.get-babel-options@file:./components/internal/get-babel-options", "@bit/bit.envs.internal.get-babel-options@file:components/internal/get-babel-options":
   version "1.0.0"
   dependencies:
     fs-extra "^4.0.1"
 
 "@bit/bit.envs.testers.jest-15@file:./components/testers/jest-15":
-  version "0.0.1"
+  version "0.0.2"
   dependencies:
     child-process-promise "^2.2.1"
     enzyme "2.9.1"
@@ -858,7 +842,7 @@
     sinon "3.2.1"
 
 "@bit/bit.envs.testers.jest@file:./components/testers/jest":
-  version "0.0.35"
+  version "22.4.3"
   dependencies:
     "@bit/bit.utils.file.extract-file-name-from-path" "0.0.3"
     "@bit/bit.utils.validation.empty" "0.0.1"
@@ -868,7 +852,7 @@
     upath "^1.1.0"
 
 "@bit/bit.envs.testers.karma-mocha-react@file:./components/testers/karma-mocha-react":
-  version "0.0.21"
+  version "0.0.22"
   dependencies:
     chai "^4.1.1"
     chai-enzyme "^0.8.0"
@@ -890,7 +874,7 @@
     webpack "^3.5.6"
 
 "@bit/bit.envs.testers.karma-mocha@file:./components/testers/karma-mocha":
-  version "0.0.10"
+  version "1.7.1"
   dependencies:
     "@bit/bit.utils.file.extract-file-name-from-path" "0.0.3"
     "@bit/bit.utils.validation.empty" "0.0.1"
@@ -923,7 +907,7 @@
     teaspoon "6.6.0"
 
 "@bit/bit.envs.testers.mocha-react@file:./components/testers/mocha-react":
-  version "0.0.7"
+  version "0.0.8"
   dependencies:
     chai "^4.1.1"
     chai-enzyme "^0.8.0"
@@ -939,31 +923,13 @@
     teaspoon "^6.6.0"
 
 "@bit/bit.envs.testers.mocha@file:./components/testers/mocha":
-  version "0.0.17"
+  version "5.0.2"
   dependencies:
     "@bit/bit.utils.string.starts-with-one-of" "1.0.0"
     "@bit/bit.utils.validation.empty" "0.0.1"
     ignore-styles "5.0.1"
     jsdom "~11.11.0"
     mocha "^5.0.2"
-
-"@bit/bit.envs.utils.babel-base-compiler@file:./components/utils/babel-base-compiler":
-  version "0.0.3"
-  dependencies:
-    "@bit/bit.envs.utils.get-babel-options" "file:../../../Library/Caches/Yarn/v2/npm-@bit/get-babel-options"
-    "@bit/bit.utils.object.group-by" "0.0.1"
-    babel-core "^6.26.0"
-    vinyl "^2.1.0"
-
-"@bit/bit.envs.utils.get-babel-options@file:./components/utils/get-babel-options", "@bit/bit.envs.utils.get-babel-options@file:components/utils/get-babel-options":
-  version "0.0.3"
-  dependencies:
-    fs-extra "^4.0.1"
-
-"@bit/bit.envs.utils.get-babel-rc@file:./components/utils/get-babel-rc":
-  version "0.0.2"
-  dependencies:
-    fs-extra "^4.0.1"
 
 "@bit/bit.utils.file.extract-file-name-from-path@0.0.3":
   version "0.0.3"

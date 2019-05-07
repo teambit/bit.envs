@@ -384,7 +384,8 @@
         "rootDir": "components/compilers/babel",
         "origin": "IMPORTED",
         "dependencies": [
-            "bit.envs/internal/get-babel-options@1.0.0"
+            "bit.envs/internal/get-babel-options@1.0.0",
+            "bit.envs/internal/babel-base-compiler@1.0.1"
         ],
         "originallySharedDir": "src"
     },
@@ -426,6 +427,10 @@
         "mainFile": "compilers/preact/index.js",
         "rootDir": "components/compilers/preact",
         "origin": "IMPORTED",
+        "dependencies": [
+            "bit.envs/internal/get-babel-options@1.0.0",
+            "bit.envs/internal/babel-base-compiler@1.0.1"
+        ],
         "originallySharedDir": "src"
     },
     "bit.envs/compilers/flow@7.0.1": {
@@ -450,7 +455,8 @@
         "rootDir": "components/compilers/flow",
         "origin": "IMPORTED",
         "dependencies": [
-            "bit.envs/internal/get-babel-options@1.0.0"
+            "bit.envs/internal/get-babel-options@1.0.0",
+            "bit.envs/internal/babel-base-compiler@1.0.1"
         ],
         "originallySharedDir": "src"
     },
