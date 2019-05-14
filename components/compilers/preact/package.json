@@ -1,6 +1,6 @@
 {
   "name": "@bit/bit.envs.compilers.preact",
-  "version": "8.4.3",
+  "version": "8.4.4",
   "homepage": "https://bit.dev/bit/envs/compilers/preact",
   "main": "compilers/preact/index.js",
   "dependencies": {
@@ -23,6 +23,7 @@
     "overrides": {
       "dependencies": {
         "@babel/plugin-transform-react-jsx": "+",
+        "@babel/preset-env": "+",
         "@babel/plugin-proposal-class-properties": "+",
         "@babel/plugin-proposal-export-default-from": "+",
         "@babel/plugin-proposal-export-namespace-from": "+",

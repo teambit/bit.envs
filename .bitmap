@@ -461,7 +461,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "src/bundlers/vue"
     },
-    "bit.envs/compilers/preact@8.4.3": {
+    "bit.envs/compilers/preact@8.4.4": {
         "files": [
             {
                 "name": ".babelrc",
