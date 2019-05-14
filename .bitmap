@@ -406,33 +406,6 @@
         "rootDir": "components/compilers/react-css",
         "origin": "IMPORTED"
     },
-    "bit.envs/compilers/preact@8.4.2": {
-        "files": [
-            {
-                "name": ".babelrc",
-                "relativePath": "compilers/preact/.babelrc",
-                "test": false
-            },
-            {
-                "name": "index.js",
-                "relativePath": "compilers/preact/index.js",
-                "test": false
-            },
-            {
-                "name": "readme.md",
-                "relativePath": "compilers/preact/readme.md",
-                "test": false
-            }
-        ],
-        "mainFile": "compilers/preact/index.js",
-        "rootDir": "components/compilers/preact",
-        "origin": "IMPORTED",
-        "dependencies": [
-            "bit.envs/internal/get-babel-options@1.0.0",
-            "bit.envs/internal/babel-base-compiler@1.0.1"
-        ],
-        "originallySharedDir": "src"
-    },
     "bit.envs/compilers/flow@7.0.1": {
         "files": [
             {
@@ -487,6 +460,33 @@
         "rootDir": "components/bundlers/vue",
         "origin": "IMPORTED",
         "originallySharedDir": "src/bundlers/vue"
+    },
+    "bit.envs/compilers/preact@8.4.3": {
+        "files": [
+            {
+                "name": ".babelrc",
+                "relativePath": "compilers/preact/.babelrc",
+                "test": false
+            },
+            {
+                "name": "index.js",
+                "relativePath": "compilers/preact/index.js",
+                "test": false
+            },
+            {
+                "name": "readme.md",
+                "relativePath": "compilers/preact/readme.md",
+                "test": false
+            }
+        ],
+        "mainFile": "compilers/preact/index.js",
+        "rootDir": "components/compilers/preact",
+        "origin": "IMPORTED",
+        "dependencies": [
+            "bit.envs/internal/get-babel-options@1.0.0",
+            "bit.envs/internal/babel-base-compiler@1.0.1"
+        ],
+        "originallySharedDir": "src"
     },
     "version": "14.1.0"
 }

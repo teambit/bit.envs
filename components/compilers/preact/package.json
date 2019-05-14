@@ -1,33 +1,33 @@
 {
-    "name": "@bit/bit.envs.compilers.preact",
-    "version": "8.4.2",
-    "homepage": "https://bit.dev/bit/envs/compilers/preact",
-    "main": "compilers/preact/index.js",
-    "dependencies": {
-        "@babel/plugin-proposal-class-properties": "^7.3.4",
-        "@babel/plugin-proposal-export-default-from": "^7.2.0",
-        "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
-        "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
-        "@babel/plugin-transform-react-jsx": "^7.3.0",
-        "@babel/preset-env": "^7.3.4",
-        "@bit/bit.envs.internal.babel-base-compiler": "file:../../internal/babel-base-compiler"
+  "name": "@bit/bit.envs.compilers.preact",
+  "version": "8.4.3",
+  "homepage": "https://bit.dev/bit/envs/compilers/preact",
+  "main": "compilers/preact/index.js",
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/preset-env": "^7.3.4",
+    "@bit/bit.envs.internal.babel-base-compiler": "file:../../internal/babel-base-compiler"
+  },
+  "devDependencies": {},
+  "peerDependencies": {},
+  "componentRootFolder": "components/compilers/preact",
+  "license": "SEE LICENSE IN LICENSE",
+  "bit": {
+    "env": {
+      "compiler": "bit.envs/compilers/babel@0.0.7"
     },
-    "devDependencies": {},
-    "peerDependencies": {},
-    "componentRootFolder": "components/compilers/preact",
-    "license": "SEE LICENSE IN LICENSE",
-    "bit": {
-        "env": {
-            "compiler": "bit.envs/compilers/babel@0.0.7"
-        },
-        "overrides": {
-            "dependencies": {
-                "@babel/plugin-transform-react-jsx": "+",
-                "@babel/plugin-proposal-class-properties": "+",
-                "@babel/plugin-proposal-export-default-from": "+",
-                "@babel/plugin-proposal-export-namespace-from": "+",
-                "@babel/plugin-proposal-object-rest-spread": "+"
-            }
-        }
+    "overrides": {
+      "dependencies": {
+        "@babel/plugin-transform-react-jsx": "+",
+        "@babel/plugin-proposal-class-properties": "+",
+        "@babel/plugin-proposal-export-default-from": "+",
+        "@babel/plugin-proposal-export-namespace-from": "+",
+        "@babel/plugin-proposal-object-rest-spread": "+"
+      }
     }
+  }
 }
