@@ -1,17 +1,13 @@
 {
-  "presets": ["latest", "react"],
+  "presets": ["@babel/preset-env"],
   "sourceMaps": true,
   "ast": false,
   "minified": false,
   "plugins": [
-    ["transform-object-rest-spread", {"useBuiltIns": true}],
-    "transform-decorators-legacy",
-    "transform-object-entries",
-    "object-values-to-object-keys",
-    "transform-export-extensions",
-    "transform-class-properties",
-    "transform-async-to-generator",
-    ["transform-react-jsx", {"useBuiltIns": true,  "pragma":"h"}],
-    ["transform-regenerator", {"async": false}]
+    ["@babel/plugin-transform-react-jsx", { "pragma":"h" }],
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-export-default-from",
+    "@babel/plugin-proposal-export-namespace-from",
+    "@babel/plugin-proposal-object-rest-spread"
   ]
 }
