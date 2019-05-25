@@ -1,0 +1,23 @@
+{
+  "name": "@bit/bit.envs.bundlers.vue",
+  "version": "2.5.0",
+  "homepage": "https://bit.dev/bit/envs/bundlers/vue",
+  "main": "index.js",
+  "dependencies": {
+    "memory-fs": "^0.4.1",
+    "vinyl": "^2.1.0",
+    "webpack": "^3.11.0",
+    "css-loader": "^0.28.10",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "uglifyjs-webpack-plugin": "^1.2.0",
+    "vue-loader": "^14.1.1",
+    "vue-style-loader": "^4.0.2",
+    "vue-template-compiler": "^2.5.13",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "devDependencies": {},
+  "peerDependencies": {},
+  "componentRootFolder": "components/bundlers/vue",
+  "license": "SEE LICENSE IN LICENSE"
+}

@@ -1,0 +1,13 @@
+{
+  "presets": ["@babel/preset-env"],
+  "sourceMaps": true,
+  "ast": false,
+  "minified": false,
+  "plugins": [
+    ["@babel/plugin-transform-react-jsx", { "pragma":"h" }],
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-export-default-from",
+    "@babel/plugin-proposal-export-namespace-from",
+    "@babel/plugin-proposal-object-rest-spread"
+  ]
+}
