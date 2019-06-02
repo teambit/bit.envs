@@ -1,5 +1,5 @@
 import path from 'path';
-import {typescriptCompile} from '../../internal/typescript-base-compiler'
+import {typescriptCompile} from '@bit/bit.envs.internal.typescript-base-compiler';
 const compiledFileTypes = ['ts'];
 const tsconfig = require(path.join(__dirname, './tsconfig.json'));
 
