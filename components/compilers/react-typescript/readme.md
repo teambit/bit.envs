@@ -16,6 +16,7 @@ bit build
  ## What's inside
 
 - Compiles `ts` and `tsx` files.
+- Emit `d.ts` files.
 - In order to see which typescript config are used, take a look at the [`tsconfig.json`](https://bit.dev/bit/envs/compilers/react-typescript/~code#tsconfig.json) file.
 
 ## Reconfiguring this environment

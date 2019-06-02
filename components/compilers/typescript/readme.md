@@ -15,6 +15,7 @@ Then build using [bit build](https://docs.bitsrc.io/docs/cli-build.html).
  
 ## What's inside
  - Compiles `ts` files.
+ - Emit `d.ts` files.
  - In order to see which typescript config are used, take a look at the [`tsconfig.json`](https://bit.dev/bit/envs/compilers/typescript/~code#tsconfig.json) file.
 
 ## Reconfiguring this environment
