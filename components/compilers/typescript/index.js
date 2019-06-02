@@ -4,63 +4,41 @@ import Vinyl from 'vinyl';
 import path from 'path';
 import groupBy from '@bit/bit.utils.object.group-by';
 
-const compiledFileTypes = ['tsx', 'ts'];
+const compiledFileTypes = ['ts'];
+const tsconfig = require(path.join(__dirname, './tsconfig.json'));
 
 const compile = (files, distPath, context) => {
-    // console.log()
-    // console.time('compile')
-    // TODO: change to load from tsconfig.json using ts.parseJsonSourceFileConfigFileContent
-    const compilerOptions =  {
-        module: ts.ModuleKind.CommonJS,
-        noEmit: true,
-        allowJs: false,
-        esModuleInterop: true,
-        declaration: true,
-        sourceMap: true,
-        jsx: 'react',
-        target: 'es5',
-        incremental: true,
-        isolatedModules: true
-    
-    };
-
-    // Divide files by whether we should compile them, according to file type.
+    const compilerOptions = tsconfig
     const filesByToCompile = groupBy(files, _toCompile, context);
 
-    // const compiled = (!filesByToCompile.true || filesByToCompile.true.length === 0) ? [] : filesByToCompile.true.map(file => compileSingleFile(file, compilerOptions, distPath)).reduce((a, b) => a.concat(b));
-    // console.time('compileComponent')
     const compiled = (!filesByToCompile.true || filesByToCompile.true.length === 0) ? [] : compileComponent(filesByToCompile.true, compilerOptions, distPath, context)
-    // console.timeEnd('compileComponent')
     const nonCompiled = !filesByToCompile.false ? [] : filesByToCompile.false.map(file => _getDistFile(file, distPath, false));
-    // console.timeEnd('compile')
     return compiled.concat(nonCompiled);
 }
 
 let oldProgram = undefined
-export function compileComponent(files, options, path, context) {
-    // console.time('create')
+function compileComponent(files, options, path, context) {
+  
     let program = ts.createProgram(files.map(file => file.path), options, undefined, oldProgram);
     oldProgram = program
-    // console.timeEnd('create')
     let declarationFile;
     const sources = program.getSourceFile(context.componentObject.mainFile)
-    // console.time('emit')
-    const emitResults = program.emit(sources, (file, data) => {
+    program.emit(sources, (file, data) => {
         declarationFile = new Vinyl({
             contents: new Buffer(data),
             base: path,
-            path: _getDistFilePath({relative:file.split(longestStartingSubstring(file, path))[1]}, path, true).replace('d.js', 'd.ts'),
+            path: _getDistFilePath({relative:file.split(longestStartingSubstring(file, path))[1]}, path, true)
+            .replace('d.js', 'd.ts'),
         });
     },undefined, true);
-    // console.timeEnd('emit')
-
+    
     const results = files.map(file => {
       if (isDefJS(file)) {
         return null
       }
         const result = ts.transpileModule(file.contents.toString(), 
             { 
-                compilerOptions: options, 
+                compilerOptions: options.compilerOptions, 
                 fileName: file.basename, 
                 moduleName: file.basename.split('.')[0]
             });
@@ -80,7 +58,7 @@ export function compileComponent(files, options, path, context) {
     return results
 }
 const _toCompile = (file) => {
-    return compiledFileTypes.indexOf(file.extname.replace('.','')) > -1;// && !file.stem.endsWith('.d');
+    return compiledFileTypes.indexOf(file.extname.replace('.','')) > -1 && !file.stem.endsWith('.d');
 }
 
 const _getDistFile = (file, distPath, reviseExtension, content) => {
