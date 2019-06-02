@@ -4,7 +4,7 @@
   "homepage": "https://bit.dev/bit/envs/compilers/react-typescript",
   "main": "index.js",
   "dependencies": {
-    "typescript": "^3.4.2",
+    "typescript": "^3.5.0",
     "vinyl": "^2.1.0",
     "@bit/bit.utils.object.group-by": "1.0.0"
   },
