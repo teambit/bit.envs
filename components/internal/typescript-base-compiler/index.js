@@ -1,0 +1,1 @@
+export { typescriptCompile } from './typescript-base'

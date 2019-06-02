@@ -22,6 +22,7 @@
         "mainFile": "index.js",
         "rootDir": "components/compilers/typescript",
         "origin": "IMPORTED",
+        "mainDistFile": "dist/components/compilers/typescript/index.js",
         "originallySharedDir": "src/compilers/typescript"
     },
     "bit.envs/internal/babel-base-compiler@1.0.1": {
@@ -488,5 +489,5 @@
         ],
         "originallySharedDir": "src"
     },
-    "version": "14.1.0"
+    "version": "14.1.1"
 }

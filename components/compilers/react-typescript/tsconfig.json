@@ -16,6 +16,7 @@
         "isolatedModules": true,
         "jsx": "react",
         "declaration": false,
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        "incremental": true
     }
 }
