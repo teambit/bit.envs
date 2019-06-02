@@ -738,7 +738,7 @@
     "@babel/plugin-proposal-export-default-from" "^7.2.0"
     "@babel/plugin-proposal-export-namespace-from" "^7.2.0"
     "@babel/preset-env" "^7.3.4"
-    "@bit/bit.envs.internal.babel-base-compiler" "file:../../../Library/Caches/Yarn/v2/internal/babel-base-compiler"
+    "@bit/bit.envs.internal.babel-base-compiler" "file:../../../.cache/yarn/v4/npm-@bit-bit-envs-compilers-babel-7.0.1-1687c310-8681-4c00-b55e-56971cf69f36-1559469991449/node_modules/internal/babel-base-compiler"
 
 "@bit/bit.envs.compilers.flow@file:./components/compilers/flow":
   version "7.0.1"
@@ -748,11 +748,11 @@
     "@babel/plugin-proposal-export-namespace-from" "^7.2.0"
     "@babel/preset-env" "^7.3.4"
     "@babel/preset-flow" "^7.0.0"
-    "@bit/bit.envs.internal.babel-base-compiler" "file:../../../Library/Caches/Yarn/v2/internal/babel-base-compiler"
+    "@bit/bit.envs.internal.babel-base-compiler" "file:../../../.cache/yarn/v4/npm-@bit-bit-envs-compilers-flow-7.0.1-b412e1d1-0553-4c9a-86c8-d007895cc473-1559469991485/node_modules/internal/babel-base-compiler"
     babel-plugin-preval "^3.0.1"
 
 "@bit/bit.envs.compilers.preact@file:./components/compilers/preact":
-  version "8.4.2"
+  version "8.4.4"
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.3.4"
     "@babel/plugin-proposal-export-default-from" "^7.2.0"
@@ -760,7 +760,7 @@
     "@babel/plugin-proposal-object-rest-spread" "^7.4.4"
     "@babel/plugin-transform-react-jsx" "^7.3.0"
     "@babel/preset-env" "^7.3.4"
-    "@bit/bit.envs.internal.babel-base-compiler" "file:../../../Library/Caches/Yarn/v2/internal/babel-base-compiler"
+    "@bit/bit.envs.internal.babel-base-compiler" "file:../../../.cache/yarn/v4/npm-@bit-bit-envs-compilers-preact-8.4.4-ca5705f0-8ff5-4c27-b8ba-4d1c39105d72-1559469991489/node_modules/internal/babel-base-compiler"
 
 "@bit/bit.envs.compilers.react-css@file:./components/compilers/react-css":
   version "0.0.2"
@@ -790,7 +790,7 @@
     "@babel/plugin-proposal-object-rest-spread" "^7.4.4"
     "@babel/preset-env" "^7.3.4"
     "@babel/preset-react" "^7.0.0"
-    "@bit/bit.envs.internal.babel-base-compiler" "file:../../../Library/Caches/Yarn/v2/internal/babel-base-compiler"
+    "@bit/bit.envs.internal.babel-base-compiler" "file:../../../.cache/yarn/v4/npm-@bit-bit-envs-compilers-react-1.0.2-b4ec54d1-8f88-4598-abac-2a06bdb4ffa5-1559469991492/node_modules/internal/babel-base-compiler"
 
 "@bit/bit.envs.compilers.typescript@file:./components/compilers/typescript":
   version "3.0.0"
@@ -803,7 +803,7 @@
   version "1.0.1"
   dependencies:
     "@babel/core" "7.3.4"
-    "@bit/bit.envs.internal.get-babel-options" "file:../../../Library/Caches/Yarn/v2/npm-@bit/get-babel-options"
+    "@bit/bit.envs.internal.get-babel-options" "file:../../../.cache/yarn/v4/npm-@bit-bit-envs-internal-babel-base-compiler-1.0.1-eb9fb731-1c38-49be-bfde-4ecbe24ff84b-1559469991478/node_modules/@bit/get-babel-options"
     "@bit/bit.utils.object.group-by" "1.0.0"
     vinyl "^2.1.0"
 
@@ -7240,7 +7240,7 @@ node-sass@4.5.3:
     sass-graph "^2.1.1"
     stdout-stream "^1.4.0"
 
-node-sass@^4.7.2:
+node-sass@^4.12.0, node-sass@^4.7.2:
   version "4.12.0"
   resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.12.0.tgz#0914f531932380114a30cc5fa4fa63233a25f017"
   dependencies:
