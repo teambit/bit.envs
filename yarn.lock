@@ -738,7 +738,7 @@
     "@babel/plugin-proposal-export-default-from" "^7.2.0"
     "@babel/plugin-proposal-export-namespace-from" "^7.2.0"
     "@babel/preset-env" "^7.3.4"
-    "@bit/bit.envs.internal.babel-base-compiler" "file:../../../Library/Caches/Yarn/v2/internal/babel-base-compiler"
+    "@bit/bit.envs.internal.babel-base-compiler" "file:components/internal/babel-base-compiler"
 
 "@bit/bit.envs.compilers.flow@file:./components/compilers/flow":
   version "7.0.1"
@@ -748,7 +748,7 @@
     "@babel/plugin-proposal-export-namespace-from" "^7.2.0"
     "@babel/preset-env" "^7.3.4"
     "@babel/preset-flow" "^7.0.0"
-    "@bit/bit.envs.internal.babel-base-compiler" "file:../../../Library/Caches/Yarn/v2/internal/babel-base-compiler"
+    "@bit/bit.envs.internal.babel-base-compiler" "file:components/internal/babel-base-compiler"
     babel-plugin-preval "^3.0.1"
 
 "@bit/bit.envs.compilers.preact@file:./components/compilers/preact":
@@ -760,7 +760,7 @@
     "@babel/plugin-proposal-object-rest-spread" "^7.4.4"
     "@babel/plugin-transform-react-jsx" "^7.3.0"
     "@babel/preset-env" "^7.3.4"
-    "@bit/bit.envs.internal.babel-base-compiler" "file:../../../Library/Caches/Yarn/v2/internal/babel-base-compiler"
+    "@bit/bit.envs.internal.babel-base-compiler" "file:components/internal/babel-base-compiler"
 
 "@bit/bit.envs.compilers.react-css@file:./components/compilers/react-css":
   version "0.0.2"
@@ -790,7 +790,7 @@
     "@babel/plugin-proposal-object-rest-spread" "^7.4.4"
     "@babel/preset-env" "^7.3.4"
     "@babel/preset-react" "^7.0.0"
-    "@bit/bit.envs.internal.babel-base-compiler" "file:../../../Library/Caches/Yarn/v2/internal/babel-base-compiler"
+    "@bit/bit.envs.internal.babel-base-compiler" "file:components/internal/babel-base-compiler"
 
 "@bit/bit.envs.compilers.typescript@file:./components/compilers/typescript":
   version "3.0.1"
@@ -803,7 +803,7 @@
   version "1.0.1"
   dependencies:
     "@babel/core" "7.3.4"
-    "@bit/bit.envs.internal.get-babel-options" "file:../../../Library/Caches/Yarn/v2/npm-@bit/get-babel-options"
+    "@bit/bit.envs.internal.get-babel-options" "file:components/internal/get-babel-options"
     "@bit/bit.utils.object.group-by" "1.0.0"
     vinyl "^2.1.0"
 
@@ -4498,8 +4498,8 @@ fsevents@^1.0.0, fsevents@^1.2.3, fsevents@^1.2.7:
     node-pre-gyp "^0.12.0"
 
 fstream@^1.0.0, fstream@^1.0.2:
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/fstream/-/fstream-1.0.11.tgz#5c1fb1f117477114f0632a0eb4b71b3cb0fd3171"
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/fstream/-/fstream-1.0.12.tgz#4e8ba8ee2d48be4f7d0de505455548eae5932045"
   dependencies:
     graceful-fs "^4.1.2"
     inherits "~2.0.0"
