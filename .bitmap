@@ -161,6 +161,29 @@
         "rootDir": "components/compilers/react-css",
         "origin": "IMPORTED"
     },
+    "bit.envs/compilers/react-typescript@3.0.2": {
+        "files": [
+            {
+                "name": "index.js",
+                "relativePath": "index.js",
+                "test": false
+            },
+            {
+                "name": "readme.md",
+                "relativePath": "readme.md",
+                "test": false
+            },
+            {
+                "name": "tsconfig.json",
+                "relativePath": "tsconfig.json",
+                "test": false
+            }
+        ],
+        "mainFile": "index.js",
+        "rootDir": "components/compilers/react-typescript",
+        "origin": "IMPORTED",
+        "originallySharedDir": "src/compilers/react-typescript"
+    },
     "bit.envs/compilers/react@1.0.2": {
         "files": [
             {
@@ -183,6 +206,30 @@
         "rootDir": "components/compilers/react",
         "origin": "IMPORTED",
         "originallySharedDir": "src"
+    },
+    "bit.envs/compilers/typescript@3.0.1": {
+        "files": [
+            {
+                "name": "index.js",
+                "relativePath": "index.js",
+                "test": false
+            },
+            {
+                "name": "readme.md",
+                "relativePath": "readme.md",
+                "test": false
+            },
+            {
+                "name": "tsconfig.json",
+                "relativePath": "tsconfig.json",
+                "test": false
+            }
+        ],
+        "mainFile": "index.js",
+        "rootDir": "components/compilers/typescript",
+        "origin": "IMPORTED",
+        "mainDistFile": "dist/components/compilers/typescript/index.js",
+        "originallySharedDir": "src/compilers/typescript"
     },
     "bit.envs/internal/babel-base-compiler@1.0.1": {
         "files": [
@@ -232,6 +279,24 @@
         "rootDir": "components/internal/get-babel-options",
         "origin": "IMPORTED",
         "originallySharedDir": "src/internal/getBabelOptions"
+    },
+    "bit.envs/internal/typescript-base-compiler@3.5.0": {
+        "files": [
+            {
+                "relativePath": "components/internal/typescript-base-compiler/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "components/internal/typescript-base-compiler/typescript-base.js",
+                "test": false,
+                "name": "typescript-base.js"
+            }
+        ],
+        "mainFile": "components/internal/typescript-base-compiler/index.js",
+        "trackDir": "components/internal/typescript-base-compiler",
+        "origin": "AUTHORED",
+        "exported": true
     },
     "bit.envs/testers/jest-15@0.0.2": {
         "files": [
@@ -423,70 +488,5 @@
         "origin": "IMPORTED",
         "originallySharedDir": "src/testers/mocha"
     },
-    "bit.envs/internal/typescript-base-compiler@3.5.0": {
-        "files": [
-            {
-                "relativePath": "components/internal/typescript-base-compiler/index.js",
-                "test": false,
-                "name": "index.js"
-            },
-            {
-                "relativePath": "components/internal/typescript-base-compiler/typescript-base.js",
-                "test": false,
-                "name": "typescript-base.js"
-            }
-        ],
-        "mainFile": "components/internal/typescript-base-compiler/index.js",
-        "trackDir": "components/internal/typescript-base-compiler",
-        "origin": "AUTHORED",
-        "exported": true
-    },
-    "bit.envs/compilers/typescript@3.0.0": {
-        "files": [
-            {
-                "name": "index.js",
-                "relativePath": "index.js",
-                "test": false
-            },
-            {
-                "name": "readme.md",
-                "relativePath": "readme.md",
-                "test": false
-            },
-            {
-                "name": "tsconfig.json",
-                "relativePath": "tsconfig.json",
-                "test": false
-            }
-        ],
-        "mainFile": "index.js",
-        "rootDir": "components/compilers/typescript",
-        "origin": "IMPORTED",
-        "mainDistFile": "dist/components/compilers/typescript/index.js",
-        "originallySharedDir": "src/compilers/typescript"
-    },
-    "bit.envs/compilers/react-typescript@3.0.1": {
-        "files": [
-            {
-                "name": "index.js",
-                "relativePath": "index.js",
-                "test": false
-            },
-            {
-                "name": "readme.md",
-                "relativePath": "readme.md",
-                "test": false
-            },
-            {
-                "name": "tsconfig.json",
-                "relativePath": "tsconfig.json",
-                "test": false
-            }
-        ],
-        "mainFile": "index.js",
-        "rootDir": "components/compilers/react-typescript",
-        "origin": "IMPORTED",
-        "originallySharedDir": "src/compilers/react-typescript"
-    },
-    "version": "14.1.2-dev.6"
+    "version": "14.1.2"
 }
