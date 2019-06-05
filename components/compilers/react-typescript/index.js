@@ -7,7 +7,7 @@ import {typescriptCompile} from '@bit/bit.envs.internal.typescript-base-compiler
 
 const compile = (files, distPath, context) => {
   const compilerOptions = tsconfig
-  typescriptCompile(files, distPath,context, {fileTypes: compiledFileTypes, compilerOptions })
+  return typescriptCompile(files, distPath,context, {fileTypes: compiledFileTypes, compilerOptions })
 }
 
 export default {compile};

@@ -161,7 +161,7 @@
         "rootDir": "components/compilers/react-css",
         "origin": "IMPORTED"
     },
-    "bit.envs/compilers/react-typescript@3.0.2": {
+    "bit.envs/compilers/react-typescript@3.0.4": {
         "files": [
             {
                 "name": "index.js",
@@ -207,7 +207,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "src"
     },
-    "bit.envs/compilers/typescript@3.0.1": {
+    "bit.envs/compilers/typescript@3.0.3": {
         "files": [
             {
                 "name": "index.js",
@@ -280,7 +280,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "src/internal/getBabelOptions"
     },
-    "bit.envs/internal/typescript-base-compiler@3.5.0": {
+    "bit.envs/internal/typescript-base-compiler@3.5.1": {
         "files": [
             {
                 "relativePath": "components/internal/typescript-base-compiler/index.js",
@@ -488,5 +488,5 @@
         "origin": "IMPORTED",
         "originallySharedDir": "src/testers/mocha"
     },
-    "version": "14.1.2"
+    "version": "14.1.3-dev.1"
 }
