@@ -73,6 +73,15 @@ We actively welcome your pull requests.
 3. Ensure the test suite passes.
 4. Add your change to the CHANGELOG.md file at the [unreleased] section.
 
+## Running this project
+1. clone
+2. make sure the local scope name is different then bit.envs to prevent collision with bit.dev scope name. (either change the name inside `.git/bit/scope.json` or make sure to clone to a folder other than `bit.envs` (the default scope name is the same as the dir name))
+1. `bit import` (it takes some time)
+1. `npm i`
+1. `bit import --merge`
+1. `bit link`
+1. validate by running `bit status` and make sure everything is ok
+
 ## License
 
 By contributing to Bit, you agree that your contributions will be licensed
