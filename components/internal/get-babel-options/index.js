@@ -9,23 +9,26 @@ const getBabelRc = (pathToLook) => {
 
 const moduleIsAvailable = (modulePath) => {
     try {
-        require.resolve(modulePath);
-        return true;
+        return require.resolve(modulePath);;
     } catch (e) {
         return false;
     }
 }
 
 const addBabelPrefixAndResolve = (prefixType, obj) => {
-    if (moduleIsAvailable(obj)) {
-        return require.resolve(obj);
-    } else if (obj.startsWith('@babel/')) {
+    const moduleIsExist = moduleIsAvailable(obj);
+    if (moduleIsExist) {
+        return moduleIsExist;
+    }
+    if (obj.startsWith('@babel/')) {
         if (!obj.startsWith(`@babel/${prefixType}`)) {
-            return require.resolve(`@babel/${prefixType}-${obj}`);
+            obj = `@babel/${prefixType}-${obj}`;
         }
     } else if (!obj.startsWith(`babel-${prefixType}`)) {
-        return require.resolve(`babel-${prefixType}-${obj}`);
+        obj = `babel-${prefixType}-${obj}`;
     }
+
+    return require.resolve(obj);
 }
 
 /**
