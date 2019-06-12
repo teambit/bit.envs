@@ -7,7 +7,7 @@
   <a href="https://bit.dev/bit/envs"><img src="https://storage.googleapis.com/bit-docs/Screen%20Shot%202019-06-06%20at%201.26.32%20PM.png"></a>
 </p>
 
-[Component collection](https://bit.dev/bit/envs) • [Docs](https://docs.bit.dev/docs/building-components.html)  
+[Compiler/Tester collection](https://bit.dev/bit/envs) • [Docs](https://docs.bit.dev/docs/building-components.html)  
 
 Bit helps you easily share many components. To save the overhead of separately defining build and test steps for every component, bit lets you use reusable extensions as **compilers** and **testers** for the components in your workspace.  
 
@@ -35,6 +35,8 @@ All bit compilers and testers are available and can be used from [this bit.dev c
 - [Preact](https://bit.dev/bit/envs/compilers/preact)
 - [Webpack](https://bit.dev/bit/envs/bundlers/webpack)
 - [Webpack-CSS-Modules](https://bit.dev/bit/envs/bundlers/webpack-css-modules)
+
+See: "[Which Bit compiler should I use?](https://blog.bitsrc.io/which-bit-compiler-should-i-use-173bea1d9da4)"
 
 ## How to use a Bit compiler
 
