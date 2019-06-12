@@ -16,9 +16,9 @@ const moduleIsAvailable = (modulePath) => {
 }
 
 const addBabelPrefixAndResolve = (prefixType, obj) => {
-    const moduleIsExist = moduleIsAvailable(obj);
-    if (moduleIsExist) {
-        return moduleIsExist;
+    const resolvedModule = moduleIsAvailable(obj);
+    if (resolvedModule) {
+        return resolvedModule;
     }
     if (obj.startsWith('@babel/')) {
         if (!obj.startsWith(`@babel/${prefixType}`)) {
