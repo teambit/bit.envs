@@ -7,16 +7,25 @@ const getBabelRc = (pathToLook) => {
     return JSON.parse(file);
 }
 
+const moduleIsAvailable = (modulePath) => {
+    try {
+        require.resolve(modulePath);
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+
 const addBabelPrefixAndResolve = (prefixType, obj) => {
-    if (obj.startsWith('@babel/')) {
+    if (moduleIsAvailable(obj)) {
+        return require.resolve(obj);
+    } else if (obj.startsWith('@babel/')) {
         if (!obj.startsWith(`@babel/${prefixType}`)) {
-            obj = `@babel/${prefixType}-${obj}`;
+            return require.resolve(`@babel/${prefixType}-${obj}`);
         }
     } else if (!obj.startsWith(`babel-${prefixType}`)) {
-        obj = `babel-${prefixType}-${obj}`;
+        return require.resolve(`babel-${prefixType}-${obj}`);
     }
-
-    return require.resolve(obj);
 }
 
 /**
