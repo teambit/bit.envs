@@ -12,7 +12,7 @@ export function typescriptCompile(files, distPath, context, extra) {
 }
 
 let oldProgram = undefined
-function compileComponent(files, options, path, context) {
+function compileComponent(files, options, distPath, context) {
     
     let program = ts.createProgram(files.map(file => file.path), options, undefined, oldProgram);
     oldProgram = program
@@ -20,10 +20,13 @@ function compileComponent(files, options, path, context) {
     
     let declarationFile;
     program.emit(sources, (file, data) => {
+        const normalizedFile = path.normalize(file);
+        const longest = longestStartingSubstring(normalizedFile, path.normalize(distPath));
+        const relative = normalizedFile.replace(longest, '');
         declarationFile = new Vinyl({
             contents: new Buffer(data),
-            base: path,
-            path: _getDistFilePath({relative:file.split(longestStartingSubstring(file, path))[1]}, path, true)
+            base: distPath,
+            path: _getDistFilePath({ relative }, distPath, true)
             .replace('d.js', 'd.ts'),
         });
     },undefined, true);
@@ -40,12 +43,12 @@ function compileComponent(files, options, path, context) {
         });
         const mappings = new Vinyl({
             contents: new Buffer(result.sourceMapText),
-            base: path,
-            path: _getDistFilePath(file, path, true),
+            base: distPath,
+            path: _getDistFilePath(file, distPath, true),
         });
         mappings.basename = _getRevisedFileExtension(file.basename) + '.map';
         const fileContent = result.outputText ?  new Buffer(`${result.outputText}\n\n//# sourceMappingURL=${result.sourceMapText}`) : new Buffer(result.outputText);
-        const distFile = _getDistFile(file, path, true, fileContent);
+        const distFile = _getDistFile(file, distPath, true, fileContent);
         return [mappings, distFile, declarationFile];
     })
     .filter((a)=> !!a)
