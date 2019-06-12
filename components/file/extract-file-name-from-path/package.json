@@ -1,0 +1,13 @@
+{
+    "name": "@bit/bit.utils.file.extract-file-name-from-path",
+    "version": "1.0.0",
+    "homepage": "https://bit.dev/bit/utils/file/extract-file-name-from-path",
+    "main": "src/file/extractFileNameFromPath/index.js",
+    "dependencies": {},
+    "devDependencies": {
+        "chai": "^4.1.2"
+    },
+    "peerDependencies": {},
+    "componentRootFolder": "components/file/extract-file-name-from-path",
+    "license": "SEE LICENSE IN LICENSE"
+}

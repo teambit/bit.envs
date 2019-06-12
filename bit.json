@@ -3,7 +3,7 @@
         "compiler": "bit.envs/compilers/babel@0.0.7"
     },
     "componentsDefaultDirectory": "components/{namespace}/{name}",
-    "packageManager": "yarn",
+    "packageManager": "npm",
     "useWorkspaces": true,
     "dist": {
         "target": "dist"

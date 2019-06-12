@@ -1,0 +1,15 @@
+{
+    "name": "@bit/bit.utils.validation.empty",
+    "version": "1.0.0",
+    "homepage": "https://bit.dev/bit/utils/validation/empty",
+    "main": "src/validation/empty.js",
+    "dependencies": {
+        "@bit/bit.utils.object.has-own-property": "1.0.0"
+    },
+    "devDependencies": {
+        "chai": "^4.1.2"
+    },
+    "peerDependencies": {},
+    "componentRootFolder": "components/validation/empty",
+    "license": "SEE LICENSE IN LICENSE"
+}
