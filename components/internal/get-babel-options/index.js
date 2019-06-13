@@ -11,7 +11,7 @@ const moduleIsAvailable = (modulePath) => {
     try {
         return require.resolve(modulePath);;
     } catch (e) {
-        return false;
+        return null;
     }
 }
 
