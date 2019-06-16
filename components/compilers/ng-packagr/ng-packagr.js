@@ -35,11 +35,11 @@ const compile = async (files, distPath, context) => {
     }
     const ngPackge = createPackagrFile(directory, info)
     await runNGPackagr(ngPackge)
-    const compiledFiles = await collectDistFiles(directory, info)
+    const dists = await collectDistFiles(directory, info)
     await capsule.destroy()
-    const mainDistFile = path.join('dist', info.name,'esm2015', path.basename(mainFile))
+    const mainDistFile = path.join(info.name,'esm2015', path.basename(mainFile).replace('.ts', ''))
     console.log('\nmain dist file: ', mainDistFile)
-    return compiledFiles
+    return {dists, mainFile: mainDistFile}
 }
 
 export async function collectDistFiles(directory, info) {
