@@ -10,6 +10,8 @@ import {default as execa} from 'execa'
 import {writeFileSync, readFileSync} from 'fs';
 import readdir from 'recursive-readdir'
 import Vinyl from 'vinyl';
+import {promises as fs} from 'fs'
+ 
 
 const os = require('os')
 
@@ -78,9 +80,9 @@ export async function adjustFileSystem(info) {
 function createArtificialEntryPoint(info) {
     const pathToEntry = path.join(getFullCapsuleDir(info.directory), 'index.ts')
     const content  = `
-        export * from '${info.name}/${info.mainFile}';
+        export default './${info.name}/${info.main}';
     `
-    info.capsule.fs.writeFile(pathToEntry, content)
+    fs.writeFile(pathToEntry, content)
 }
 
 function createPackagrFile(capsuleDir, info) {
@@ -108,8 +110,8 @@ function getFullComponentDir(info) {
 
 function mvPackageJSon(info) {
     const packageJsonOldPath = path.join(getFullComponentDir(info), 'package.json')
-    const packageJsonNewPath = path.join(getFullCapsuleDir(info.capsuleDir), 'package.json')  
-    return new Promise((resolve) => info.capsule.fs.rename(packageJsonOldPath, packageJsonNewPath, resolve))
+    const packageJsonNewPath = path.join(getFullCapsuleDir(info.directory), 'package.json')  
+    return fs.rename(packageJsonOldPath, packageJsonNewPath)
 }
 function getTSConfigPath(info) {
     return path.join(getFullCapsuleDir(info.directory), 'tsconfig.json')
@@ -144,11 +146,6 @@ function createTSConfig(info) {
         "exclude": [".dependencies","node_modules", "dist", "**/*.ngfactory.ts", "**/*.shim.ts", "**/*.spec.ts"],
         "include": ["index.ts"]
     }
-    return new Promise((resolve, reject) => info.capsule.fs.writeFile(pathToConfig, JSON.stringify(content),(err)=> {
-        if (err) {
-            reject(err)
-        }
-        return resolve()
-    }))
+    return fs.writeFile(pathToConfig, JSON.stringify(content))
 }
 export default { compile }
