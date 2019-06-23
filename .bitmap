@@ -228,7 +228,6 @@
         "mainFile": "index.js",
         "rootDir": "components/compilers/typescript",
         "origin": "IMPORTED",
-        "mainDistFile": "dist/components/compilers/typescript/index.js",
         "originallySharedDir": "src/compilers/typescript"
     },
     "bit.envs/internal/babel-base-compiler@1.0.1": {
@@ -488,5 +487,18 @@
         "origin": "IMPORTED",
         "originallySharedDir": "src/testers/mocha"
     },
-    "version": "14.1.3-dev.1"
+    "qballer.ng-stage/ng-packagr@0.0.4": {
+        "files": [
+            {
+                "relativePath": "components/compilers/ng-packagr/ng-packagr.js",
+                "test": false,
+                "name": "ng-packagr.js"
+            }
+        ],
+        "mainFile": "components/compilers/ng-packagr/ng-packagr.js",
+        "trackDir": "components/compilers/ng-packagr",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "version": "14.1.4-dev.1"
 }
