@@ -7,13 +7,15 @@ import 'typescript'
 
 import path from 'path'
 import {default as execa} from 'execa'
-import {writeFileSync, readFileSync} from 'fs';
+import {readFileSync} from 'fs';
 import readdir from 'recursive-readdir'
 import Vinyl from 'vinyl';
 import {promises as fs} from 'fs'
  
 
 const os = require('os')
+
+const FILE_NAME = 'public_api'
 
 const compile = async (files, distPath, context) => {
     const mainFile = context.componentObject.mainFile
@@ -23,10 +25,9 @@ const compile = async (files, distPath, context) => {
 
     const res = await context.isolate(directory)
     const capsule = res.capsule
-    const val = await capsule.exec('npm i @angular/core @angular/common @angular/animations')
-
-    const dependencies = Object
-                            .keys(context.componentObject.dependencies)
+    const val = await capsule.exec('npm i tslib')
+    const dependencies = context
+                            .componentObject.dependencies.map(val => val.id)
                             .concat(Object.keys(context.componentObject.packageDependencies))
     const info = {
         main: mainFile,
@@ -37,15 +38,15 @@ const compile = async (files, distPath, context) => {
         directory
     }
     const ngPackgr = await adjustFileSystem(info)
-    await runNGPackagr(ngPackgr, directory)
-    const dists = await collectDistFiles(directory, info)
-    await capsule.destroy()
+    await runNGPackagr(ngPackgr, info)
+    const dists = await collectDistFiles(info)
+    //await capsule.destroy()
     const mainDistFile = path.join(info.name,'esm2015', path.basename(mainFile).replace('.ts', ''))
     return { dists, mainFile: mainDistFile }
 }
 
-export async function collectDistFiles(directory, info) {
-    const capsuleDir = getFullCapsuleDir(directory)
+async function collectDistFiles(info) {
+    const capsuleDir = info.directory
     
     const compDistDir = path.resolve(capsuleDir, 'dist')
     const files = await readdir(compDistDir)
@@ -57,64 +58,46 @@ export async function collectDistFiles(directory, info) {
     })
 }
 
-async function runNGPackagr(ngPackge, directory) {
+async function runNGPackagr(ngPackge, info) {
     let result = null
     const scriptFile = path.resolve(require.resolve('ng-packagr/cli/main'))
-
+    const cwd = process.cwd()
     try {
-        result = await execa('node', [scriptFile, '-p', ngPackge, '-c', getTSConfigPath({directory})])
+        process.chdir(info.directory)
+        const args = [scriptFile, '-p ng-package.json -c tsconfig.json']
+        console.log(`node ${args.join(' ')}`)
+        result = await execa('node', args)
     } catch (e) {
-        console.log('\nError in packaging component!\n')
+        console.log('\nError in packaging component!\n', e)
+        process.chdir(cwd)
         throw e
     }
+    process.chdir(cwd)
     return result
 }
-export async function adjustFileSystem(info) {
-    const ngPackge = createPackagrFile(info.directory, info)
-    await mvPackageJSon(info)
+async function adjustFileSystem(info) {
+    const ngPackge = await createPackagrFile(info)
     await createTSConfig(info) 
-    await createArtificialEntryPoint(info) 
     return ngPackge
 }
-
-function createArtificialEntryPoint(info) {
-    const pathToEntry = path.join(getFullCapsuleDir(info.directory), 'index.ts')
-    const content  = `
-        export default './${info.name}/${info.main}';
-    `
-    fs.writeFile(pathToEntry, content)
-}
-
-function createPackagrFile(capsuleDir, info) {
-    const compDir = getFullCapsuleDir(capsuleDir)
+async function createPackagrFile(info) {
+    const compDir = info.directory
+    debugger
     const content = `{
         "$schema": "https://raw.githubusercontent.com/ng-packagr/ng-packagr/master/src/ng-package.schema.json",
         "dest": "dist",
         "lib": {
-            "entryFile": "index.ts"
+            "entryFile": "${FILE_NAME}"
         },
-        "whitelistedNonPeerDependencies":[${info.dependencies.map(val => `"${val}"`)}]
+        "whitelistedNonPeerDependencies":[${info.dependencies.map(val => `"${val}"`).concat([`"@angular/core"`])}]
     }`
     const filePath = path.resolve(path.join(compDir, 'ng-package.json'))
-    writeFileSync(filePath, content)
+    await fs.writeFile(filePath, content)
     return filePath
 }
 
-function getFullCapsuleDir(capsuleDir) {
-    return path.join(capsuleDir, 'components') 
-}
-
-function getFullComponentDir(info) {
-    return path.join(getFullCapsuleDir(info.directory), info.name)
-}
-
-function mvPackageJSon(info) {
-    const packageJsonOldPath = path.join(getFullComponentDir(info), 'package.json')
-    const packageJsonNewPath = path.join(getFullCapsuleDir(info.directory), 'package.json')  
-    return fs.rename(packageJsonOldPath, packageJsonNewPath)
-}
 function getTSConfigPath(info) {
-    return path.join(getFullCapsuleDir(info.directory), 'tsconfig.json')
+    return path.join(info.directory, 'tsconfig.json')
 }
 
 function createTSConfig(info) {
@@ -130,7 +113,7 @@ function createTSConfig(info) {
         "compileOnSave": false,
         "compilerOptions": {
           "baseUrl": ".",
-          "target": "ES6",
+          "target": "es6",
           "module": "es2015",
           "moduleResolution": "node",
           "outDir": "dist",
@@ -143,9 +126,8 @@ function createTSConfig(info) {
           "importHelpers": true,
           "lib": ["dom", "es2018"]
         },
-        "exclude": [".dependencies","node_modules", "dist", "**/*.ngfactory.ts", "**/*.shim.ts", "**/*.spec.ts"],
-        "include": ["index.ts"]
+        "exclude": ["node_modules", "dist", "**/*.ngfactory.ts", "**/*.shim.ts", "**/*.spec.ts"],
     }
-    return fs.writeFile(pathToConfig, JSON.stringify(content))
+    return fs.writeFile(pathToConfig, JSON.stringify(content, null, 4))
 }
 export default { compile }
