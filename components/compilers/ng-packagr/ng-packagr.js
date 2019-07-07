@@ -31,9 +31,10 @@ const compile = async (files, distPath, context) => {
     //                         .concat(Object.keys(context.componentObject.packageDependencies))
     const dependencies = getCustomDependencies(directory)
     if (!~dependencies.indexOf('@angular/core')) {
-        console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~installing angular/core~~~~~~~~~~~~~~~~~~~~~~~~~~~')
         await capsule.exec('npm i @angular/core')
     }
+    debugger
+
     const info = {
         main: mainFile,
         dist: distPath, 
@@ -46,12 +47,12 @@ const compile = async (files, distPath, context) => {
     await runNGPackagr(ngPackgr, info)
     const dists = await collectDistFiles(info)
     //await capsule.destroy()
-    const packageJson = getPackageJsonObject(dists)
+    const packageJson = getPackageJsonObject(dists, info.name)
     // const mainDistFile = path.join(info.name,'esm2015', path.basename(mainFile).replace('.ts', ''))
     const {main} = packageJson
     delete packageJson.main
     console.log('main is: ', main)
-    return { dists, mainFile:main}
+    return { dists, mainFile:main, packageJson}
 }
 
 async function collectDistFiles(info) {
@@ -95,7 +96,6 @@ async function adjustFileSystem(info) {
 
 async function createPackagrFile(info) {
     const compDir = info.directory
-    debugger
     const content = `{
         "$schema": "https://raw.githubusercontent.com/ng-packagr/ng-packagr/master/src/ng-package.schema.json",
         "dest": "dist",
@@ -144,12 +144,12 @@ function createTSConfig(info) {
     return fs.writeFile(pathToConfig, JSON.stringify(content, null, 4))
 }
 
-function getPackageJsonObject(dists) {
+function getPackageJsonObject(dists, name) {
     const pkgJsonRaw = dists.find(function(e){return e.basename === 'package.json'})
     const pkgJson = JSON.parse(pkgJsonRaw.contents.toString())
     const keysToTransform = ['es2015', 'esm5', 'esm2015', 'fesm5', 'fesm2015', 'main', 'module', 'typings']
     return keysToTransform.reduce((acc, key)=> {
-        acc[key] = pkgJson[key]
+        acc[key] = path.join('dist', name, pkgJson[key])
         return acc
     }, {})
 }
