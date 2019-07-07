@@ -45,7 +45,8 @@ const compile = async (files, distPath, context) => {
     // const mainDistFile = path.join(info.name,'esm2015', path.basename(mainFile).replace('.ts', ''))
     const {main} = packageJson
     delete packageJson.main
-    return { dists, mainFile:main, packageJson}
+    console.log('main is: ', main)
+    return { dists, mainFile:main}
 }
 
 async function collectDistFiles(info) {
