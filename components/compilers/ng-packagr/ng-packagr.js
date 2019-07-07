@@ -10,7 +10,7 @@ import path from 'path'
 import execa from 'execa'
 import readdir from 'recursive-readdir'
 import Vinyl from 'vinyl';
-import {promises as fs} from 'fs'
+import {promises as fs ,existsSync} from 'fs'
  
 
 const os = require('os')
@@ -25,10 +25,15 @@ const compile = async (files, distPath, context) => {
 
     const res = await context.isolate({targetDir: directory, shouldBuildDependencies:true})
     const capsule = res.capsule
-    const val = await capsule.exec('yarn add @angular/core tslib')
-    const dependencies = context
-                            .componentObject.dependencies.map(val => val.id)
-                            .concat(Object.keys(context.componentObject.packageDependencies))
+    const val = await capsule.exec('npm i tslib')
+    // const dependencies = context
+    //                         .componentObject.dependencies.map(val => val.id)
+    //                         .concat(Object.keys(context.componentObject.packageDependencies))
+    const dependencies = getCustomDependencies(directory)
+    if (!~dependencies.indexOf('@angular/core')) {
+        console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~installing angular/core~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+        await capsule.exec('npm i @angular/core')
+    }
     const info = {
         main: mainFile,
         dist: distPath, 
@@ -83,6 +88,7 @@ async function runNGPackagr(ngPackge, info) {
 
 async function adjustFileSystem(info) {
     const ngPackge = await createPackagrFile(info)
+    await createPublicAPIFile(info)
     await createTSConfig(info) 
     return ngPackge
 }
@@ -147,5 +153,21 @@ function getPackageJsonObject(dists) {
         return acc
     }, {})
 }
+
+function createPublicAPIFile(info) {
+    const pathToPublicAPI = path.resolve(info.directory, FILE_NAME)
+    if(existsSync(`${pathToPublicAPI}.ts`)) {
+        return
+    }
+    const relativePathContent = path.relative(info.directory, path.join(info.directory, info.main.split('.ts')[0]))
+    const content = `export * from '.${path.sep}${relativePathContent}'`
+    return fs.writeFile(`${pathToPublicAPI}.ts`, content)
+}
+
+function getCustomDependencies(dir) {
+    return Object.keys(require(`${dir}/package.json`).dependencies || {})
+
+}
+
 export default { compile }
 
