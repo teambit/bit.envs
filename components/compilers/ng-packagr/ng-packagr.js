@@ -4,10 +4,10 @@ import '@angular/compiler-cli'
 import '@angular/core'
 import 'ng-packagr'
 import 'typescript'
+import 'tslib'
 
 import path from 'path'
-import {default as execa} from 'execa'
-import {readFileSync} from 'fs';
+import execa from 'execa'
 import readdir from 'recursive-readdir'
 import Vinyl from 'vinyl';
 import {promises as fs} from 'fs'
@@ -23,9 +23,9 @@ const compile = async (files, distPath, context) => {
     const directory = path.join(os.tmpdir(), uuidHack );
     console.log('\n directory', directory)
 
-    const res = await context.isolate(directory)
+    const res = await context.isolate({targetDir: directory, shouldBuildDependencies:true})
     const capsule = res.capsule
-    const val = await capsule.exec('npm i tslib')
+    const val = await capsule.exec('yarn add @angular/core tslib')
     const dependencies = context
                             .componentObject.dependencies.map(val => val.id)
                             .concat(Object.keys(context.componentObject.packageDependencies))
@@ -41,8 +41,11 @@ const compile = async (files, distPath, context) => {
     await runNGPackagr(ngPackgr, info)
     const dists = await collectDistFiles(info)
     //await capsule.destroy()
-    const mainDistFile = path.join(info.name,'esm2015', path.basename(mainFile).replace('.ts', ''))
-    return { dists, mainFile: mainDistFile }
+    const packageJson = getPackageJsonObject(dists)
+    // const mainDistFile = path.join(info.name,'esm2015', path.basename(mainFile).replace('.ts', ''))
+    const {main} = packageJson
+    delete packageJson.main
+    return { dists, mainFile:main, packageJson}
 }
 
 async function collectDistFiles(info) {
@@ -50,10 +53,13 @@ async function collectDistFiles(info) {
     
     const compDistDir = path.resolve(capsuleDir, 'dist')
     const files = await readdir(compDistDir)
-    return files.map((file) => { 
+    const readFiles = await Promise.all(files.map(file => {
+        return fs.readFile(file)
+    }))
+    return files.map((file, index) => { 
         return new Vinyl({
             path: path.join(`${info.name}`, file.split(path.join(capsuleDir, 'dist'))[1]),
-            contents: readFileSync(file)
+            contents: readFiles[index]
         })
     })
 }
@@ -64,9 +70,7 @@ async function runNGPackagr(ngPackge, info) {
     const cwd = process.cwd()
     try {
         process.chdir(info.directory)
-        const args = [scriptFile, '-p ng-package.json -c tsconfig.json']
-        console.log(`node ${args.join(' ')}`)
-        result = await execa('node', args)
+        result = await execa(`node`, [scriptFile,`-p ng-package.json -c tsconfig.json`])
     } catch (e) {
         console.log('\nError in packaging component!\n', e)
         process.chdir(cwd)
@@ -75,11 +79,13 @@ async function runNGPackagr(ngPackge, info) {
     process.chdir(cwd)
     return result
 }
+
 async function adjustFileSystem(info) {
     const ngPackge = await createPackagrFile(info)
     await createTSConfig(info) 
     return ngPackge
 }
+
 async function createPackagrFile(info) {
     const compDir = info.directory
     debugger
@@ -130,4 +136,15 @@ function createTSConfig(info) {
     }
     return fs.writeFile(pathToConfig, JSON.stringify(content, null, 4))
 }
+
+function getPackageJsonObject(dists) {
+    const pkgJsonRaw = dists.find(function(e){return e.basename === 'package.json'})
+    const pkgJson = JSON.parse(pkgJsonRaw.contents.toString())
+    const keysToTransform = ['es2015', 'esm5', 'esm2015', 'fesm5', 'fesm2015', 'main', 'module', 'typings']
+    return keysToTransform.reduce((acc, key)=> {
+        acc[key] = pkgJson[key]
+        return acc
+    }, {})
+}
 export default { compile }
+
