@@ -77,7 +77,8 @@ async function runNGPackagr(ngPackge, info) {
     const cwd = process.cwd()
     try {
         process.chdir(info.directory)
-        result = await execa(`node`, [scriptFile,`-p ng-package.json -c tsconfig.json`])
+        // console.log('cwd: ', process.cwd())
+        result = await execa(`node`, [scriptFile,`-p`, `ng-package.json`, `-c`, `tsconfig.json`])
     } catch (e) {
         console.log('\nError in packaging component!\n', e)
         process.chdir(cwd)
@@ -118,8 +119,8 @@ function createTSConfig(info) {
     const content = {
         "angularCompilerOptions": {
           "skipTemplateCodegen": true,
-          "strictMetadataEmit": true,
-          "fullTemplateTypeCheck": true,
+          "strictMetadataEmit": false,
+          "fullTemplateTypeCheck": false,
           "enableResourceInlining": true
         },
         "buildOnSave": false,
