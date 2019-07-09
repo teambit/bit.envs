@@ -69,15 +69,9 @@ async function collectDistFiles(info) {
             path: path.join(info.name, file.split(path.join(capsuleDir, 'dist'))[1]),
             contents: readFiles[index]
         })
-        console.log('dist.base', dist.base)
-        console.log('dist.path', dist.path)
-        console.log('dist.relative', dist.relative)
         return dist;
     })
     const distsWithSharedDir = info.addSharedDir(dists);
-    console.log('dist.base', distsWithSharedDir[0].base)
-    console.log('dist.path', distsWithSharedDir[0].path)
-    console.log('dist.relative', distsWithSharedDir[0].relative)
     return distsWithSharedDir;
 }
 
