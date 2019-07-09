@@ -18,12 +18,13 @@ const os = require('os')
 const FILE_NAME = 'public_api'
 
 const compile = async (files, distPath, context) => {
-    const mainFile = context.componentObject.mainFile
     const uuidHack = `capsule-${Date.now().toString().slice(-5)}`
     const directory = path.join(os.tmpdir(), uuidHack );
     console.log('\n directory', directory)
-
+    
     const res = await context.isolate({targetDir: directory, shouldBuildDependencies:true})
+    const componentObject = res.componentWithDependencies.component.toObject()
+    const mainFile = componentObject.mainFile
     const capsule = res.capsule
     const val = await capsule.exec('npm i tslib')
     // const dependencies = context
@@ -33,13 +34,13 @@ const compile = async (files, distPath, context) => {
     if (!~dependencies.indexOf('@angular/core')) {
         await capsule.exec('npm i @angular/core')
     }
-    debugger
 
     const info = {
         main: mainFile,
         dist: distPath, 
-        name: context.componentObject.name, 
+        name: componentObject.name, 
         dependencies,
+        addSharedDir: res.addSharedDir,
         capsule,
         directory
     }
@@ -63,12 +64,21 @@ async function collectDistFiles(info) {
     const readFiles = await Promise.all(files.map(file => {
         return fs.readFile(file)
     }))
-    return files.map((file, index) => { 
-        return new Vinyl({
-            path: path.join(`${info.name}`, file.split(path.join(capsuleDir, 'dist'))[1]),
+    const dists = files.map((file, index) => { 
+        const dist = new Vinyl({
+            path: path.join(info.name, file.split(path.join(capsuleDir, 'dist'))[1]),
             contents: readFiles[index]
         })
+        console.log('dist.base', dist.base)
+        console.log('dist.path', dist.path)
+        console.log('dist.relative', dist.relative)
+        return dist;
     })
+    const distsWithSharedDir = info.addSharedDir(dists);
+    console.log('dist.base', distsWithSharedDir[0].base)
+    console.log('dist.path', distsWithSharedDir[0].path)
+    console.log('dist.relative', distsWithSharedDir[0].relative)
+    return distsWithSharedDir;
 }
 
 async function runNGPackagr(ngPackge, info) {
@@ -163,6 +173,7 @@ function createPublicAPIFile(info) {
         return
     }
     const relativePathContent = path.relative(info.directory, path.join(info.directory, info.main.split('.ts')[0]))
+    debugger
     const content = `export * from '.${path.sep}${relativePathContent}'`
     return fs.writeFile(`${pathToPublicAPI}.ts`, content)
 }
