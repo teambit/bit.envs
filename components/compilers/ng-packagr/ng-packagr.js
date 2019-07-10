@@ -151,7 +151,7 @@ function getPackageJsonObject(dists, name) {
     const keysToTransform = ['es2015', 'esm5', 'esm2015', 'fesm5', 'fesm2015', 'main', 'module', 'typings']
     return keysToTransform.reduce((acc, key)=> {
         acc[key] = pkgJson[key].startsWith('dist') 
-            ? pkgJson[key].replace(/^dist/g, path.join('dist', name))
+            ? pkgJson[key].replace(/^dist/g, name)
             : path.join('dist', name, pkgJson[key])
         return acc
     }, {})
