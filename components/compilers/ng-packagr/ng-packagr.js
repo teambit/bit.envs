@@ -40,7 +40,6 @@ const compile = async (files, distPath, context) => {
         dist: distPath, 
         name: componentObject.name, 
         dependencies,
-        addSharedDir: res.addSharedDir,
         capsule,
         directory
     }
@@ -64,15 +63,12 @@ async function collectDistFiles(info) {
     const readFiles = await Promise.all(files.map(file => {
         return fs.readFile(file)
     }))
-    const dists = files.map((file, index) => { 
-        const dist = new Vinyl({
+    return files.map((file, index) => { 
+        return new Vinyl({
             path: path.join(info.name, file.split(path.join(capsuleDir, 'dist'))[1]),
             contents: readFiles[index]
         })
-        return dist;
     })
-    const distsWithSharedDir = info.addSharedDir(dists);
-    return distsWithSharedDir;
 }
 
 async function runNGPackagr(ngPackge, info) {
@@ -167,7 +163,6 @@ function createPublicAPIFile(info) {
         return
     }
     const relativePathContent = path.relative(info.directory, path.join(info.directory, info.main.split('.ts')[0]))
-    debugger
     const content = `export * from '.${path.sep}${relativePathContent}'`
     return fs.writeFile(`${pathToPublicAPI}.ts`, content)
 }
@@ -178,4 +173,3 @@ function getCustomDependencies(dir) {
 }
 
 export default { compile }
-
