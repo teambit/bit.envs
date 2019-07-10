@@ -9,9 +9,8 @@ import 'tslib'
 import path from 'path'
 import execa from 'execa'
 import readdir from 'recursive-readdir'
-import Vinyl from 'vinyl';
+import Vinyl from 'vinyl'
 import {promises as fs ,existsSync} from 'fs'
- 
 
 const os = require('os')
 
@@ -118,27 +117,27 @@ function createTSConfig(info) {
     const pathToConfig = getTSConfigPath(info)
     const content = {
         "angularCompilerOptions": {
-          "skipTemplateCodegen": true,
-          "strictMetadataEmit": false,
-          "fullTemplateTypeCheck": false,
-          "enableResourceInlining": true
+            "skipTemplateCodegen": true,
+            "strictMetadataEmit": false,
+            "fullTemplateTypeCheck": false,
+            "enableResourceInlining": true
         },
         "buildOnSave": false,
         "compileOnSave": false,
         "compilerOptions": {
-          "baseUrl": ".",
-          "target": "es6",
-          "module": "es2015",
-          "moduleResolution": "node",
-          "outDir": "dist",
-          "declaration": true,
-          "inlineSourceMap": true,
-          "inlineSources": true,
-          "skipLibCheck": true,
-          "emitDecoratorMetadata": true,
-          "experimentalDecorators": true,
-          "importHelpers": true,
-          "lib": ["dom", "es2018"]
+            "baseUrl": ".",
+            "target": "es6",
+            "module": "es2015",
+            "moduleResolution": "node",
+            "outDir": "dist",
+            "declaration": true,
+            "inlineSourceMap": true,
+            "inlineSources": true,
+            "skipLibCheck": true,
+            "emitDecoratorMetadata": true,
+            "experimentalDecorators": true,
+            "importHelpers": true,
+            "lib": ["dom", "es2018"]
         },
         "exclude": ["node_modules", "dist", "**/*.ngfactory.ts", "**/*.shim.ts", "**/*.spec.ts"],
     }
@@ -169,7 +168,6 @@ function createPublicAPIFile(info) {
 
 function getCustomDependencies(dir) {
     return Object.keys(require(`${dir}/package.json`).dependencies || {})
-
 }
 
 export default { compile }
