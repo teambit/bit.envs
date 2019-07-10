@@ -153,10 +153,9 @@ function getPackageJsonObject(dists, name) {
     return keysToTransform.reduce((acc, key) => {
         // Special case for main to remove the dist, since bit will add it himself
         if (key === 'main'){
-            acc[key] = pkgJson[key];
-            if (pkgJson[key].startsWith('dist')) {
-                acc[key] = pkgJson[key].replace(/^dist/g, (name))
-            }
+            acc[key] = pkgJson[key].startsWith('dist') 
+                ? pkgJson[key].replace(/^dist/g, name)
+                : path.join(name, pkgJson[key])
         } else {
             acc[key] = pkgJson[key].startsWith('dist') 
                 ? pkgJson[key].replace(/^dist/g, path.join('dist', name))
