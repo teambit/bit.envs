@@ -19,7 +19,8 @@ const FILE_NAME = 'public_api'
 const compile = async (files, distPath, context) => {
     const uuidHack = `capsule-${Date.now().toString().slice(-5)}`
     const directory = path.join(os.tmpdir(), uuidHack );
-    console.log('\n directory', directory)
+    const componentName = context.componentObject.name;
+    console.log(`\n building ${componentName} on directory ${directory}`)
     
     const res = await context.isolate({targetDir: directory, shouldBuildDependencies:true})
     const componentObject = res.componentWithDependencies.component.toObject()
@@ -51,7 +52,7 @@ const compile = async (files, distPath, context) => {
     const {main} = packageJson
     delete packageJson.main
     console.log('main is: ', main)
-    return { dists, mainFile:main, packageJson}
+    return { dists, mainFile: main, packageJson}
 }
 
 async function collectDistFiles(info) {
@@ -148,10 +149,19 @@ function getPackageJsonObject(dists, name) {
     const pkgJsonRaw = dists.find(function(e){return e.basename === 'package.json'})
     const pkgJson = JSON.parse(pkgJsonRaw.contents.toString())
     const keysToTransform = ['es2015', 'esm5', 'esm2015', 'fesm5', 'fesm2015', 'main', 'module', 'typings']
-    return keysToTransform.reduce((acc, key)=> {
-        acc[key] = pkgJson[key].startsWith('dist') 
-            ? pkgJson[key].replace(/^dist/g, name)
-            : path.join('dist', name, pkgJson[key])
+    
+    return keysToTransform.reduce((acc, key) => {
+        // Special case for main to remove the dist, since bit will add it himself
+        if (key === 'main'){
+            acc[key] = pkgJson[key];
+            if (pkgJson[key].startsWith('dist')) {
+                acc[key] = pkgJson[key].replace(/^dist/g, (name))
+            }
+        } else {
+            acc[key] = pkgJson[key].startsWith('dist') 
+                ? pkgJson[key].replace(/^dist/g, path.join('dist', name))
+                : path.join('dist', name, pkgJson[key])
+            }
         return acc
     }, {})
 }
