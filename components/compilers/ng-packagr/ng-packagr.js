@@ -16,20 +16,22 @@ const os = require('os')
 
 const FILE_NAME = 'public_api'
 
+function print(msg){
+    process.env['debug'] && console.log(msg)
+}
+
 const compile = async (files, distPath, context) => {
     const uuidHack = `capsule-${Date.now().toString().slice(-5)}`
     const directory = path.join(os.tmpdir(), uuidHack );
     const componentName = context.componentObject.name;
-    console.log(`\n building ${componentName} on directory ${directory}`)
+
+    print(`\n building ${componentName} on directory ${directory}`)
     
     const res = await context.isolate({targetDir: directory, shouldBuildDependencies:true})
     const componentObject = res.componentWithDependencies.component.toObject()
     const mainFile = componentObject.mainFile
     const capsule = res.capsule
-    const val = await capsule.exec('npm i tslib')
-    // const dependencies = context
-    //                         .componentObject.dependencies.map(val => val.id)
-    //                         .concat(Object.keys(context.componentObject.packageDependencies))
+
     const dependencies = getCustomDependencies(directory)
     if (!~dependencies.indexOf('@angular/core')) {
         await capsule.exec('npm i @angular/core')
@@ -46,12 +48,11 @@ const compile = async (files, distPath, context) => {
     const ngPackgr = await adjustFileSystem(info)
     await runNGPackagr(ngPackgr, info)
     const dists = await collectDistFiles(info)
-    //await capsule.destroy()
+    await capsule.destroy()
     const packageJson = getPackageJsonObject(dists, info.name)
-    // const mainDistFile = path.join(info.name,'esm2015', path.basename(mainFile).replace('.ts', ''))
     const {main} = packageJson
     delete packageJson.main
-    console.log('main is: ', main)
+    print('main is: ', main)
     return { dists, mainFile: main, packageJson}
 }
 
@@ -77,7 +78,6 @@ async function runNGPackagr(ngPackge, info) {
     const cwd = process.cwd()
     try {
         process.chdir(info.directory)
-        // console.log('cwd: ', process.cwd())
         result = await execa(`node`, [scriptFile,`-p`, `ng-package.json`, `-c`, `tsconfig.json`])
     } catch (e) {
         console.log('\nError in packaging component!\n', e)
@@ -118,8 +118,9 @@ function createTSConfig(info) {
     const pathToConfig = getTSConfigPath(info)
     const content = {
         "angularCompilerOptions": {
+            "annotateForClosureCompiler": true,
             "skipTemplateCodegen": true,
-            "strictMetadataEmit": false,
+            "strictMetadataEmit": true,
             "fullTemplateTypeCheck": false,
             "enableResourceInlining": true
         },
@@ -127,7 +128,7 @@ function createTSConfig(info) {
         "compileOnSave": false,
         "compilerOptions": {
             "baseUrl": ".",
-            "target": "es6",
+            "target": "es2015",
             "module": "es2015",
             "moduleResolution": "node",
             "outDir": "dist",
@@ -137,7 +138,7 @@ function createTSConfig(info) {
             "skipLibCheck": true,
             "emitDecoratorMetadata": true,
             "experimentalDecorators": true,
-            "importHelpers": true,
+            "importHelpers": false,
             "lib": ["dom", "es2018"]
         },
         "exclude": ["node_modules", "dist", "**/*.ngfactory.ts", "**/*.shim.ts", "**/*.spec.ts"],
@@ -171,7 +172,7 @@ function createPublicAPIFile(info) {
         return
     }
     const relativePathContent = path.relative(info.directory, path.join(info.directory, info.main.split('.ts')[0]))
-    const content = `export * from '.${path.sep}${relativePathContent}'`
+    const content = `export * from './${relativePathContent}'`
     return fs.writeFile(`${pathToPublicAPI}.ts`, content)
 }
 
