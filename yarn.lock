@@ -738,7 +738,7 @@
     "@babel/plugin-proposal-export-default-from" "^7.2.0"
     "@babel/plugin-proposal-export-namespace-from" "^7.2.0"
     "@babel/preset-env" "^7.3.4"
-    "@bit/bit.envs.internal.babel-base-compiler" "file:../../../Library/Caches/Yarn/v2/internal/babel-base-compiler"
+    "@bit/bit.envs.internal.babel-base-compiler" "file:components/internal/babel-base-compiler"
 
 "@bit/bit.envs.compilers.flow@file:./components/compilers/flow":
   version "7.0.1"
@@ -748,7 +748,7 @@
     "@babel/plugin-proposal-export-namespace-from" "^7.2.0"
     "@babel/preset-env" "^7.3.4"
     "@babel/preset-flow" "^7.0.0"
-    "@bit/bit.envs.internal.babel-base-compiler" "file:../../../Library/Caches/Yarn/v2/internal/babel-base-compiler"
+    "@bit/bit.envs.internal.babel-base-compiler" "file:components/internal/babel-base-compiler"
     babel-plugin-preval "^3.0.1"
 
 "@bit/bit.envs.compilers.preact@file:./components/compilers/preact":
@@ -760,7 +760,7 @@
     "@babel/plugin-proposal-object-rest-spread" "^7.4.4"
     "@babel/plugin-transform-react-jsx" "^7.3.0"
     "@babel/preset-env" "^7.3.4"
-    "@bit/bit.envs.internal.babel-base-compiler" "file:../../../Library/Caches/Yarn/v2/internal/babel-base-compiler"
+    "@bit/bit.envs.internal.babel-base-compiler" "file:components/internal/babel-base-compiler"
 
 "@bit/bit.envs.compilers.react-css@file:./components/compilers/react-css":
   version "0.0.2"
@@ -775,7 +775,7 @@
     vinyl "2.1.0"
 
 "@bit/bit.envs.compilers.react-typescript@file:./components/compilers/react-typescript":
-  version "3.0.2"
+  version "3.0.6"
   dependencies:
     "@bit/bit.utils.object.group-by" "1.0.0"
     typescript "^3.5.0"
@@ -790,10 +790,10 @@
     "@babel/plugin-proposal-object-rest-spread" "^7.4.4"
     "@babel/preset-env" "^7.3.4"
     "@babel/preset-react" "^7.0.0"
-    "@bit/bit.envs.internal.babel-base-compiler" "file:../../../Library/Caches/Yarn/v2/internal/babel-base-compiler"
+    "@bit/bit.envs.internal.babel-base-compiler" "file:components/internal/babel-base-compiler"
 
 "@bit/bit.envs.compilers.typescript@file:./components/compilers/typescript":
-  version "3.0.1"
+  version "3.0.5"
   dependencies:
     "@bit/bit.utils.object.group-by" "0.0.1"
     typescript "^3.5.0"
@@ -803,7 +803,7 @@
   version "1.0.1"
   dependencies:
     "@babel/core" "7.3.4"
-    "@bit/bit.envs.internal.get-babel-options" "file:../../../Library/Caches/Yarn/v2/npm-@bit/get-babel-options"
+    "@bit/bit.envs.internal.get-babel-options" "file:components/internal/get-babel-options"
     "@bit/bit.utils.object.group-by" "1.0.0"
     vinyl "^2.1.0"
 
@@ -6599,8 +6599,8 @@ lodash.merge@^4.4.0:
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.1.tgz#adc25d9cb99b9391c59624f379fbba60d7111d54"
 
 lodash.mergewith@^4.6.0:
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/lodash.mergewith/-/lodash.mergewith-4.6.1.tgz#639057e726c3afbdb3e7d42741caa8d6e4335927"
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/lodash.mergewith/-/lodash.mergewith-4.6.2.tgz#617121f89ac55f59047c7aec1ccd6654c6590f55"
 
 lodash.pick@^4.2.1:
   version "4.4.0"
@@ -9636,10 +9636,6 @@ type-is@~1.6.17:
 typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
-
-typescript@^2.4.2:
-  version "2.9.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.9.2.tgz#1cbf61d05d6b96269244eb6a3bce4bd914e0f00c"
 
 typescript@^3.5.0:
   version "3.5.1"
