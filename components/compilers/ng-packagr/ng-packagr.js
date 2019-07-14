@@ -5,6 +5,7 @@ import '@angular/core'
 import 'ng-packagr'
 import 'typescript'
 import 'tslib'
+import 'tsickle'
 
 import path from 'path'
 import execa from 'execa'
@@ -20,45 +21,56 @@ function print(msg){
     process.env['debug'] && console.log(msg)
 }
 
-const compile = async (files, distPath, context) => {
-    const uuidHack = `capsule-${Date.now().toString().slice(-5)}`
-    const directory = path.join(os.tmpdir(), uuidHack );
-    const componentName = context.componentObject.name;
+const compile = async (_files, distPath, api) => {
+    const { res, directory } = await isolate(api)
+    const context = await createContext(res, directory, distPath)
 
-    print(`\n building ${componentName} on directory ${directory}`)
+    if (!~context.dependencies.indexOf('@angular/core')) {
+        await context.capsule.exec('npm i @angular/core')
+    }
+
+    await adjustFileSystem(context)
+    const results = await _compile(context)
     
-    const res = await context.isolate({targetDir: directory, shouldBuildDependencies:true})
-    const componentObject = res.componentWithDependencies.component.toObject()
-    const mainFile = componentObject.mainFile
-    const capsule = res.capsule
-
-    const dependencies = getCustomDependencies(directory)
-    if (!~dependencies.indexOf('@angular/core')) {
-        await capsule.exec('npm i @angular/core')
-    }
-
-    const info = {
-        main: mainFile,
-        dist: distPath, 
-        name: componentObject.name, 
-        dependencies,
-        capsule,
-        directory
-    }
-    const ngPackgr = await adjustFileSystem(info)
-    await runNGPackagr(ngPackgr, info)
-    const dists = await collectDistFiles(info)
-    await capsule.destroy()
-    const packageJson = getPackageJsonObject(dists, info.name)
-    const {main} = packageJson
-    delete packageJson.main
-    print('main is: ', main)
-    return { dists, mainFile: main, packageJson}
+    await context.capsule.destroy()
+    return results
 }
 
-async function collectDistFiles(info) {
-    const capsuleDir = info.directory
+async function _compile(context) {
+    await runNGPackagr(context)
+    const dists = await collectDistFiles(context)
+    const packageJson = getPackageJsonObject(dists, context.name)
+    const { main } = packageJson
+    delete packageJson.main
+    print('main is: ', main)
+    return {mainFile:main, dists, packageJson}
+}
+
+async function createContext(res, directory, distPath) {
+    const componentObject = res.componentWithDependencies.component.toObject()
+    return {
+        main: componentObject.mainFile,
+        dist: distPath,
+        name: componentObject.name,
+        dependencies: getCustomDependencies(directory),
+        capsule:res.capsule,
+        directory
+    }
+}
+
+async function isolate(api) {
+    const uuidHack = `capsule-${Date.now().toString().slice(-5)}`
+    const targetDir = path.join(os.tmpdir(), uuidHack)
+    const componentName = api.componentObject.name
+    print(`\n building ${componentName} on directory ${targetDir}`)
     
+    const res = await api.isolate({ targetDir, shouldBuildDependencies: true })
+    
+    return { res, directory: targetDir }
+}
+
+async function collectDistFiles(context) {
+    const capsuleDir = context.directory
     const compDistDir = path.resolve(capsuleDir, 'dist')
     const files = await readdir(compDistDir)
     const readFiles = await Promise.all(files.map(file => {
@@ -66,21 +78,20 @@ async function collectDistFiles(info) {
     }))
     return files.map((file, index) => { 
         return new Vinyl({
-            path: path.join(info.name, file.split(path.join(capsuleDir, 'dist'))[1]),
+            path: path.join(context.name, file.split(path.join(capsuleDir, 'dist'))[1]),
             contents: readFiles[index]
         })
     })
 }
 
-async function runNGPackagr(ngPackge, info) {
+async function runNGPackagr(context) {
     let result = null
     const scriptFile = path.resolve(require.resolve('ng-packagr/cli/main'))
     const cwd = process.cwd()
     try {
-        process.chdir(info.directory)
+        process.chdir(context.directory)
         result = await execa(`node`, [scriptFile,`-p`, `ng-package.json`, `-c`, `tsconfig.json`])
     } catch (e) {
-        console.log('\nError in packaging component!\n', e)
         process.chdir(cwd)
         throw e
     }
@@ -88,34 +99,34 @@ async function runNGPackagr(ngPackge, info) {
     return result
 }
 
-async function adjustFileSystem(info) {
-    const ngPackge = await createPackagrFile(info)
-    await createPublicAPIFile(info)
-    await createTSConfig(info) 
+async function adjustFileSystem(context) {
+    const ngPackge = await createPackagrFile(context)
+    await createPublicAPIFile(context)
+    await createTSConfig(context) 
     return ngPackge
 }
 
-async function createPackagrFile(info) {
-    const compDir = info.directory
+async function createPackagrFile(context) {
+    const compDir = context.directory
     const content = `{
         "$schema": "https://raw.githubusercontent.com/ng-packagr/ng-packagr/master/src/ng-package.schema.json",
         "dest": "dist",
         "lib": {
             "entryFile": "${FILE_NAME}"
         },
-        "whitelistedNonPeerDependencies":[${info.dependencies.map(val => `"${val}"`).concat([`"@angular/core"`])}]
+        "whitelistedNonPeerDependencies":[${context.dependencies.map(val => `"${val}"`).concat([`"@angular/core"`])}]
     }`
     const filePath = path.resolve(path.join(compDir, 'ng-package.json'))
     await fs.writeFile(filePath, content)
     return filePath
 }
 
-function getTSConfigPath(info) {
-    return path.join(info.directory, 'tsconfig.json')
+function getTSConfigPath(context) {
+    return path.join(context.directory, 'tsconfig.json')
 }
 
-function createTSConfig(info) {
-    const pathToConfig = getTSConfigPath(info)
+function createTSConfig(context) {
+    const pathToConfig = getTSConfigPath(context)
     const content = {
         "angularCompilerOptions": {
             "annotateForClosureCompiler": true,
@@ -166,12 +177,12 @@ function getPackageJsonObject(dists, name) {
     }, {})
 }
 
-function createPublicAPIFile(info) {
-    const pathToPublicAPI = path.resolve(info.directory, FILE_NAME)
+function createPublicAPIFile(context) {
+    const pathToPublicAPI = path.resolve(context.directory, FILE_NAME)
     if(existsSync(`${pathToPublicAPI}.ts`)) {
         return
     }
-    const relativePathContent = path.relative(info.directory, path.join(info.directory, info.main.split('.ts')[0]))
+    const relativePathContent = path.relative(context.directory, path.join(context.directory, context.main.split('.ts')[0]))
     const content = `export * from './${relativePathContent}'`
     return fs.writeFile(`${pathToPublicAPI}.ts`, content)
 }
