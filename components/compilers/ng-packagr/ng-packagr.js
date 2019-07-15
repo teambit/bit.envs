@@ -16,9 +16,10 @@ import {promises as fs ,existsSync} from 'fs'
 const os = require('os')
 
 const FILE_NAME = 'public_api'
+const DEBUG_FLAG = 'NG_DEBUG'
 
 function print(msg){
-    process.env['debug'] && console.log(msg)
+    process.env[DEBUG_FLAG] && console.log(msg)
 }
 
 const compile = async (_files, distPath, api) => {
@@ -31,8 +32,10 @@ const compile = async (_files, distPath, api) => {
 
     await adjustFileSystem(context)
     const results = await _compile(context)
+    if (!process.env[DEBUG_FLAG]) {
+        await context.capsule.destroy()
+    }
     
-    await context.capsule.destroy()
     return results
 }
 
