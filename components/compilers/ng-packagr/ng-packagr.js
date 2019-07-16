@@ -63,7 +63,7 @@ async function createContext(res, directory, distPath) {
 
 async function isolate(api) {
     const uuidHack = `capsule-${Date.now().toString().slice(-5)}`
-    const targetDir = path.join(os.tmpdir(), uuidHack)
+    const targetDir = path.join(os.tmpdir(),'bit', uuidHack)
     const componentName = api.componentObject.name
     print(`\n building ${componentName} on directory ${targetDir}`)
     
