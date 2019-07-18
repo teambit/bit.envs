@@ -161,7 +161,7 @@
         "rootDir": "components/compilers/react-css",
         "origin": "IMPORTED"
     },
-    "bit.envs/compilers/react-typescript@3.0.4": {
+    "bit.envs/compilers/react-typescript@3.0.6": {
         "files": [
             {
                 "name": "index.js",
@@ -207,7 +207,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "src"
     },
-    "bit.envs/compilers/typescript@3.0.3": {
+    "bit.envs/compilers/typescript@3.0.5": {
         "files": [
             {
                 "name": "index.js",
@@ -228,6 +228,7 @@
         "mainFile": "index.js",
         "rootDir": "components/compilers/typescript",
         "origin": "IMPORTED",
+        "mainDistFile": "dist/components/compilers/typescript/index.js",
         "originallySharedDir": "src/compilers/typescript"
     },
     "bit.envs/internal/babel-base-compiler@1.0.1": {
@@ -279,7 +280,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "src/internal/getBabelOptions"
     },
-    "bit.envs/internal/typescript-base-compiler@3.5.1": {
+    "bit.envs/internal/typescript-base-compiler@3.5.3": {
         "files": [
             {
                 "relativePath": "components/internal/typescript-base-compiler/index.js",
@@ -487,18 +488,5 @@
         "origin": "IMPORTED",
         "originallySharedDir": "src/testers/mocha"
     },
-    "qballer.ng-stage/ng-packagr@0.0.4": {
-        "files": [
-            {
-                "relativePath": "components/compilers/ng-packagr/ng-packagr.js",
-                "test": false,
-                "name": "ng-packagr.js"
-            }
-        ],
-        "mainFile": "components/compilers/ng-packagr/ng-packagr.js",
-        "trackDir": "components/compilers/ng-packagr",
-        "origin": "AUTHORED",
-        "exported": true
-    },
-    "version": "14.1.4-dev.1"
+    "version": "14.1.4-angular.1"
 }
