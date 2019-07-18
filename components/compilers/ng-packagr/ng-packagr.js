@@ -173,8 +173,8 @@ function getPackageJsonObject(dists, name) {
                 : path.join(name, pkgJson[key])
         } else {
             acc[key] = pkgJson[key].startsWith('dist') 
-                ? pkgJson[key].replace(/^dist/g, path.join('{COMPONENT_DIST_PATH}', name))
-                : path.join('{COMPONENT_DIST_PATH}', name, pkgJson[key])
+                ? pkgJson[key].replace(/^dist/g, path.join('dist', name))
+                : path.join('dist', name, pkgJson[key])
             }
         return acc
     }, {})
