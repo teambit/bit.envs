@@ -27,7 +27,7 @@ const compile = async (_files, distPath, api) => {
     const context = await createContext(res, directory, distPath)
 
     if (!~context.dependencies.indexOf('@angular/core')) {
-        await context.capsule.exec('npm i @angular/core')
+        await res.installPackages(['@angular/core'])
     }
 
     await adjustFileSystem(context)
