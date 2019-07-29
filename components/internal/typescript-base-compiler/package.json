@@ -1,0 +1,19 @@
+{
+  "name": "@bit/bit.envs.internal.typescript-base-compiler",
+  "version": "3.5.3",
+  "homepage": "https://bit.dev/bit/envs/internal/typescript-base-compiler",
+  "main": "index.js",
+  "dependencies": {
+    "typescript": "^3.5.0",
+    "vinyl": "^2.1.0",
+    "@bit/bit.utils.object.group-by": "0.0.1"
+  },
+  "devDependencies": {},
+  "peerDependencies": {},
+  "license": "SEE LICENSE IN LICENSE",
+  "bit": {
+    "env": {
+      "compiler": "bit.envs/compilers/babel@0.0.7"
+    }
+  }
+}
