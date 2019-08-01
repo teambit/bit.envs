@@ -23,8 +23,8 @@ function print(msg){
 }
 
 const compile = async (_files, distPath, api) => {
-    const { res, directory } = await isolate(api)
-    const context = await createContext(res, directory, distPath)
+    const { res, directory } = await isolate(api) // create capsule 
+    const context = await createContext(res, directory, distPath) // prepare context object 
 
     if (!~context.dependencies.indexOf('@angular/core')) {
         await res.installPackages(['@angular/core'])
@@ -134,14 +134,14 @@ function createTSConfig(context) {
         "angularCompilerOptions": {
             "annotateForClosureCompiler": true,
             "skipTemplateCodegen": true,
-            "strictMetadataEmit": true,
+            "strictMetadataEmit": false,
             "fullTemplateTypeCheck": false,
             "enableResourceInlining": true
         },
         "buildOnSave": false,
         "compileOnSave": false,
         "compilerOptions": {
-            "baseUrl": ".",
+            // "baseUrl": ".",
             "target": "es2015",
             "module": "es2015",
             "moduleResolution": "node",
@@ -153,7 +153,7 @@ function createTSConfig(context) {
             "emitDecoratorMetadata": true,
             "experimentalDecorators": true,
             "importHelpers": false,
-            "lib": ["dom", "es2018"]
+            "lib": ["dom", "0"]
         },
         "exclude": ["node_modules", "dist", "**/*.ngfactory.ts", "**/*.shim.ts", "**/*.spec.ts"],
     }
@@ -181,6 +181,7 @@ function getPackageJsonObject(dists, name) {
 }
 
 function createPublicAPIFile(context) {
+    debugger
     const pathToPublicAPI = path.resolve(context.directory, FILE_NAME)
     if(existsSync(`${pathToPublicAPI}.ts`)) {
         return
