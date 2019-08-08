@@ -1,6 +1,6 @@
 {
   "name": "@bit/bit.envs.compilers.angular",
-  "version": "0.1.3",
+  "version": "0.1.9",
   "homepage": "https://bit.dev/bit/envs/compilers/angular",
   "main": "angular.js",
   "dependencies": {
@@ -8,12 +8,12 @@
     "@angular/compiler": "^8.0.0",
     "@angular/core": "^8.0.0",
     "execa": "^1.0.0",
+    "ng-packagr": "^5.3.0",
+    "recursive-readdir": "^2.2.2",
+    "tsickle": "0.36.0",
     "tslib": "1.9.3",
     "typescript": "3.4.5",
-    "vinyl": "^2.1.0",
-    "ng-packagr": "^5.3.0",
-    "tsickle": "0.36.0",
-    "recursive-readdir": "^2.2.2"
+    "vinyl": "^2.1.0"
   },
   "devDependencies": {},
   "peerDependencies": {},

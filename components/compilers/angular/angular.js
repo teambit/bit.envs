@@ -6,7 +6,7 @@ import 'ng-packagr'
 import 'typescript'
 import 'tslib'
 import 'tsickle'
-
+ 
 import path from 'path'
 import execa from 'execa'
 import readdir from 'recursive-readdir'
@@ -14,6 +14,7 @@ import Vinyl from 'vinyl'
 import {promises as fs ,existsSync} from 'fs'
 
 const os = require('os')
+const tsconfig = require(path.join(__dirname, './tsconfig.json'))
 
 const FILE_NAME = 'public_api'
 const DEBUG_FLAG = 'NG_DEBUG'
@@ -25,9 +26,9 @@ function print(msg){
 const compile = async (_files, distPath, api) => {
     const { res, directory } = await isolate(api) // create capsule 
     const context = await createContext(res, directory, distPath) // prepare context object 
-
+        
     if (!~context.dependencies.indexOf('@angular/core')) {
-        await res.installPackages(['@angular/core'])
+        await res.installPackages(['@angular/core', 'rxjs', 'zone.js'])
     }
 
     await adjustFileSystem(context)
@@ -130,33 +131,7 @@ function getTSConfigPath(context) {
 
 function createTSConfig(context) {
     const pathToConfig = getTSConfigPath(context)
-    const content = {
-        "angularCompilerOptions": {
-            "annotateForClosureCompiler": true,
-            "skipTemplateCodegen": true,
-            "strictMetadataEmit": false,
-            "fullTemplateTypeCheck": false,
-            "enableResourceInlining": true
-        },
-        "buildOnSave": false,
-        "compileOnSave": false,
-        "compilerOptions": {
-            // "baseUrl": ".",
-            "target": "es2015",
-            "module": "es2015",
-            "moduleResolution": "node",
-            "outDir": "dist",
-            "declaration": true,
-            "inlineSourceMap": true,
-            "inlineSources": true,
-            "skipLibCheck": true,
-            "emitDecoratorMetadata": true,
-            "experimentalDecorators": true,
-            "importHelpers": false,
-            "lib": ["dom", "0"]
-        },
-        "exclude": ["node_modules", "dist", "**/*.ngfactory.ts", "**/*.shim.ts", "**/*.spec.ts"],
-    }
+    const content = tsconfig
     return fs.writeFile(pathToConfig, JSON.stringify(content, null, 4))
 }
 
