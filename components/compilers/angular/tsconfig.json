@@ -21,6 +21,7 @@
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "importHelpers": false,
+        "preserveSymlinks": true,
         "lib": [
             "dom",
             "es2018"
