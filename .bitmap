@@ -184,7 +184,7 @@
         "rootDir": "components/compilers/react-css",
         "origin": "IMPORTED"
     },
-    "bit.envs/compilers/react-typescript@3.0.7": {
+    "bit.envs/compilers/react-typescript@3.0.8": {
         "files": [
             {
                 "name": "index.js",
@@ -230,7 +230,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "src"
     },
-    "bit.envs/compilers/typescript@3.0.6": {
+    "bit.envs/compilers/typescript@3.0.7": {
         "files": [
             {
                 "name": "index.js",
@@ -241,6 +241,11 @@
                 "name": "readme.md",
                 "relativePath": "readme.md",
                 "test": false
+            },
+            {
+                "relativePath": "ts.js",
+                "test": false,
+                "name": "ts.js"
             },
             {
                 "name": "tsconfig.json",
@@ -308,11 +313,6 @@
                 "name": "index.js",
                 "relativePath": "index.js",
                 "test": false
-            },
-            {
-                "relativePath": "ts-base.js",
-                "test": false,
-                "name": "ts-base.js"
             },
             {
                 "name": "typescript-base.js",
