@@ -34,12 +34,10 @@ async function _compile(context) {
     const pathToTSC = require.resolve('typescript/bin/tsc')
     await runNodeScriptInDir(context.directory, pathToTSC, ['-d'])
     const dists = await collectDistFiles(context)
-    let mainFile =  findMainFile(context, dists)
-    mainFile = path.join('dist', mainFile)
+    let mainFile = findMainFile(context, dists)
     return { dists, mainFile}
 }
 export function findMainFile(context, dists) {
-    debugger
     const res = dists.find((val)=> {
         return context.name === val.basename.split('.js')[0]
     })

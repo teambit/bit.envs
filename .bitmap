@@ -184,7 +184,7 @@
         "rootDir": "components/compilers/react-css",
         "origin": "IMPORTED"
     },
-    "bit.envs/compilers/react-typescript@3.0.11": {
+    "bit.envs/compilers/react-typescript@3.0.14": {
         "files": [
             {
                 "name": "index.js",
@@ -230,7 +230,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "src"
     },
-    "bit.envs/compilers/typescript@3.0.10": {
+    "bit.envs/compilers/typescript@3.0.12": {
         "files": [
             {
                 "name": "index.js",
