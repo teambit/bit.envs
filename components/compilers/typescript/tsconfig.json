@@ -1,5 +1,8 @@
 {
     "compilerOptions": {
+        "lib": [
+            "dom"
+        ],
         "target": "es5",
         "skipLibCheck": true,
         "esModuleInterop": true,
@@ -7,12 +10,14 @@
         "strict": false,
         "forceConsistentCasingInFileNames": true,
         "module": "CommonJS",
-        "sourceMap": true,
+        "sourceMap": false,
         "moduleResolution": "Node",
         "resolveJsonModule": true,
-        "isolatedModules": true,
-        "declaration": false,
+        "isolatedModules": false,
+        "declaration": true,
         "experimentalDecorators": true,
-        "incremental": true
+        "jsx": "react",
+        "inlineSourceMap": true,
+        "inlineSources": true
     }
 }

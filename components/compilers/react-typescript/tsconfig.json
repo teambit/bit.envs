@@ -10,13 +10,14 @@
         "strict": false,
         "forceConsistentCasingInFileNames": true,
         "module": "CommonJS",
-        "sourceMap": true,
+        "sourceMap": false,
         "moduleResolution": "Node",
         "resolveJsonModule": true,
-        "isolatedModules": true,
-        "jsx": "react",
-        "declaration": false,
+        "isolatedModules": false,
+        "declaration": true,
         "experimentalDecorators": true,
-        "incremental": true
+        "jsx": "react",
+        "inlineSourceMap": true,
+        "inlineSources": true
     }
 }

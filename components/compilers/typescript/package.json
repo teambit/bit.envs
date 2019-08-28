@@ -1,13 +1,13 @@
 {
   "name": "@bit/bit.envs.compilers.typescript",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "homepage": "https://bit.dev/bit/envs/compilers/typescript",
   "main": "index.js",
   "dependencies": {
-    "typescript": "^3.5.0",
-    "vinyl": "^2.1.0",
+    "@bit/bit.envs.internal.typescript-base-compiler": "file:../../internal/typescript-base-compiler",
     "@bit/bit.utils.object.group-by": "0.0.1",
-    "@bit/bit.envs.internal.typescript-base-compiler": "file:../../internal/typescript-base-compiler"
+    "typescript": "^3.5.0",
+    "vinyl": "^2.1.0"
   },
   "devDependencies": {},
   "peerDependencies": {},

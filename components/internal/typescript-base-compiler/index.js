@@ -1,1 +1,1 @@
-export { typescriptCompile } from './typescript-base'
+export { typescriptCompile } from './ts-base'

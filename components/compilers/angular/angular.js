@@ -141,7 +141,7 @@ function createTSConfig(context) {
         "buildOnSave": false,
         "compileOnSave": false,
         "compilerOptions": {
-            // "baseUrl": ".",
+            "baseUrl": "./",
             "target": "es2015",
             "module": "es2015",
             "moduleResolution": "node",
@@ -153,7 +153,7 @@ function createTSConfig(context) {
             "emitDecoratorMetadata": true,
             "experimentalDecorators": true,
             "importHelpers": false,
-            "lib": ["dom", "0"]
+            "lib": ["dom", "es2018"]
         },
         "exclude": ["node_modules", "dist", "**/*.ngfactory.ts", "**/*.shim.ts", "**/*.spec.ts"],
     }
