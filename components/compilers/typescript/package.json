@@ -1,6 +1,6 @@
 {
   "name": "@bit/bit.envs.compilers.typescript",
-  "version": "3.0.7",
+  "version": "3.0.10",
   "homepage": "https://bit.dev/bit/envs/compilers/typescript",
   "main": "index.js",
   "dependencies": {

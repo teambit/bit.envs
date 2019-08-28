@@ -1,7 +1,8 @@
 {
     "compilerOptions": {
         "lib": [
-            "dom"
+            "dom",
+            "es2015"
         ],
         "target": "es5",
         "skipLibCheck": true,
@@ -18,6 +19,7 @@
         "experimentalDecorators": true,
         "jsx": "react",
         "inlineSourceMap": true,
-        "inlineSources": true
+        "inlineSources": true,
+        "outDir": "dist"
     }
 }
