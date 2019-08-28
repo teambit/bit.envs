@@ -75,7 +75,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "src/bundlers/webpack"
     },
-    "bit.envs/compilers/angular@0.1.6": {
+    "bit.envs/compilers/angular@0.1.9": {
         "files": [
             {
                 "name": "angular.js",
@@ -85,6 +85,11 @@
             {
                 "name": "readme.md",
                 "relativePath": "readme.md",
+                "test": false
+            },
+            {
+                "name": "tsconfig.json",
+                "relativePath": "tsconfig.json",
                 "test": false
             }
         ],
