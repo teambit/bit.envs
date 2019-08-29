@@ -17,6 +17,7 @@ Then build using [bit build](https://docs.bitsrc.io/docs/cli-build.html).
  - Compiles `ts` files.
  - Emit `d.ts` files.
  - In order to see which typescript config are used, take a look at the [`tsconfig.json`](https://bit.dev/bit/envs/compilers/typescript/~code#tsconfig.json) file.
+ - `@types` dependencies aren't detected automatically. You can work around that by using overrides. Read more [here](https://docs.bit.dev/docs/component-dependencies.html#override-dependencies-in-workspace-configuration)
 
 ## Reconfiguring this environment
 

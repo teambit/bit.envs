@@ -38,8 +38,9 @@ async function _compile(context) {
     return { dists, mainFile}
 }
 export function findMainFile(context, dists) {
+    const getNameOfFile = (val, split) => val.split(split)[0]
     const res = dists.find((val)=> {
-        return context.name === val.basename.split('.js')[0]
+        return getNameOfFile(context.main, '.ts') === getNameOfFile(val.basename, '.js')
     })
     return (res || {}).path
 }
