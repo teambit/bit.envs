@@ -19,7 +19,6 @@
     "@bit/bit.envs.compilers.react": "file:./components/compilers/react",
     "@bit/bit.envs.compilers.react-css": "file:./components/compilers/react-css",
     "@bit/bit.envs.compilers.react-typescript": "file:./components/compilers/react-typescript",
-    "@bit/bit.envs.compilers.typescript": "file:./components/compilers/typescript",
     "@bit/bit.envs.internal.babel-base-compiler": "file:./components/internal/babel-base-compiler",
     "@bit/bit.envs.internal.bit-external-webpack-plugin": "file:./components/internal/bit-external-webpack-plugin",
     "@bit/bit.envs.internal.get-babel-options": "file:./components/internal/get-babel-options",

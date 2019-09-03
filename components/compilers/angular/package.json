@@ -1,6 +1,6 @@
 {
   "name": "@bit/bit.envs.compilers.angular",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "homepage": "https://bit.dev/bit/envs/compilers/angular",
   "main": "angular.js",
   "dependencies": {

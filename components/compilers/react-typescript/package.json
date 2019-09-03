@@ -1,16 +1,17 @@
 {
   "name": "@bit/bit.envs.compilers.react-typescript",
-  "version": "3.0.16",
+  "version": "3.0.17",
   "homepage": "https://bit.dev/bit/envs/compilers/react-typescript",
   "main": "index.js",
   "dependencies": {
-    "@bit/bit.envs.compilers.typescript": "^3.0.16",
-    "@bit/bit.utils.object.group-by": "1.0.0",
-    "typescript": "^3.5.0",
-    "vinyl": "^2.1.0"
+    "@bit/bit.envs.compilers.typescript": "3.0.15"
   },
   "devDependencies": {},
   "peerDependencies": {},
-  "componentRootFolder": "components/compilers/react-typescript",
-  "license": "SEE LICENSE IN LICENSE"
+  "license": "SEE LICENSE IN LICENSE",
+  "bit": {
+    "env": {
+      "compiler": "bit.envs/compilers/babel@0.0.7"
+    }
+  }
 }
