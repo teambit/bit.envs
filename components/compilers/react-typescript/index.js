@@ -1,3 +1,3 @@
-import {compile}  from '@bit/bit.envs.compilers.typescript'
+import compiler from '@bit/bit.envs.compilers.typescript'
 
-export default {compile};
+export default compiler;
