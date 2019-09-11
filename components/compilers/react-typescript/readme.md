@@ -1,5 +1,4 @@
 # Legacy Note 
-==============
 
 This compiler is kept for legacy reasons so veteran bit users will still get typescript updates. 
 If you are new user go a head and use https://bit.dev/bit/envs/compilers/typescript directly. 
