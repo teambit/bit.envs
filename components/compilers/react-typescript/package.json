@@ -1,6 +1,6 @@
 {
   "name": "@bit/bit.envs.compilers.react-typescript",
-  "version": "3.0.22",
+  "version": "3.0.23",
   "homepage": "https://bit.dev/bit/envs/compilers/react-typescript",
   "main": "index.js",
   "dependencies": {

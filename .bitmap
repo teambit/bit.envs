@@ -184,7 +184,7 @@
         "rootDir": "components/compilers/react-css",
         "origin": "IMPORTED"
     },
-    "bit.envs/compilers/react-typescript@3.0.22": {
+    "bit.envs/compilers/react-typescript@3.0.23": {
         "files": [
             {
                 "name": "index.js",
@@ -469,5 +469,5 @@
         "origin": "IMPORTED",
         "originallySharedDir": "src/testers/mocha"
     },
-    "version": "14.2.6-dev.1"
+    "version": "14.3.0"
 }
