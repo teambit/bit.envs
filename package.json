@@ -29,7 +29,6 @@
     "@bit/bit.envs.testers.mocha": "file:./components/testers/mocha",
     "@bit/bit.envs.testers.mocha-react": "file:./components/testers/mocha-react",
     "@bit/bit.envs.testers.mocha-react-css-modules": "file:./components/testers/mocha-react-css-modules",
-    "@bit/bit.envs.internal.typescript-base-compiler": "file:./components/internal/typescript-base-compiler",
     "@bit/bit.envs.compilers.angular": "file:./components/compilers/angular"
   },
   "workspaces": [
