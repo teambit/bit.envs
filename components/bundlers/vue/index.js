@@ -7,12 +7,12 @@ import getConfig from './webpack.config';
 const runWebpack = (files, distPath) => {
   return new Promise ((resolve, reject) => {
     const fs = new MemoryFS();
-    const  webPackConfig = getConfig(files, distPath);
+    const webPackConfig = getConfig(files, distPath);
     const outputFiles = [];
     
     // Init webpack with config
     const compiler = webpack(webPackConfig);
-    
+
     // Don't write to file system. Write in-memory instead.
     compiler.outputFileSystem = fs;
     
@@ -32,7 +32,6 @@ const runWebpack = (files, distPath) => {
 
       fs.readdirSync(distPath).forEach(distFileName => { 
         const fileContent = fs.readFileSync(path.join(distPath, distFileName));
-        
         outputFiles.push(new Vinyl({
           contents: fileContent,
           base: distPath,
