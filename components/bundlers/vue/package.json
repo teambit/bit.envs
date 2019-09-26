@@ -1,6 +1,6 @@
 {
   "name": "@bit/bit.envs.bundlers.vue",
-  "version": "2.6.10",
+  "version": "2.6.12",
   "homepage": "https://bit.dev/bit/envs/bundlers/vue",
   "main": "index.js",
   "dependencies": {
