@@ -1,6 +1,6 @@
 {
   "name": "@bit/bit.envs.bundlers.vue",
-  "version": "2.6.12",
+  "version": "2.6.13",
   "homepage": "https://bit.dev/bit/envs/bundlers/vue",
   "main": "index.js",
   "dependencies": {
@@ -13,6 +13,8 @@
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.23.1",
+    "ts-loader": "^6.1.2",
+    "typescript": "^3.6.3",
     "uglifyjs-webpack-plugin": "^1.2.0",
     "vinyl": "^2.1.0",
     "vue": "^2.6.10",
