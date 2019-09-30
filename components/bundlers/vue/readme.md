@@ -1,3 +1,8 @@
+# Deprecation Notice
+This environment is deprecated, but have no fear!
+It is alive and maintained here: https://github.com/teambit/envs
+The bit scope remains the same.
+
 # A component bundler for Vue components.
 Compiles and bundles a [Vue](https://vuejs.org) component.
 
