@@ -4,7 +4,7 @@
   "homepage": "https://bit.dev/bit/envs/compilers/react-typescript",
   "main": "index.js",
   "dependencies": {
-    "@bit/bit.envs.compilers.typescript": "^3.0.31"
+    "@bit/bit.envs.compilers.typescript": "^3.0.34"
   },
   "devDependencies": {},
   "peerDependencies": {},
