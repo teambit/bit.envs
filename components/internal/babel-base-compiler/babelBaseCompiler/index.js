@@ -19,6 +19,7 @@ const _getDistFile = (file, distPath, content) => {
 }
 
 const _runBabel = (file, options, distPath) => {
+    options.configFile = false
     const {
         code,
         map

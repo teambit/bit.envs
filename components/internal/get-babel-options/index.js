@@ -7,7 +7,19 @@ const getBabelRc = (pathToLook) => {
     return JSON.parse(file);
 }
 
+const moduleIsAvailable = (modulePath) => {
+    try {
+        return require.resolve(modulePath);;
+    } catch (e) {
+        return null;
+    }
+}
+
 const addBabelPrefixAndResolve = (prefixType, obj) => {
+    const resolvedModule = moduleIsAvailable(obj);
+    if (resolvedModule) {
+        return resolvedModule;
+    }
     if (obj.startsWith('@babel/')) {
         if (!obj.startsWith(`@babel/${prefixType}`)) {
             obj = `@babel/${prefixType}-${obj}`;

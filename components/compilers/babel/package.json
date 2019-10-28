@@ -1,6 +1,6 @@
 {
   "name": "@bit/bit.envs.compilers.babel",
-  "version": "7.0.1",
+  "version": "7.0.2",
   "homepage": "https://bit.dev/bit/envs/compilers/babel",
   "main": "compilers/babel/index.js",
   "dependencies": {

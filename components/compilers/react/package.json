@@ -1,6 +1,6 @@
 {
   "name": "@bit/bit.envs.compilers.react",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "homepage": "https://bit.dev/bit/envs/compilers/react",
   "main": "compilers/react/index.js",
   "dependencies": {

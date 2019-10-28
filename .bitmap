@@ -70,7 +70,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "components/compilers"
     },
-    "bit.envs/compilers/babel@7.0.1": {
+    "bit.envs/compilers/babel@7.0.2": {
         "files": [
             {
                 "name": ".babelrc",
@@ -93,7 +93,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "src"
     },
-    "bit.envs/compilers/flow@7.0.1": {
+    "bit.envs/compilers/flow@7.0.2": {
         "files": [
             {
                 "name": ".babelrc",
@@ -116,7 +116,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "src"
     },
-    "bit.envs/compilers/preact@8.4.4": {
+    "bit.envs/compilers/preact@8.4.5": {
         "files": [
             {
                 "name": ".babelrc",
@@ -179,7 +179,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "src/compilers/react-typescript"
     },
-    "bit.envs/compilers/react@1.0.2": {
+    "bit.envs/compilers/react@1.0.3": {
         "files": [
             {
                 "name": ".babelrc",
@@ -202,7 +202,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "src"
     },
-    "bit.envs/internal/babel-base-compiler@1.0.1": {
+    "bit.envs/internal/babel-base-compiler@1.0.2": {
         "files": [
             {
                 "name": "index.js",
@@ -238,7 +238,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "src/internal/bitExternalsWebpackPlugin"
     },
-    "bit.envs/internal/get-babel-options@1.0.0": {
+    "bit.envs/internal/get-babel-options@1.0.1": {
         "files": [
             {
                 "name": "index.js",

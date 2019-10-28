@@ -1,6 +1,6 @@
 {
   "name": "@bit/bit.envs.compilers.preact",
-  "version": "8.4.4",
+  "version": "8.4.5",
   "homepage": "https://bit.dev/bit/envs/compilers/preact",
   "main": "compilers/preact/index.js",
   "dependencies": {
