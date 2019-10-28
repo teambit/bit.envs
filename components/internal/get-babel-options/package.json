@@ -1,13 +1,17 @@
 {
-    "name": "@bit/bit.envs.internal.get-babel-options",
-    "version": "1.0.0",
-    "homepage": "https://bit.dev/bit/envs/internal/get-babel-options",
-    "main": "index.js",
-    "dependencies": {
-        "fs-extra": "^4.0.1"
-    },
-    "devDependencies": {},
-    "peerDependencies": {},
-    "componentRootFolder": "components/internal/get-babel-options",
-    "license": "SEE LICENSE IN LICENSE"
+  "name": "@bit/bit.envs.internal.get-babel-options",
+  "version": "1.0.0",
+  "homepage": "https://bit.dev/bit/envs/internal/get-babel-options",
+  "main": "index.js",
+  "dependencies": {
+    "fs-extra": "^4.0.1"
+  },
+  "devDependencies": {},
+  "peerDependencies": {},
+  "license": "SEE LICENSE IN LICENSE",
+  "bit": {
+    "env": {
+      "compiler": "bit.envs/compilers/babel@0.0.7"
+    }
+  }
 }

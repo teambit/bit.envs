@@ -13,6 +13,10 @@
   },
   "devDependencies": {},
   "peerDependencies": {},
-  "componentRootFolder": "components/testers/jest",
-  "license": "SEE LICENSE IN LICENSE"
+  "license": "SEE LICENSE IN LICENSE",
+  "bit": {
+    "env": {
+      "compiler": "bit.envs/compilers/babel@0.0.7"
+    }
+  }
 }

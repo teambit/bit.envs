@@ -22,6 +22,10 @@
   },
   "devDependencies": {},
   "peerDependencies": {},
-  "componentRootFolder": "components/bundlers/webpack-css-modules",
-  "license": "SEE LICENSE IN LICENSE"
+  "license": "SEE LICENSE IN LICENSE",
+  "bit": {
+    "env": {
+      "compiler": "bit.envs/compilers/babel@0.0.7"
+    }
+  }
 }

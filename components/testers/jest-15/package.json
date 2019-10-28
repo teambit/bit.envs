@@ -15,6 +15,10 @@
   },
   "devDependencies": {},
   "peerDependencies": {},
-  "componentRootFolder": "components/testers/jest-15",
-  "license": "SEE LICENSE IN LICENSE"
+  "license": "SEE LICENSE IN LICENSE",
+  "bit": {
+    "env": {
+      "tester": "bit.envs/testers/jest@0.0.14"
+    }
+  }
 }

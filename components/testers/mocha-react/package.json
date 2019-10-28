@@ -19,6 +19,8 @@
   },
   "devDependencies": {},
   "peerDependencies": {},
-  "componentRootFolder": "components/testers/mocha-react",
-  "license": "SEE LICENSE IN LICENSE"
+  "license": "SEE LICENSE IN LICENSE",
+  "bit": {
+    "env": {}
+  }
 }

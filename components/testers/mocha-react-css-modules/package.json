@@ -1,24 +1,26 @@
 {
-    "name": "@bit/bit.envs.testers.mocha-react-css-modules",
-    "version": "0.0.1",
-    "homepage": "https://bit.dev/bit/envs/testers/mocha-react-css-modules",
-    "main": "index.js",
-    "dependencies": {
-        "chai": "4.1.2",
-        "css-modules-require-hook": "4.0.6",
-        "enzyme": "2.9.1",
-        "jsdom": "11.2.0",
-        "mocha": "3.5.0",
-        "mockery": "2.1.0",
-        "node-sass": "4.5.3",
-        "react-dom": "15.6.1",
-        "react": "15.6.1",
-        "sinon-chai": "2.13.0",
-        "sinon": "3.2.1",
-        "teaspoon": "6.6.0"
-    },
-    "devDependencies": {},
-    "peerDependencies": {},
-    "componentRootFolder": "components/testers/mocha-react-css-modules",
-    "license": "SEE LICENSE IN LICENSE"
+  "name": "@bit/bit.envs.testers.mocha-react-css-modules",
+  "version": "0.0.1",
+  "homepage": "https://bit.dev/bit/envs/testers/mocha-react-css-modules",
+  "main": "index.js",
+  "dependencies": {
+    "chai": "4.1.2",
+    "css-modules-require-hook": "4.0.6",
+    "enzyme": "2.9.1",
+    "jsdom": "11.2.0",
+    "mocha": "3.5.0",
+    "mockery": "2.1.0",
+    "node-sass": "4.5.3",
+    "react-dom": "15.6.1",
+    "react": "15.6.1",
+    "sinon-chai": "2.13.0",
+    "sinon": "3.2.1",
+    "teaspoon": "6.6.0"
+  },
+  "devDependencies": {},
+  "peerDependencies": {},
+  "license": "SEE LICENSE IN LICENSE",
+  "bit": {
+    "env": {}
+  }
 }

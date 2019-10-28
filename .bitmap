@@ -175,9 +175,9 @@
                 "test": false
             },
             {
+                "name": "readme.md",
                 "relativePath": "readme.md",
-                "test": false,
-                "name": "readme.md"
+                "test": false
             }
         ],
         "mainFile": "react-css.js",
@@ -287,9 +287,9 @@
                 "test": false
             },
             {
+                "name": "readme.md",
                 "relativePath": "readme.md",
-                "test": false,
-                "name": "readme.md"
+                "test": false
             }
         ],
         "mainFile": "index.js",
@@ -469,5 +469,5 @@
         "origin": "IMPORTED",
         "originallySharedDir": "src/testers/mocha"
     },
-    "version": "14.4.0"
+    "version": "14.4.3"
 }
