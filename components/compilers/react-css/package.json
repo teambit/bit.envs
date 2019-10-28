@@ -1,6 +1,6 @@
 {
   "name": "@bit/bit.envs.compilers.react-css",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://bit.dev/bit/envs/compilers/react-css",
   "main": "react-css.js",
   "dependencies": {

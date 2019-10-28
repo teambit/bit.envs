@@ -81,7 +81,8 @@ function compile(files, distPath) {
     sourceMaps: true,
     ast: false,
     minified: false,
-    plugins: plugins
+    plugins: plugins,
+    configFile: false
   };
 
   try {
