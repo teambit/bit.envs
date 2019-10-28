@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@bit/bit.envs.bundlers.vue": "file:./components/bundlers/vue",
     "@bit/bit.envs.bundlers.webpack": "file:./components/bundlers/webpack",
     "@bit/bit.envs.bundlers.webpack-css-modules": "file:./components/bundlers/webpack-css-modules",
     "@bit/bit.envs.compilers.angular": "file:./components/compilers/angular",
