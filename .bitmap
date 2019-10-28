@@ -70,7 +70,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "components/compilers"
     },
-    "bit.envs/compilers/babel@7.0.2": {
+    "bit.envs/compilers/babel@7.0.3": {
         "files": [
             {
                 "name": ".babelrc",
@@ -179,7 +179,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "src/compilers/react-typescript"
     },
-    "bit.envs/compilers/react@1.0.3": {
+    "bit.envs/compilers/react@1.0.4": {
         "files": [
             {
                 "name": ".babelrc",
