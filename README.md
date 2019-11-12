@@ -1,14 +1,8 @@
 
+# Deprecated. Compilers and testers for Bit are now in https://github.com/teambit/envs
 
- # Bit compilers, transpilers and testers. 
+## Bit compilers, transpilers and testers. 
  
- 
-<p align="center">
-  <a href="https://bit.dev/bit/envs"><img src="https://storage.googleapis.com/bit-docs/Screen%20Shot%202019-06-06%20at%201.26.32%20PM.png"></a>
-</p>
-
-[Compiler/Tester collection](https://bit.dev/bit/envs) • [Docs](https://docs.bit.dev/docs/building-components.html)  
-
 Bit helps you easily share many components. To save the overhead of separately defining build and test steps for every component, bit lets you use reusable extensions as **compilers** and **testers** for the components in your workspace.  
 
 The component environment is a unique type of an
