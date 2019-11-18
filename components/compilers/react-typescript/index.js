@@ -1,3 +1,3 @@
-import compiler from '@bit/bit.envs.compilers.typescript'
+import {TypescriptCompiler} from '@bit/bit.envs.compilers.typescript'
 
-export default compiler;
+export default new TypescriptCompiler('REACT');
