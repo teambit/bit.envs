@@ -1,6 +1,6 @@
 {
   "name": "@bit/bit.envs.internal.babel-base-compiler",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "homepage": "https://bit.dev/bit/envs/internal/babel-base-compiler",
   "main": "babelBaseCompiler/index.js",
   "dependencies": {
