@@ -7,16 +7,17 @@ const getBabelRc = (pathToLook) => {
     return JSON.parse(file);
 }
 
-const moduleIsAvailable = (modulePath) => {
+const moduleIsAvailable = (modulePath, compilerNodeModules) => {
     try {
-        return require.resolve(modulePath);;
+        return require.resolve(modulePath, {paths: [compilerNodeModules]});
     } catch (e) {
         return null;
     }
 }
 
-const addBabelPrefixAndResolve = (prefixType, obj) => {
-    const resolvedModule = moduleIsAvailable(obj);
+const addBabelPrefixAndResolve = (prefixType, obj, compilerRootFolder) => {
+    const compilerNodeModules = path.join(compilerRootFolder, 'node_modules');
+    const resolvedModule = moduleIsAvailable(obj, compilerNodeModules);
     if (resolvedModule) {
         return resolvedModule;
     }
@@ -27,8 +28,7 @@ const addBabelPrefixAndResolve = (prefixType, obj) => {
     } else if (!obj.startsWith(`babel-${prefixType}`)) {
         obj = `babel-${prefixType}-${obj}`;
     }
-
-    return require.resolve(obj);
+    return require.resolve(obj, {paths: [compilerNodeModules]});
 }
 
 /**
@@ -45,20 +45,20 @@ const getBabelOptions = (pathToLook) => {
 
     options.plugins = options.plugins.map(plugin => {
         if (Array.isArray(plugin)) {
-            plugin[0] = addBabelPrefixAndResolve('plugin', plugin[0]);
+            plugin[0] = addBabelPrefixAndResolve('plugin', plugin[0], pathToLook);
             return plugin;
         }
 
-        return addBabelPrefixAndResolve('plugin', plugin);
+        return addBabelPrefixAndResolve('plugin', plugin, pathToLook);
     });
 
     options.presets = options.presets.map(preset => {
         if (Array.isArray(preset)) {
-            preset[0] = addBabelPrefixAndResolve('preset', preset[0]);
+            preset[0] = addBabelPrefixAndResolve('preset', preset[0], pathToLook);
             return preset;
         }
 
-        return addBabelPrefixAndResolve('preset', preset);
+        return addBabelPrefixAndResolve('preset', preset, pathToLook);
     });
 
     return options;
