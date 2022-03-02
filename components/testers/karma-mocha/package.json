@@ -4,7 +4,7 @@
   "homepage": "https://bit.dev/bit/envs/testers/karma-mocha",
   "main": "index.js",
   "dependencies": {
-    "karma": "^1.7.1",
+    "karma": "^6.3.16",
     "fs-extra": "^4.0.1",
     "chai": "^4.1.2",
     "karma-chrome-launcher": "^2.2.0",
