@@ -6,7 +6,7 @@
   "dependencies": {
     "child-process-promise": "^2.2.1",
     "jest": "22.4.3",
-    "jsdom": "~11.11.0",
+    "jsdom": "~16.5.0",
     "upath": "^1.1.0",
     "@bit/bit.utils.file.extract-file-name-from-path": "0.0.3",
     "@bit/bit.utils.validation.empty": "0.0.1"
